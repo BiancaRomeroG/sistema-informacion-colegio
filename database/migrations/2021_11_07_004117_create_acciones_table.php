@@ -16,7 +16,7 @@ class CreateAccionesTable extends Migration
         Schema::create('acciones', function (Blueprint $table) {
             $table->id('id_accion')->autoIncrement();
             $table->date('fecha');
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id_usuario')->on('usuarios');
         });

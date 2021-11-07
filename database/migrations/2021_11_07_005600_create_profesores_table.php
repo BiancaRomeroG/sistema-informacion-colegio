@@ -15,7 +15,7 @@ class CreateProfesoresTable extends Migration
     {
         Schema::create('profesores', function (Blueprint $table) {
             $table->id('id_profesor');
-            $table->string('profesion', 50);
+            $table->string('profesion', 50)->nullable();
             $table->unsignedBigInteger('id_usuario');
             $table->timestamps();
             $table->foreign('id_profesor')->references('id_persona')->on('personas');

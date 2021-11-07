@@ -16,8 +16,8 @@ class CreatePagoSalariosTable extends Migration
         Schema::create('pago_salarios', function (Blueprint $table) {
             $table->id('id_pagoSal');
             $table->tinyInteger('nro_pago');
-            $table->decimal('descuento_iva', 8, 2, true);
-            $table->decimal('aporte_afp', 8, 2, true);
+            $table->decimal('descuento_iva', 8, 2, true)->nullable();
+            $table->decimal('aporte_afp', 8, 2, true)->nullable();
             $table->unsignedBigInteger('id_profesor');
             $table->foreign('id_pagoSal')->references('id_pago')->on('pagos');
             $table->foreign('id_profesor')->references('id_profesor')->on('profesores');

@@ -16,10 +16,10 @@ class CreateNotasTable extends Migration
         Schema::create('notas', function (Blueprint $table) {
             $table->id('id_nota')->autoIncrement();
             $table->tinyInteger('nro_trim');
-            $table->tinyInteger('ser');
-            $table->tinyInteger('saber');
-            $table->tinyInteger('hacer');
-            $table->tinyInteger('decidir');
+            $table->tinyInteger('ser')->nullable();
+            $table->tinyInteger('saber')->nullable();
+            $table->tinyInteger('hacer')->nullable();
+            $table->tinyInteger('decidir')->nullable();
             $table->tinyInteger('nota_trimestral');
             $table->unsignedBigInteger('id_materia');
             $table->unsignedBigInteger('id_boletin');

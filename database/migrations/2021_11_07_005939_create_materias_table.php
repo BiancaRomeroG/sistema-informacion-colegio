@@ -16,7 +16,7 @@ class CreateMateriasTable extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->id('id_materia')->autoIncrement();
             $table->string('nombre', 100);
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->unsignedBigInteger('id_profesor');
             $table->foreign('id_profesor')->references('id_profesor')->on('profesores');
         });
