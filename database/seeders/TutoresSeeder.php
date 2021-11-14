@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\tutores;
 use Illuminate\Database\Seeder;
 
 class TutoresSeeder extends Seeder
@@ -13,6 +14,16 @@ class TutoresSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $id_tutor = 100130;
+        $parentesco = [""];
+
+        while ($id_tutor < 100150) {
+            $tutor = new tutores();
+            $tutor->id_tutor = $id_tutor;
+            $tutor->parentesco = "Tio(a)";
+            $tutor->save();
+            
+            $id_tutor++;
+        }
     }
 }

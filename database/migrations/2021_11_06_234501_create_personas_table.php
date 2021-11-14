@@ -21,7 +21,7 @@ class CreatePersonasTable extends Migration
             $table->string('apellido_mat', 50);
             $table->enum('sexo', ['M', 'F'])->nullable();
             $table->date('fecha_nac');
-            $table->string('email', 100)->unique();
+            $table->string('email', 100);
             $table->string('direccion', 100);
             $table->string('telefono', 20)->nullable();
             $table->timestamps();
