@@ -18,7 +18,7 @@
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <a class="navbar-brand mx-5" href="#">
-            <img src="\img\logocr1.png" width="100" height="100" alt="Logo Colegio Cristo Rey">
+            <img src="img\logocr1.png" width="100" height="100" alt="Logo Colegio Cristo Rey">
             <span class="mx-2 text-white h1">Colegio Cristo Rey</span>
         </a>
     </nav>
