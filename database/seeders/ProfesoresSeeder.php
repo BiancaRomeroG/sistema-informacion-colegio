@@ -19,7 +19,7 @@ class ProfesoresSeeder extends Seeder
         $id_user_prof = 200100;
         while ($cant_prof > 0) {
             $prof = new profesores();
-            $prof->id_profesor = $id_pers_prof;
+            $prof->id = $id_pers_prof;
             $prof->profesion = null;
             $prof->id_usuario = $id_user_prof;
             $prof->save();

@@ -14,11 +14,11 @@ class CreateMateriasTable extends Migration
     public function up()
     {
         Schema::create('materias', function (Blueprint $table) {
-            $table->id('id_materia')->autoIncrement();
+            $table->id();
             $table->string('nombre', 100);
             $table->string('descripcion')->nullable();
             $table->unsignedBigInteger('id_profesor');
-            $table->foreign('id_profesor')->references('id_profesor')->on('profesores');
+            $table->foreign('id_profesor')->references('id')->on('profesores');
         });
     }
 

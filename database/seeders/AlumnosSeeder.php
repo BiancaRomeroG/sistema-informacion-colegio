@@ -20,7 +20,7 @@ class AlumnosSeeder extends Seeder
 
         while ($id_alum < 100130) {
             $alumno = new alumnos();
-            $alumno->id_alumno = $id_alum;
+            $alumno->id = $id_alum;
             $alumno->cod_rude = $cod_rude;
             $alumno->id_tutor = $id_tutor;
             $alumno->save();

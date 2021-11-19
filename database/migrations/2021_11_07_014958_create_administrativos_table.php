@@ -14,12 +14,12 @@ class CreateAdministrativosTable extends Migration
     public function up()
     {
         Schema::create('administrativos', function (Blueprint $table) {
-            $table->id('id_admin');
+            $table->id();
             $table->string('profesion', 100)->nullable();
             $table->unsignedBigInteger('id_usuario');
             $table->timestamps();
-            $table->foreign('id_admin')->references('id_persona')->on('personas');
-            $table->foreign('id_usuario')->references('id_usuario')->on('usuarios');
+            $table->foreign('id')->references('id')->on('personas');
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
         });
     }
 

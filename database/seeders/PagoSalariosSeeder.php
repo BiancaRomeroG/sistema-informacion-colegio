@@ -20,7 +20,7 @@ class PagoSalariosSeeder extends Seeder
 
         while ($id_pago < 1030) {
             $pago_Sal = new pagoSalarios();
-            $pago_Sal->id_pagoSal = $id_pago;
+            $pago_Sal->id = $id_pago;
             $pago_Sal->nro_pago = $nro_pago;
             $pago_Sal->descuento_iva = null;
             $pago_Sal->aporte_afp = null;

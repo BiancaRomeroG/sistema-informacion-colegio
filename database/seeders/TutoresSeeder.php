@@ -19,7 +19,7 @@ class TutoresSeeder extends Seeder
 
         while ($id_tutor < 100150) {
             $tutor = new tutores();
-            $tutor->id_tutor = $id_tutor;
+            $tutor->id = $id_tutor;
             $tutor->parentesco = "Tio(a)";
             $tutor->save();
             

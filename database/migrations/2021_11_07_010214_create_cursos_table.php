@@ -14,7 +14,7 @@ class CreateCursosTable extends Migration
     public function up()
     {
         Schema::create('cursos', function (Blueprint $table) {
-            $table->id('id_curso')->autoIncrement();
+            $table->id();
             $table->char('nivel', 1);
             $table->tinyInteger('cupo_max');
             $table->tinyInteger('cant_alumnos');

@@ -20,7 +20,7 @@ class PagoMensualidadSeeder extends Seeder
 
         while ($id_pago < 1020) {
             $pago_men = new pagoMensualidad();
-            $pago_men->id_pagoMen = $id_pago;
+            $pago_men->id = $id_pago;
             $pago_men->nro_cuota = $nro_cuota;
             $pago_men->id_tutor = $id_tutor;
             $pago_men->timestamps = false;

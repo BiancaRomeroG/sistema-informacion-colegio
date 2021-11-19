@@ -14,11 +14,11 @@ class CreatePagoMensualidadsTable extends Migration
     public function up()
     {
         Schema::create('pago_mensualidads', function (Blueprint $table) {
-            $table->id('id_pagoMen');
+            $table->id();
             $table->tinyInteger('nro_cuota');
             $table->unsignedBigInteger('id_tutor');
-            $table->foreign('id_pagoMen')->references('id_pago')->on('pagos');
-            $table->foreign('id_tutor')->references('id_tutor')->on('tutores');
+            $table->foreign('id')->references('id')->on('pagos');
+            $table->foreign('id_tutor')->references('id')->on('tutores');
         });
     }
 
