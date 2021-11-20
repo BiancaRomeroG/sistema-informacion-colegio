@@ -14,19 +14,64 @@ class ProfesoresSeeder extends Seeder
      */
     public function run()
     {
-        $id_pers_prof = 100150;
-        $cant_prof = 10;
-        $id_user_prof = 200100;
-        while ($cant_prof > 0) {
-            $prof = new profesores();
-            $prof->id_profesor = $id_pers_prof;
-            $prof->profesion = null;
-            $prof->id_usuario = $id_user_prof;
-            $prof->save();
-
-            $id_user_prof++;
-            $id_pers_prof++;
-            $cant_prof--;
-        }
+        $prof = new profesores();
+        $prof->id = 61;
+        $prof->profesion = null;
+        $prof->id_usuario = 1;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 62;
+        $prof->profesion = null;
+        $prof->id_usuario = 2;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 63;
+        $prof->profesion = null;
+        $prof->id_usuario = 3;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 64;
+        $prof->profesion = null;
+        $prof->id_usuario = 4;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 65;
+        $prof->profesion = null;
+        $prof->id_usuario = 5;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 66;
+        $prof->profesion = null;
+        $prof->id_usuario = 6;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 67;
+        $prof->profesion = null;
+        $prof->id_usuario = 7;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 68;
+        $prof->profesion = null;
+        $prof->id_usuario = 8;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 69;
+        $prof->profesion = null;
+        $prof->id_usuario = 9;
+        $prof->save();
+        
+        $prof = new profesores();
+        $prof->id = 70;
+        $prof->profesion = null;
+        $prof->id_usuario = 10;
+        $prof->save();
     }
 }

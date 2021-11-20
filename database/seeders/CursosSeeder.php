@@ -14,19 +14,46 @@ class CursosSeeder extends Seeder
      */
     public function run()
     {
-        $cant_curso = 6;
-        $cupo_max = 30;
-        $cant_alum = 5;
-        $i = 1;
-        while ($i <= $cant_curso) {
-            $curso = new cursos();
-            $curso->nivel = strval($i);
-            $curso->cupo_max = $cupo_max;
-            $curso->cant_alumnos = $cant_alum;
-            $curso->timestamps = false;
-            $curso->save();
-
-            $i++;
-        }
+        $curso = new cursos();
+        $curso->nivel = '1';
+        $curso->cupo_max = 30;
+        $curso->cant_alumnos = 5;
+        $curso->timestamps = false;
+        $curso->save();
+        
+        $curso = new cursos();
+        $curso->nivel = '2';
+        $curso->cupo_max = 30;
+        $curso->cant_alumnos = 5;
+        $curso->timestamps = false;
+        $curso->save();
+        
+        $curso = new cursos();
+        $curso->nivel = '3';
+        $curso->cupo_max = 30;
+        $curso->cant_alumnos = 5;
+        $curso->timestamps = false;
+        $curso->save();
+        
+        $curso = new cursos();
+        $curso->nivel = '4';
+        $curso->cupo_max = 30;
+        $curso->cant_alumnos = 5;
+        $curso->timestamps = false;
+        $curso->save();
+        
+        $curso = new cursos();
+        $curso->nivel = '5';
+        $curso->cupo_max = 30;
+        $curso->cant_alumnos = 5;
+        $curso->timestamps = false;
+        $curso->save();
+        
+        $curso = new cursos();
+        $curso->nivel = '6';
+        $curso->cupo_max = 30;
+        $curso->cant_alumnos = 5;
+        $curso->timestamps = false;
+        $curso->save();
     }
 }

@@ -14,52 +14,88 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        $cant_user_prof = 10;
-        $user_c = 1;
-        $password = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor0';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor1';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor2';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor3';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor4';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor5';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor6';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor7';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor8';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
+        
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'profesor9';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 3;
+        $usuario->estado = 1;
+        $usuario->save();
 
-        //usuario profesor
-        while ($cant_user_prof > 0) {
-            $user = new usuario();
-            $user->nombre_usuario = "Profesor".strval($user_c);
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'director';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 1;
+        $usuario->estado = 1;
+        $usuario->save();
 
-            $pass = "";
-            for ($i = 0; $i < 15; $i++) 
-                $pass .= $password[rand(0, strlen($password) - 1)];
-
-            $user->contrasenha = $pass;
-            $user->id_rol = 102;
-            $user->estado = 1;
-            $user->save();
-
-            $user_c++;
-            $cant_user_prof--;
-        }
-
-        //profesor
-        $user = new usuario();
-        $user->nombre_usuario = "Secretaria";
-
-        $pass = "";
-        for ($i = 0; $i < 15; $i++) 
-            $pass .= $password[rand(0, strlen($password) - 1)];
-
-        $user->contrasenha = $pass;
-        $user->id_rol = 101;
-        $user->estado = 1;
-        $user->save();
-
-        //director
-        $user = new usuario();
-        $user->nombre_usuario = "Director";
-
-        $pass = "";
-        for ($i = 0; $i < 15; $i++) 
-            $pass .= $password[rand(0, strlen($password) - 1)];
-
-        $user->contrasenha = $pass;
-        $user->id_rol = 100;
-        $user->estado = 1;
-        $user->save();
+        $usuario = new usuario();
+        $usuario->nombre_usuario = 'secretaria';
+        $usuario->contrasenha = '12345678';
+        $usuario->id_rol = 2;
+        $usuario->estado = 1;
+        $usuario->save();
     }
 }

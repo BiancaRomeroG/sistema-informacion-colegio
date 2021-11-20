@@ -14,11 +14,11 @@ class CreateAccionesTable extends Migration
     public function up()
     {
         Schema::create('acciones', function (Blueprint $table) {
-            $table->id('id_accion')->autoIncrement();
+            $table->id();
             $table->date('fecha');
             $table->string('descripcion')->nullable();
             $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id_usuario')->on('usuarios');
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
         });
     }
 

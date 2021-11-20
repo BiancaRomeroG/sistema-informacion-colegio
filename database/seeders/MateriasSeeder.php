@@ -14,21 +14,76 @@ class MateriasSeeder extends Seeder
      */
     public function run()
     {
-        $materias = ["Literatura", "Matematicas", "Fisica", "Quimica", "Religion", "Biologia",
-                     "Historia", "Educacion Fisica", "Educacion Musical", "Psicologia"];
+        $materia = new materias();
+        $materia->nombre = 'Literatura';
+        $materia->descripcion = null;
+        $materia->id_profesor = 61;
+        $materia->timestamps = false;
+        $materia->save();
         
-        $i = 0;
-        $id_prof = 100150;
-        while ($i < count($materias)) {
-            $mat = new materias();
-            $mat->nombre = $materias[$i];
-            $mat->descripcion = null;
-            $mat->id_profesor = $id_prof;
-            $mat->timestamps = false;
-            $mat->save();
-
-            $id_prof++;
-            $i++;
-        }
+        $materia = new materias();
+        $materia->nombre = 'Matematicas';
+        $materia->descripcion = null;
+        $materia->id_profesor = 62;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Fisica';
+        $materia->descripcion = null;
+        $materia->id_profesor = 63;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Quimica';
+        $materia->descripcion = null;
+        $materia->id_profesor = 64;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Religion';
+        $materia->descripcion = null;
+        $materia->id_profesor = 65;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Biologia';
+        $materia->descripcion = null;
+        $materia->id_profesor = 66;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Historia';
+        $materia->descripcion = null;
+        $materia->id_profesor = 67;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Educacion Fisica';
+        $materia->descripcion = null;
+        $materia->id_profesor = 68;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Educacion Musical';
+        $materia->descripcion = null;
+        $materia->id_profesor = 69;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        $materia = new materias();
+        $materia->nombre = 'Psicologia';
+        $materia->descripcion = null;
+        $materia->id_profesor = 70;
+        $materia->timestamps = false;
+        $materia->save();
+        
+        
     }
 }

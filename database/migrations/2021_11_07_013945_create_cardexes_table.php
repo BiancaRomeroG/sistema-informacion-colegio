@@ -14,12 +14,12 @@ class CreateCardexesTable extends Migration
     public function up()
     {
         Schema::create('cardexes', function (Blueprint $table) {
-            $table->id('id_cardex')->autoIncrement()->from(100);
+            $table->id();
             $table->year('gestion');
             $table->unsignedBigInteger('id_curso');
             $table->unsignedBigInteger('id_alumno');
-            $table->foreign('id_curso')->references('id_curso')->on('cursos');
-            $table->foreign('id_alumno')->references('id_alumno')->on('alumnos');
+            $table->foreign('id_curso')->references('id')->on('cursos');
+            $table->foreign('id_alumno')->references('id')->on('alumnos');
         });
     }
 
