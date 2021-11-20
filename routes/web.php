@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', loginController::class)->name('login');
 
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/home', [HomeController::class, 'homePage']);
