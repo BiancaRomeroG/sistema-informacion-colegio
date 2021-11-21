@@ -1,0 +1,27 @@
+
+tasks:
+  - name: Install Dependencies
+    command: |
+      composer install
+      gp sync-done install-dependencies
+      exit
+
+  - name: Configuring Laravel Project
+    command: |
+      gp sync-await install-dependencies
+      cp .env.example .env
+      php artisan key:generate
+      gp sync-done configure-project
+      exit
+
+  - name: Run project
+    command: |
+      gp sync-await configure-project
+      php artisan serve
+
+vscode:
+  extensions:
+    - bmewburn.vscode-intelephense-client
+    - eamodio.gitlens
+    - esbenp.prettier-vscode
+    
