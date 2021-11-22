@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    @yield('content')
-  
+    @section('content')
+    @show
 </body>
 </html>

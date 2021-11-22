@@ -3,6 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
+
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <a class="navbar-brand mx-5" href="#">
