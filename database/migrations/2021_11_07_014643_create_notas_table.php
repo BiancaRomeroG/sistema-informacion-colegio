@@ -14,7 +14,7 @@ class CreateNotasTable extends Migration
     public function up()
     {
         Schema::create('notas', function (Blueprint $table) {
-            $table->id('id_nota')->autoIncrement();
+            $table->id();
             $table->tinyInteger('nro_trim');
             $table->tinyInteger('ser')->nullable();
             $table->tinyInteger('saber')->nullable();
@@ -23,8 +23,8 @@ class CreateNotasTable extends Migration
             $table->tinyInteger('nota_trimestral');
             $table->unsignedBigInteger('id_materia');
             $table->unsignedBigInteger('id_boletin');
-            $table->foreign('id_materia')->references('id_materia')->on('materias');
-            $table->foreign('id_boletin')->references('id_boletin')->on('boletines');
+            $table->foreign('id_materia')->references('id')->on('materias');
+            $table->foreign('id_boletin')->references('id')->on('boletines');
         });
     }
 

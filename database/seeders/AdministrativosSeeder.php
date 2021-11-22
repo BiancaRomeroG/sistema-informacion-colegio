@@ -15,15 +15,15 @@ class AdministrativosSeeder extends Seeder
     public function run()
     {
         $admin = new administrativos();
-        $admin->id_admin = 100160;
+        $admin->id_persona = 71;
         $admin->profesion = "Lic. Pedagogia";
-        $admin->id_usuario = 200111;
+        $admin->id_usuario = 11;
         $admin->save();
 
         $admin = new administrativos();
-        $admin->id_admin = 100161;
+        $admin->id_persona = 72;
         $admin->profesion = "Lic. Contabilidad";
-        $admin->id_usuario = 200110;
+        $admin->id_usuario = 12;
         $admin->save();
     }
 }

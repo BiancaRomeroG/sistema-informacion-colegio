@@ -14,22 +14,425 @@ class DesarrollaSeeder extends Seeder
      */
     public function run()
     {
-        $id_materia = 1;
-        $id_curso = 1;
-        $gestion = 2021;
-        while ($id_curso <= 6) {
-            while ($id_materia <= 10) {
-                $desarrolla = new desarrolla();
-                $desarrolla->id_materia = $id_materia;
-                $desarrolla->id_curso = $id_curso;
-                $desarrolla->gestion = $gestion;
-                $desarrolla->timestamps = false;
-                $desarrolla->save();
-
-                $id_materia++;
-            }
-            $id_materia = 1;
-            $id_curso++;
-        }
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 1;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 2;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 3;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 4;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 5;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 6;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 7;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 8;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 9;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 10;
+        $desarrolla->id_curso = 1;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 1;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 2;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 3;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 4;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 5;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 6;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 7;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 8;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 9;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 10;
+        $desarrolla->id_curso = 2;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 1;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 2;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 3;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 4;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 5;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 6;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 7;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 8;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 9;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 10;
+        $desarrolla->id_curso = 3;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 1;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 2;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 3;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 4;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 5;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 6;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 7;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 8;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 9;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 10;
+        $desarrolla->id_curso = 4;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 1;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 2;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 3;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 4;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 5;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 6;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 7;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 8;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 9;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 10;
+        $desarrolla->id_curso = 5;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 1;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 2;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 3;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 4;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 5;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 6;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 7;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 8;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 9;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
+        $desarrolla = new desarrolla();
+        $desarrolla->id_materia = 10;
+        $desarrolla->id_curso = 6;
+        $desarrolla->gestion = '2021';
+        $desarrolla->timestamps = false;
+        $desarrolla->save();
+        
     }
 }
