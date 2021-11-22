@@ -3,7 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-<body>
   <!--Sidebar-->
   <div class="container-fluid">
     <div class="row">
@@ -130,5 +129,4 @@
       </div>
     </div>
   </div>
-</body>
 @endsection

@@ -3,8 +3,6 @@
 @section('title', 'Login')
 
 @section('content')
-
-<body class="bg-light">
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <a class="navbar-brand mx-5" href="#">
@@ -42,6 +40,5 @@
             </div>
         </div>
     </section>
-</body>    
 @endsection
 
