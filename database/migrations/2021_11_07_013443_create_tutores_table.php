@@ -14,10 +14,11 @@ class CreateTutoresTable extends Migration
     public function up()
     {
         Schema::create('tutores', function (Blueprint $table) {
-            $table->id('id_tutor');
+            $table->id();
+            $table->unsignedBigInteger('id_persona');
             $table->string('parentesco', 50);
             $table->timestamps();
-            $table->foreign('id_tutor')->references('id_persona')->on('personas');
+            $table->foreign('id_persona')->references('id')->on('personas');
         });
     }
 

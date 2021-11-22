@@ -14,13 +14,13 @@ class CreateUsuariosTable extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->id('id_usuario')->autoIncrement()->from(200100);
+            $table->id();
             $table->string('nombre_usuario', 100);
             $table->string('contrasenha');
             $table->unsignedBigInteger('id_rol');
             $table->binary('estado');
             $table->timestamps();
-            $table->foreign('id_rol')->references('id_rol')->on('rols');
+            $table->foreign('id_rol')->references('id')->on('rols');
         });
     }
 

@@ -14,22 +14,94 @@ class PagoSalariosSeeder extends Seeder
      */
     public function run()
     {
-        $id_pago = 1020;
-        $nro_pago = 1;
-        $id_prof = 100150;
-
-        while ($id_pago < 1030) {
-            $pago_Sal = new pagoSalarios();
-            $pago_Sal->id_pagoSal = $id_pago;
-            $pago_Sal->nro_pago = $nro_pago;
-            $pago_Sal->descuento_iva = null;
-            $pago_Sal->aporte_afp = null;
-            $pago_Sal->id_profesor = $id_prof;
-            $pago_Sal->timestamps = false;
-            $pago_Sal->save();
-
-            $id_prof++;
-            $id_pago++;
-        }
+        $pago = new pagoSalarios();
+        $pago->id_pago = 1;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 1;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 2;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 2;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 3;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 3;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 4;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 4;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 5;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 5;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 6;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 6;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 7;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 7;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 8;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 8;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 9;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 9;
+        $pago->timestamps = false;
+        $pago->save();
+        
+        $pago = new pagoSalarios();
+        $pago->id_pago = 10;
+        $pago->nro_pago = 1;
+        $pago->descuento_iva = null;
+        $pago->aporte_afp = null;
+        $pago->id_profesor = 10;
+        $pago->timestamps = false;
+        $pago->save();
     }
 }
