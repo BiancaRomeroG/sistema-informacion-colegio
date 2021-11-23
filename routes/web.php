@@ -20,5 +20,8 @@ Route::get('/', loginController::class)->name('login');
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/test', function () {
+    return view('welcome');
+});
 
 Route::get('/home', [HomeController::class, 'homePage']);
