@@ -31,7 +31,8 @@
                     <div class="card shadow">
                         <div class="card-body p-5">
                             <h3 class="mb-4 text-center">Login</h3>
-                            <form class = "form" method="POST" action="{{route('session.login')}}">
+                            <form class = "form" method="POST" action="/login">
+                                @csrf
                                 <div class="form-group mb-4">
                                     <label for="usuario">Usuario</label>
                                     <input type="text" class="form-control" id="usuario" name = "usuarioI" required

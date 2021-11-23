@@ -13,7 +13,7 @@ class sessionController extends Controller
         $password = $request->passwordI;
 
         if (Auth::attempt(['usuario' => $usuario, 'password' => $password])) {
-            return redirect()->route('home');
+            return redirect("/home");
         }
          return back()->withErrors([
             'message' => 'nuuuuuuuuuuu',
