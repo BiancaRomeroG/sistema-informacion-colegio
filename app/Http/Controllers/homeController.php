@@ -8,5 +8,9 @@ class homeController extends Controller
 {
     public function homePage(){
         return view('home');
-     }
+    }
+
+    public function registroPage() {
+        return view('registro');
+    }
 }
