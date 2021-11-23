@@ -31,15 +31,15 @@
                     <div class="card shadow">
                         <div class="card-body p-5">
                             <h3 class="mb-4 text-center">Login</h3>
-                            <form>
+                            <form class = "form" method="POST" action="{{route('session.login')}}">
                                 <div class="form-group mb-4">
                                     <label for="usuario">Usuario</label>
-                                    <input type="text" class="form-control" id="usuario"
+                                    <input type="text" class="form-control" id="usuario" name = "usuarioI" required
                                         placeholder="Ingrese su usuario">
                                 </div>
                                 <div class="form-group mb-5">
                                     <label for="password">Contraseña</label>
-                                    <input type="password" class="form-control" id="password"
+                                    <input type="password" class="form-control" id="password" name = "passwordI" required
                                         placeholder="Ingrese su contraseña">
                                 </div>
                                 <div class="text-center">
