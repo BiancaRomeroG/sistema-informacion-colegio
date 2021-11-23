@@ -18,12 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', loginController::class)->name('login');
 
-//ruta por demas, la de arriba llama al login como ruta principal
-Route::get('/login', function () {
-    return view('login');
-});
-//---------------------------------------------------------------
-
 Route::get('/home', [HomeController::class, 'homePage']);
 
 Route::get('/registro', [HomeController::class, 'registroPage']);
