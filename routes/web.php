@@ -25,5 +25,7 @@ Route::get('/test', function () {
 Route::get('/home', [HomeController::class, 'homePage'])->name('home');
 
 Route::get('/registro', [HomeController::class, 'registroPage']);
+Route::get('/profesor', [HomeController::class, 'profesorPage']);
+Route::get('/admin', [HomeController::class, 'administrativoPage']);
 
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
