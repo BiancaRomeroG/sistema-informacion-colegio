@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', loginController::class)->name('login');
 
-Route::get('/home', [HomeController::class, 'homePage']);
+Route::get('/home', [HomeController::class, 'homePage'])->name('home');
 
 Route::get('/registro', [HomeController::class, 'registroPage']);
+
+Route::post('/login',[sessionController::class, 'login'])->name('session.login');
