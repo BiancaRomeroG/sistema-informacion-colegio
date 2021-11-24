@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', loginController::class)->name('login');
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/home', [HomeController::class, 'homePage'])->name('home');
+
+Route::get('/registro', [HomeController::class, 'registroPage']);
 
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');

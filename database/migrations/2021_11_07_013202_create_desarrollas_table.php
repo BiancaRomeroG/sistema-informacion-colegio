@@ -14,6 +14,7 @@ class CreateDesarrollasTable extends Migration
     public function up()
     {
         Schema::create('desarrollas', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('id_materia');
             $table->unsignedBigInteger('id_curso');
             $table->year('gestion');
