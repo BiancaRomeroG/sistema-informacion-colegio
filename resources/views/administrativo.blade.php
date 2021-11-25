@@ -1,19 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.home_plantilla')
 
 @section('title', 'Administrativos')
 
-@section('content')
+@section('navigation')
 
-@extends('layouts.header')
-
-  <div class="container-fluid">
-    <div class="col-10 offset-2" id="main">
-    <!--Contenido-->
-      <section class="">  
-        <div class="container py-5 h-100">
-          <h1>Esta es la pagina de Administrativos uWu</h1>
-      </section>
-    </div>
-  </div>
+  <h1>Esta es la pagina para los Administrativos xD</h1>
 
 @endsection

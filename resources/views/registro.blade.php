@@ -1,11 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.home_plantilla')
 
 @section('title', 'Registro')
 
-@section('content')
-@extends('layouts.header')  <!-- HEADER: SideBar-->
-  <div class="container-fluid">
-      <div class="col-10 offset-2" id="main">
+@section('navigation')
+      <div class="col-12" id="main">
         <!--Contenido-->
         <section class="">  
             <div class="container py-5 h-100">
@@ -100,5 +98,4 @@
         </section>
       </div>
     </div>
-  </div>
 @endsection 

@@ -21,7 +21,6 @@ Route::get('/', loginController::class)->name('login');
 Route::get('/test', function () {
     return view('welcome');
 });
-
 Route::get('/home', [HomeController::class, 'homePage'])->name('home');
 
 Route::get('/registro', [HomeController::class, 'registroPage']);
@@ -29,3 +28,5 @@ Route::get('/profesor', [HomeController::class, 'profesorPage']);
 Route::get('/admin', [HomeController::class, 'administrativoPage']);
 
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
+
+Route::resource('home', homeController::class);

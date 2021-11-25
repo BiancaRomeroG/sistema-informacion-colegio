@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Home')
 
@@ -9,7 +9,7 @@
       <div class="col-2 px-1 bg-primary position-fixed" id="sticky-sidebar">
         <div class="text-center">
           <div class="container">
-            <img class="img-fluid" src="\img\logocr1.png" width="175" height="175" alt="Logo Colegio Cristo Rey">
+            <img class="img-fluid" src="img\logocr1.png" width="175" height="175" alt="Logo Colegio Cristo Rey">
           </div>
           <h3 class="mx-2 text-white">Colegio Cristo Rey</h3>
         </div>
@@ -61,15 +61,16 @@
             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
           </svg>
             Cerrar Sesion
-          </a>
-          
+          </a>  
         </div>
       </div>
       <div class="col-10 offset-2" id="main">
-        @section('body')
-            
-        @endsection
-        @show
+        <!--Contenido-->
+
+        @section('navigation')
+        @show 
+
+        
       </div>
     </div>
   </div>
