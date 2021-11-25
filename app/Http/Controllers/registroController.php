@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePersona;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 
