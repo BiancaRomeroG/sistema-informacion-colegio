@@ -72,7 +72,8 @@
                 <div class="row d-flex justify-content-center align-items-center"> 
                         <div class="card shadow">
                             <div class="card-body p-5">
-                                <form action="" method="GET">   <!-- Metodo POST para request del form -->
+                                <form action="{{route('registro.store')}}" method="POST">   <!-- Metodo POST para request del form -->
+                                @csrf
                                   <div class="mb-5 text-center">
                                     <h3>Registro de personas</h3>
                                   </div>
@@ -87,13 +88,13 @@
                                       <div class="col">
                                         <label>
                                           Apellido paterno:<br>
-                                          <input class="form-control" type="text" name="ap_pat" value="{{old('ap_pat')}}">
+                                          <input class="form-control" type="text" name="apellido_pat" value="{{old('apellido_pat')}}">
                                         </label>
                                       </div>
                                       <div class="col">
                                         <label>
                                           Apellido materno:<br>
-                                          <input class="form-control" type="text" name="ap_mat" value="{{old('ap_mat')}}">
+                                          <input class="form-control" type="text" name="apellido_mat" value="{{old('apellido_mat')}}">
                                         </label>
                                       </div>
                                     </div>
@@ -115,11 +116,11 @@
                                         <label>
                                           Género:<br>
                                           <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sexo_h"> Hombre
+                                            <input class="form-check-input" type="radio" name="sexo" value="1"> Hombre
                                           </div>
                                           <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sexo_h"> Mujer
-                                          </div>       
+                                            <input class="form-check-input" type="radio" name="sexo" value="2"> Mujer
+                                          </div>        
                                         </label>
                                       </div>                                          
                                     </div>
