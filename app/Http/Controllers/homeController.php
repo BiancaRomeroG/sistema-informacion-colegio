@@ -13,7 +13,7 @@ class homeController extends Controller
     public function registroPage() {
         return view('registro');
     }
-
+  
     public function profesorPage() {
         return view('profesor');
     }
