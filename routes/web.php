@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\materiaController;
 use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::get('/home', [HomeController::class, 'homePage'])->name('home');
 Route::get('/registro', [HomeController::class, 'registroPage']);
 
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
+
+Route::get('/registro-materia', [materiaController::class, 'registro'])->name('materia.registro');
+
