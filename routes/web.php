@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\registroController;
 use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,7 @@ Route::get('/test', function () {
 Route::get('/home', [HomeController::class, 'homePage'])->name('home');
 
 Route::get('/registro', [HomeController::class, 'registroPage']);
+
+Route::post('/registro',[registroController::class, 'store'])->name('registro.store');
 
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
