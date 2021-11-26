@@ -20,7 +20,7 @@ class RolSeeder extends Seeder
         $rol->save();
 
         $rol = new rol();
-        $rol->nombre_rol = "Secretaría";
+        $rol->nombre_rol = "Administrativo";
         $rol->timestamps = false;
         $rol->save();
 
