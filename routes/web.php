@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\materiaController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,5 @@ Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware(
 Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
 
+Route::get('/registro-materia', [materiaController::class, 'registro'])->name('materia.registro');
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
