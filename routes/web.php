@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', loginController::class)->name('login');
+
+Auth::routes();
+
+Route::get('/', [\App\Http\Controllers\Auth\loginController::class, 'showLoginForm']);
 
 Route::get('/test', function () {
     return view('welcome');
 });
-Route::get('/home', [HomeController::class, 'homePage'])->name('home');
+Route::get('/home', [HomeController::class, ''])->name('home');
 
 Route::get('/registro', [HomeController::class, 'registroPage']);
 Route::get('/profesor', [HomeController::class, 'profesorPage']);
@@ -30,6 +33,6 @@ Route::get('/admin', [HomeController::class, 'administrativoPage']);
 
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store');
 
-Route::post('/login',[sessionController::class, 'login'])->name('session.login');
+
 
 Route::resource('home', homeController::class);
