@@ -27,6 +27,7 @@ Route::get('/home', [HomeController::class, 'homePage'])->name('home');
 Route::get('/registro', [HomeController::class, 'registroPage']);
 Route::get('/profesor', [HomeController::class, 'profesorPage']);
 Route::get('/admin', [HomeController::class, 'administrativoPage']);
+Route::get('logout',[sessionController::class, 'logout'])->name('logout');
 
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store');
 
