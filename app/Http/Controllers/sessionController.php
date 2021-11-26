@@ -19,4 +19,9 @@ class sessionController extends Controller
             'message' => 'nuuuuuuuuuuu',
         ]);
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
