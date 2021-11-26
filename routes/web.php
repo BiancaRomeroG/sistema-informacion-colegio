@@ -25,6 +25,7 @@ Route::get('/test', function () {
 
 Route::get('/home', [HomeController::class, 'homePage'])->name('home')->middleware('auth');
 Route::resource('home', homeController::class);
+Route::get('logout',[sessionController::class, 'logout'])->name('logout');
 
 Route::get('/profesor', [HomeController::class, 'profesorPage'])->middleware('auth');
 
