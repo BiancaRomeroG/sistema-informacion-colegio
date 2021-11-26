@@ -26,13 +26,12 @@
                                     <label for="usuario">Usuario</label>
                                     <input type="text" class="form-control" id="usuario" name = "nombre_usuario" required
                                         placeholder="Ingrese su usuario">
-                                        {!! $errors->first('nombre_usuario', '<span class="help-block red-text">:message</span>') !!}
                                 </div>
                                 <div class="form-group mb-5">
                                     <label for="password">Contraseña</label>
                                     <input type="password" class="form-control" id="password" name = "password" required
                                         placeholder="Ingrese su contraseña">
-                                        {!! $errors->first('password', '<span class="help-block red-text">:message</span>') !!}
+                                        {!! $errors->first('nombre_usuario', '<span class="help-block red-text">:message</span>') !!}
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary ">Iniciar sesión</button>
