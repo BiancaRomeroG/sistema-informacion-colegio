@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\acciones;
+use Illuminate\Support\Facades\Auth;
+use DateTime;
 
 class LoginController extends Controller
 {
@@ -39,15 +42,43 @@ class LoginController extends Controller
     }
 
     /**
- * Get the login username to be used by the controller.
- *
- * @return string
- */
-public function username()
-{
-    return 'nombre_usuario';
-}
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'nombre_usuario';
+    }
+
+    public function registrarBitacora($accion){
+        
+        /*  $acciones = acciones::create([
+              'id_usuario' => Auth::user()->getAuthIdentifier,
+              'fecha' => new DateTime('now'),
+              'descripcion' => "Usuario {$request->user_name}logueado",
+          ]);*/
+          $acciones = new acciones();
+          
+          $acciones->id_usuario=  Auth::user()->getAuthIdentifier();
+          $acciones->fecha = new DateTime('now');
 
 
+          if ($accion == "login"){
+            $user_name = Auth::user()->nombre_usuario;
+            $acciones->descripcion = "Usuario ".$user_name." iniciando sesión";
+          }
+          if($accion == "logout"){
+            $user_name = Auth::user()->nombre_usuario;
+            $acciones->descripcion = "Usuario ".$user_name." cerrando sesión";
+          }
+        
+          
+          
+          $acciones->save();
+          
+      }
+
+     
    
 }
