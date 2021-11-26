@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class materiaController extends Controller
 {
     public function registro(){
-        return view("/materiaRegistro");
+        return view('materiaRegistro');
     }
 }
