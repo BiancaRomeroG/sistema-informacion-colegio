@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\acciones;
+use Illuminate\Support\Facades\Auth;
+use DateTime;
+
 
 class User extends Authenticatable
 {
@@ -57,4 +61,31 @@ class User extends Authenticatable
     return $this->contrasenha;
     }
 
+    public function registrarBitacora($accion){
+        
+        /*  $acciones = acciones::create([
+              'id_usuario' => Auth::user()->getAuthIdentifier,
+              'fecha' => new DateTime('now'),
+              'descripcion' => "Usuario {$request->user_name}logueado",
+          ]);*/
+          $acciones = new acciones();
+          
+          $acciones->id_usuario=  Auth::user()->getAuthIdentifier();
+          $acciones->fecha = new DateTime('now');
+
+
+          if ($accion == "login"){
+            $user_name = Auth::user()->nombre_usuario;
+            $acciones->descripcion = "Usuario ".$user_name." iniciando sesión";
+          }
+          if($accion == "logout"){
+            $user_name = Auth::user()->nombre_usuario;
+            $acciones->descripcion = "Usuario ".$user_name." cerrando sesión";
+          }
+        
+          
+          
+          $acciones->save();
+          
+      }
 }
