@@ -35,5 +35,7 @@ Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware(
 Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
 
-Route::get('/registro-materia', [materiaController::class, 'registro'])->name('materia.registro');
+
+Route::resource('/materia', materiaController::class);
+
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
