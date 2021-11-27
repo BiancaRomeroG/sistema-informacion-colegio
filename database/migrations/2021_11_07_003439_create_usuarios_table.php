@@ -17,7 +17,6 @@ class CreateUsuariosTable extends Migration
             $table->id();
             $table->string('nombre_usuario', 100);
             $table->string('contrasenha');
-            $table->rememberToken();
             $table->unsignedBigInteger('id_rol');
             $table->binary('estado');
             $table->timestamps();
