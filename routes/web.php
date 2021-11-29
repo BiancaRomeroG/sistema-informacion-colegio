@@ -37,3 +37,8 @@ Route::post('/registro',[registroController::class, 'store'])->name('registro.st
 
 Route::get('/registro-materia', [materiaController::class, 'registro'])->name('materia.registro');
 Route::post('/login',[sessionController::class, 'login'])->name('session.login');
+
+Route::get('/hola', function () {
+    return "Hola";
+});
+
