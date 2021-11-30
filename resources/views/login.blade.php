@@ -20,17 +20,18 @@
                     <div class="card shadow">
                         <div class="card-body p-5">
                             <h3 class="mb-4 text-center">Login</h3>
-                            <form class = "form" method="POST" action="/login">
+                            <form class = "form" method="POST" action="{{route('login')}}">
                                 @csrf
                                 <div class="form-group mb-4">
                                     <label for="usuario">Usuario</label>
-                                    <input type="text" class="form-control" id="usuario" name = "usuarioI" required
+                                    <input type="text" class="form-control" id="usuario" name = "nombre_usuario" required
                                         placeholder="Ingrese su usuario">
                                 </div>
                                 <div class="form-group mb-5">
                                     <label for="password">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" name = "passwordI" required
+                                    <input type="password" class="form-control" id="password" name = "password" required
                                         placeholder="Ingrese su contraseña">
+                                        {!! $errors->first('nombre_usuario', '<span class="help-block red-text">:message</span>') !!}
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary ">Iniciar sesión</button>
