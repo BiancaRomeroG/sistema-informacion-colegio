@@ -3,6 +3,7 @@
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\registroController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [\App\Http\Controllers\Auth\loginController::class, 'showLoginForm']);
+Route::get('/', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
 Route::get('/test', function () {
     return view('welcome');
