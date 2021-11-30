@@ -1,6 +1,6 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Apoderado')
+@section('title', 'Alumno')
 
 @section('navigation')
 <section class="row justify-content-center" id="main">
