@@ -29,7 +29,13 @@ Route::get('/home', [HomeController::class, 'homePage'])->name('home')->middlewa
 Route::resource('home', homeController::class);
 
 Route::get('/profesor', [HomeController::class, 'profesorPage'])->middleware('auth');
+
 Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware('director');
+
 Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
+
+Route::get('/apoderado', [HomeController::class, 'apoderadoPage']);
+
 Route::resource('/materia', materiaController::class);
+
