@@ -40,3 +40,5 @@ Route::get('/apoderado', [HomeController::class, 'apoderadoPage']);
 
 Route::resource('/materia', materiaController::class);
 
+Route::get('/alumno', [HomeController::class, 'alumnoPage']);
+

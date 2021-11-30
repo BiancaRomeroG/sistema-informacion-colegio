@@ -25,4 +25,8 @@ class homeController extends Controller
     public function apoderadoPage() {
         return view('apoderado');
     }
+
+    public function alumnoPage() {
+        return view('alumno');
+    }
 }
