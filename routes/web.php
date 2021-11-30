@@ -32,4 +32,4 @@ Route::get('/profesor', [HomeController::class, 'profesorPage'])->middleware('au
 Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware('director');
 Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
-Route::get('/registro-materia', [materiaController::class, 'registro'])->name('materia.registro');
+Route::resource('/materia', materiaController::class);
