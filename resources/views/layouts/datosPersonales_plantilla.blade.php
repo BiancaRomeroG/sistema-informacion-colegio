@@ -11,7 +11,7 @@
                 <h5 class="m-2">Datos Personales</h5>
             </div>
             <div class="card-body p-4">
-                <form method='post' id='register_form' action=@yield('form-action')>
+                <form method="GET" id='register_form' action=@yield('form-action')>
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
                             <label for="nombre">
@@ -88,9 +88,9 @@
                 </form>
             </div>
         </div>
-        <div class="container">
+        
           <section class="row justify-content-center" id="main">
-            <div class="col-9">
+            <div class="col-12">
               <div class="card shadow m-5">
                 <div class="card-header">
                     <h5 class="m-2">@yield('subtitle')</h5>
@@ -102,7 +102,7 @@
               </div>
             </div>
           </section>
-        </div>
+        
     </div>
     <div class="mt-3 text-center me-2">
       <button type="submit" onclick="sendForm()" class="btn btn-primary">
