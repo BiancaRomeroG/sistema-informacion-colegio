@@ -34,6 +34,10 @@ class homeController extends Controller
         return view('newAdministrativo');
     }
 
+    public function newProfesorPage(){
+        return view('newProfesor');
+    }
+
     public function curso_create(){
         return view('cursoCreate');
     }
