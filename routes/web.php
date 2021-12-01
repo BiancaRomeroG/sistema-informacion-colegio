@@ -43,3 +43,4 @@ Route::resource('/materia', materiaController::class);
 
 Route::get('/alumno', [HomeController::class, 'alumnoPage']);
 
+Route::get('/crear_curso', [HomeController::class, 'curso_create']);
