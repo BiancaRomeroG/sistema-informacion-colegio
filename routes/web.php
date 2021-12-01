@@ -20,28 +20,52 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+
 Route::get('/', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
+Route::get('/home', [HomeController::class, 'homePage'])->name('home')->middleware('auth');
+
+Route::group(['prefix' => 'administrativo'], function () {
+    
+    Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware('director');
+    Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
+    Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
+    Route::get('/apoderado', [HomeController::class, 'crearApoderado']);
+    Route::get('/crear', [homeController::class, 'newAdminPage'])->middleware('director');
+    Route::get('/alumno', [HomeController::class, 'alumnoPage']);
+    Route::get('/crear_curso', [HomeController::class, 'curso_create']);
+    Route::get('/crear', [homeController::class, 'crearProfesor'])->middleware('director');
+});
+
+
+Route::group(['prefix' => 'profesor'], function(){
+
+    Route::get('/index', [HomeController::class, 'profesorPage'])->middleware('auth');
+    
+
+    
+});
+
+
 
 Route::get('/test', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'homePage'])->name('home')->middleware('auth');
+
 Route::resource('home', homeController::class);
 
-Route::get('/profesor', [HomeController::class, 'profesorPage'])->middleware('auth');
 
-Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware('director');
 
-Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
-Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
 
-Route::get('/apoderado', [HomeController::class, 'crearApoderado']);
-Route::get('/createAdmin', [homeController::class, 'newAdminPage'])->middleware('director');
-Route::get('/createProfesor', [homeController::class, 'crearProfesor'])->middleware('director');
+
+
+
+
+
+
 
 Route::resource('/materia', materiaController::class);
 
-Route::get('/alumno', [HomeController::class, 'alumnoPage']);
 
-Route::get('/crear_curso', [HomeController::class, 'curso_create']);
+
+
