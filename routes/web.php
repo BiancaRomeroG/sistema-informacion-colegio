@@ -37,8 +37,12 @@ Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('di
 Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
 
 Route::get('/apoderado', [HomeController::class, 'apoderadoPage']);
+Route::get('/createAdmin', [homeController::class, 'newAdminPage'])->middleware('director');
 
 Route::resource('/materia', materiaController::class);
 
 Route::get('/alumno', [HomeController::class, 'alumnoPage']);
+
+
+Route::get('/crear_curso', [HomeController::class, 'curso_create']);
 
