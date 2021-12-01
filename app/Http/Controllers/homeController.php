@@ -15,30 +15,30 @@ class homeController extends Controller
     }
   
     public function profesorPage() {
-        return view('profesor');
+        return view('Profesor/profesor');
     }
 
     public function administrativoPage() {
-        return view('administrativo');
+        return view('Administrativo/administrativo');
     }
 
-    public function apoderadoPage() {
-        return view('apoderado');
+    public function crearApoderado() {
+        return view('Apoderado/apoderado');
     }
 
     public function alumnoPage() {
-        return view('alumno');
+        return view('Alumno/crearAlumno');
     }
 
     public function newAdminPage(){
-        return view('newAdministrativo');
+        return view('Administrativo/newAdministrativo');
     }
 
-    public function newProfesorPage(){
-        return view('newProfesor');
+    public function crearProfesor(){
+        return view('Profesor/newProfesor');
     }
 
     public function curso_create(){
-        return view('cursoCreate');
+        return view('Curso/cursoCreate');
     }
 }
