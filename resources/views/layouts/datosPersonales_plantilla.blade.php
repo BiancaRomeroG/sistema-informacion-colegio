@@ -11,7 +11,7 @@
                 <h5 class="m-2">Datos Personales</h5>
             </div>
             <div class="card-body p-4">
-                <form action=@yield('form-action')>
+                <form action=@yield('form-action')  id = 'form_de_registro'>
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
                             <label for="nombre">
