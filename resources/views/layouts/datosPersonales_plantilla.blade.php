@@ -11,7 +11,7 @@
                 <h5 class="m-2">Datos Personales</h5>
             </div>
             <div class="card-body p-4">
-                <form action=@yield('form-action')>
+                <form method='post' id='register_form' action=@yield('form-action')>
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
                             <label for="nombre">
@@ -105,10 +105,15 @@
         </div>
     </div>
     <div class="mt-3 text-center me-2">
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" onclick="sendForm()" class="btn btn-primary">
           Registrar
       </button>
   </div>
 </section>
 </div>
+<script>
+    function sendForm(){
+        document.all['register_form'].submit();
+    }
+</script>
 @endsection
