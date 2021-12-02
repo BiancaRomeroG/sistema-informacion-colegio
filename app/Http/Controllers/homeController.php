@@ -41,4 +41,8 @@ class homeController extends Controller
     public function curso_create(){
         return view('Curso/cursoCreate');
     }
+
+    public function inscripcionPage(){
+        return view('Inscripcion/inscripcion');
+    }
 }

@@ -36,8 +36,8 @@ Route::group(['prefix' => 'administrativo'], function () {
     Route::get('/alumno', [HomeController::class, 'alumnoPage']);
     Route::get('/crear_curso', [HomeController::class, 'curso_create']);
     Route::get('/crear', [homeController::class, 'crearProfesor'])->middleware('director');
+    Route::get('/inscripcion', [HomeController::class, 'inscripcionPage']);
 });
-
 
 Route::group(['prefix' => 'profesor'], function(){
 
