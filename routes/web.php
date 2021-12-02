@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\alumnoController;
+use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\registroController;
@@ -45,6 +47,8 @@ Route::group(['prefix' => 'profesor'], function(){
     
 });
 
+
+Route::resource('alumno', alumnoController::class);
 
 
 Route::get('/test', function () {
