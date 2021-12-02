@@ -17,4 +17,10 @@ class alumnoController extends Controller
     public function show(Persona $alumno) {
         return view('Alumno.show', compact('alumno'));
     }
+
+    public function destroy($id){
+        $alumno=alumnos::findOrFail($id);
+        $alumno->delete();
+        return redirect()->route('Alumno.index');
+    }
 }
