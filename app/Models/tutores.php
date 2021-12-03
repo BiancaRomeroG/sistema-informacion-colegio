@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class tutores extends Model
 {
     use HasFactory;
+
+    protected $table = 'tutores';
+    protected $fillable = [
+        'id_persona',
+        'parentesco'
+    ];
 }

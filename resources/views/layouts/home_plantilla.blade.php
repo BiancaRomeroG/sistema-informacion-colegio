@@ -9,7 +9,7 @@
       <div class="col-2 px-1 bg-primary position-fixed" id="sticky-sidebar">
         <div class="text-center">
           <div class="container">
-            <img class="img-fluid" src="img\logocr1.png" width="175" height="175" alt="Logo Colegio Cristo Rey">
+            <img class="img-fluid" src="{{asset('img\logocr1.png')}}" width="175" height="175" alt="Logo Colegio Cristo Rey">
           </div>
           <h3 class="mx-2 text-white">Colegio Cristo Rey</h3>
         </div>
