@@ -1,11 +1,8 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Registro')
-
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-9">
-
         <div class="card shadow m-5">
             <div class="card-header">
                 <h5 class="m-2">Datos Personales</h5>
@@ -83,7 +80,6 @@
                             </label>
                             <input class="form-control" type="tel" name="telefono" value="{{old('telefono')}}">
                         </div>
-
                     </div>
                     <section class="row justify-content-center" id="main">
                         <div class="col-12">
@@ -101,20 +97,17 @@
                 </form>
             </div>
         </div>
-
-
-
     </div>
     <div class="mt-3 text-center me-2">
         <button type="submit" onclick="sendForm()" class="btn btn-primary">
             Registrar
         </button>
     </div>
-</section>
-</div>
-<script>
-    function sendForm() {
-        document.all['register_form'].submit();
-    }
-</script>
+    </section>
+    </div>
+    <script>
+        function sendForm() {
+            document.all['register_form'].submit();
+        }
+    </script>
 @endsection

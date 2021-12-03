@@ -22,9 +22,9 @@ class homeController extends Controller
         return view('Administrativo/administrativo');
     }
 
-    public function crearApoderado() {
-        return view('Apoderado/apoderado');
-    }
+    // public function crearApoderado() {
+    //     return view('Apoderado/apoderado');
+    // }
 
     public function alumnoPage() {
         return view('Alumno/create');
