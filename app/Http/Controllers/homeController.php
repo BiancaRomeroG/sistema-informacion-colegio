@@ -27,7 +27,7 @@ class homeController extends Controller
     }
 
     public function alumnoPage() {
-        return view('Alumno/crearAlumno');
+        return view('Alumno/create');
     }
 
     public function newAdminPage(){

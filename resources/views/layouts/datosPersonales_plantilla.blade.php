@@ -11,9 +11,10 @@
                 <h5 class="m-2">Datos Personales</h5>
             </div>
             <div class="card-body p-4">
-                <form method="GET" id='register_form' action= " @yield('form-action') ">
-                    <div class="row mb-3 justify-content-around">
-                        <div class="col m-2">
+                <form method="POST" id='register_form' action="{{$actionform}}"> 
+                    @csrf
+                    <div class="row mb-3 justify-content-around"> 
+                        <div class="col m-2"> 
                             <label for="nombre">
                                 Nombre<br>
                             </label>
@@ -64,7 +65,7 @@
                                 <label for="hombre">Hombre</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="mujer" type="radio" name="sexo" value="2"> 
+                                <input class="form-check-input" id="mujer" type="radio" name="sexo" value="2">
                                 <label for="mujer">Mujer</label>
                             </div>
                         </div>
@@ -84,35 +85,35 @@
                         </div>
 
                     </div>
-                    
+                    <section class="row justify-content-center" id="main">
+                        <div class="col-12">
+                            <div class="card shadow m-5">
+                                <div class="card-header">
+                                    <h5 class="m-2">@yield('subtitle')</h5>
+                                </div>
+                                <div class="card-body p-4">
+                                    @section('adicional-information')
+                                    @show
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </form>
             </div>
         </div>
-        
-          <section class="row justify-content-center" id="main">
-            <div class="col-12">
-              <div class="card shadow m-5">
-                <div class="card-header">
-                    <h5 class="m-2">@yield('subtitle')</h5>
-                </div>
-                <div class="card-body p-4">
-                  @section('adicional-information')
-                  @show
-                </div>
-              </div>
-            </div>
-          </section>
-        
+
+
+
     </div>
     <div class="mt-3 text-center me-2">
-      <button type="submit" onclick="sendForm()" class="btn btn-primary">
-          Registrar
-      </button>
-  </div>
+        <button type="submit" onclick="sendForm()" class="btn btn-primary">
+            Registrar
+        </button>
+    </div>
 </section>
 </div>
 <script>
-    function sendForm(){
+    function sendForm() {
         document.all['register_form'].submit();
     }
 </script>
