@@ -15,13 +15,13 @@
                             <label for="nombre">
                                 Nombre<br>
                             </label>
-                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{old('nombre')}}">
+                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{old('nombre')}}")>
                         </div>
                         <div class="col m-2">
                             <label for="apellidoPat">
                                 Apellido paterno<br>
                             </label>
-                            <input class="form-control" id="apellidoPat" type="text" name="apellido_pat" value="{{old('apellido_pat')}}">
+                            <input class="form-control" id="apellidoPat" type="text" name="apellido_pat" value = "{{old('apellido_pat')}}">
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -43,7 +43,7 @@
                             <label for="email">
                                 Email<br>
                             </label>
-                            <input class="form-control" id="email" type="email" name="email" value="{{old('email')}}">
+                            <input class="form-control" id="email" type="email" name="email" value= "{{old('email')}}">
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -51,7 +51,7 @@
                             <label for="fechaNac">
                                 Fecha de nacimiento<br>
                             </label>
-                            <input class="form-control" id="fechaNac" type="date" name="fecha_nac" value="{{old('fecha_nac')}}">
+                            <input class="form-control" id="fechaNac" type="date" name="fecha_nac" value= "{{old('fecha_nac')}}">
                         </div>
                         <div class="col m-2">
                             <p class="mb-1">
