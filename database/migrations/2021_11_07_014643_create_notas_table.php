@@ -23,8 +23,8 @@ class CreateNotasTable extends Migration
             $table->tinyInteger('nota_trimestral');
             $table->unsignedBigInteger('id_materia');
             $table->unsignedBigInteger('id_boletin');
-            $table->foreign('id_materia')->references('id')->on('materias');
-            $table->foreign('id_boletin')->references('id')->on('boletines');
+            $table->foreign('id_materia')->references('id')->on('materias')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_boletin')->references('id')->on('boletines')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

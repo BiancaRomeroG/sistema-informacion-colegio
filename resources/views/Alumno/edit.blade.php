@@ -16,7 +16,7 @@
                             <label for="nombre">
                                 Nombre<br>
                             </label>
-                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{$persona->nombre}}")>
+                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{$persona->nombre}}">
                         </div>
                         <div class="col m-2">
                             <label for="apellidoPat">

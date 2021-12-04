@@ -75,7 +75,18 @@
                     </label>
                 </div>
                 <div class="row mb-4">
-
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-primary">Editar</button>
+                    </div>
+                    <div class="col">
+                        <form action="{{route('alumno.destroy', $persona->id)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-primary">Eliminar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@ class CreateMateriasTable extends Migration
             $table->string('nombre', 100);
             $table->string('descripcion')->nullable();
             $table->unsignedBigInteger('id_profesor');
-            $table->foreign('id_profesor')->references('id')->on('profesores');
+            $table->foreign('id_profesor')->references('id')->on('profesores')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
