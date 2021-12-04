@@ -18,8 +18,11 @@ class alumnoController extends Controller
     }
 
     public function show($alumno) {
-        $persona = Persona::find($alumno);
-        return view('alumno.show', compact('persona'));
+        $alumno = alumnos::find($alumno);
+        $persona = Persona::find($alumno->id_persona);
+        $tutor = tutores::find($alumno->id_tutor);
+        $personaTutor = Persona::find($tutor->id_persona);
+        return view('alumno.show', compact('persona', 'alumno', 'tutor', 'personaTutor'));
     }
 
     public function destroy($id){
