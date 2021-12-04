@@ -14,18 +14,20 @@ class alumnoController extends Controller
         $personas = Persona::join('alumnos', 'personas.id', 'alumnos.id_persona')
         ->select('alumnos.id','personas.nombre', 'personas.apellido_pat','personas.apellido_mat')
         ->orderBy('id', 'desc')->paginate();
-        return view('welcome', compact('personas'));
+        return view('alumno.index', compact('personas'));
     }
 
-    public function show(Persona $alumno) {
-        return view('Alumno.show', compact('alumno'));
+    public function show($alumno) {
+        $persona = Persona::find($alumno);
+        return view('alumno.show', compact('persona'));
     }
 
     public function destroy($id){
         $alumno = Persona::findOrfail($id);
         $persona=Persona::findOrFail($alumno->id_persona);
         $persona->delete();
-        return view('welcome');
+        $alumno->delete();
+        return view('alumno.index');
     }
 
     public function create(){ 
