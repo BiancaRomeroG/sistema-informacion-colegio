@@ -13,17 +13,18 @@ class alumnoController extends Controller
 {
     public function index() {
         $personas = Persona::orderBy('id', 'desc')->paginate();
-        return view('welcome', compact('personas'));
+        return view('alumno.index', compact('personas'));
     }
 
-    public function show(Persona $alumno) {
-        return view('Alumno.show', compact('alumno'));
+    public function show($alumno) {
+        $persona = Persona::find($alumno);
+        return view('alumno.show', compact('persona'));
     }
 
     public function destroy($id){
         $alumno=alumnos::findOrFail($id);
         $alumno->delete();
-        return redirect()->route('Alumno.index');
+        return redirect()->route('alumno.index');
     }
 
     public function create(){ 
