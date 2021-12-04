@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\alumnos;
-use App\Models\Persona;
 use App\Models\tutores;
+use App\Models\Persona;
 use Brick\Math\BigInteger;
-use Illuminate\Support\Facades\DB;
 
 class alumnoController extends Controller
 {
     public function index() {
-        $personas = Persona::orderBy('id', 'desc')->paginate();
+        $personas = Persona::join('alumnos', 'personas.id', 'alumnos.id_persona')
+        ->select('alumnos.id','personas.nombre', 'personas.apellido_pat','personas.apellido_mat')
+        ->orderBy('id', 'desc')->paginate();
         return view('alumno.index', compact('personas'));
     }
 
@@ -22,9 +23,11 @@ class alumnoController extends Controller
     }
 
     public function destroy($id){
-        $alumno=alumnos::findOrFail($id);
+        $alumno = Persona::findOrfail($id);
+        $persona=Persona::findOrFail($alumno->id_persona);
+        $persona->delete();
         $alumno->delete();
-        return redirect()->route('alumno.index');
+        return view('alumno.index');
     }
 
     public function create(){ 
@@ -57,4 +60,40 @@ class alumnoController extends Controller
         'Alumno creado correctamente'
     );
     }
+
+    public function edit($id){
+        $alumno = alumnos::findOrFail($id);
+        $persona = Persona::findOrFail($alumno->id_persona);
+        $tutores = Persona::join('tutores', 'personas.id', 'tutores.id_persona')
+        ->select('tutores.id', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat')->get();
+        $tutorid = tutores::findOrfail($alumno->id_tutor)->id;
+        $actionform = route('alumno.update',[$alumno->id]); 
+       return view('Alumno.edit', compact('alumno','persona','tutores','tutorid','actionform'));
+      
+    }
+
+    public function update(alumnos $alumno, Request $request){
+        
+
+        $persona = Persona::findOrfail($alumno->id_persona);
+
+        $persona->nombre= $request->nombre;
+        $persona->apellido_pat = $request->apellido_pat;
+        $persona->apellido_mat = $request-> apellido_mat;
+        $persona->ci = $request->ci;
+        $persona->fecha_nac = $request->fecha_nac;
+        $persona->sexo= $request->sexo;
+        $persona->email= $request->email;
+        $persona->direccion= $request->direccion;
+        $persona->telefono=$request->telefono; 
+
+        $persona->save();
+
+        $alumno->cod_rude = $request->codrude;
+        $alumno->id_tutor = $request->tutor_id;
+        $alumno->save();
+        
+        return view('Alumno.show', ['alumno'=> $persona]);
+    }
+  
 }
