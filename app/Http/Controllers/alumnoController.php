@@ -13,8 +13,8 @@ class alumnoController extends Controller
     public function index() {
         $personas = Persona::join('alumnos', 'personas.id', 'alumnos.id_persona')
         ->select('alumnos.id','personas.nombre', 'personas.apellido_pat','personas.apellido_mat')
-        ->orderBy('id', 'desc')->paginate();
-        return view('alumno.index', compact('personas'));
+        ->orderBy('id', 'desc')->paginate(14);
+        return view('alumno.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
 
     public function show($alumno) {
