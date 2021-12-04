@@ -23,18 +23,16 @@ class alumnoController extends Controller
     }
 
     public function destroy($id){
-        $alumno = Persona::findOrfail($id);
-        $persona=Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($id);
         $persona->delete();
-        $alumno->delete();
-        return view('alumno.index');
+        return redirect()->route('alumno.index')->with('success', 'Alumno eliminado');
     }
 
     public function create(){ 
         $tutores = Persona::join('tutores', 'personas.id', 'tutores.id_persona')
         ->select('tutores.id', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat')->get();
         $actionform = route("alumno.store"); 
-        return view('Alumno/create', compact('actionform','tutores'));
+        return view('alumno.create', compact('actionform','tutores'));
     }
 
     public function store (Request $request){
@@ -93,7 +91,7 @@ class alumnoController extends Controller
         $alumno->id_tutor = $request->tutor_id;
         $alumno->save();
         
-        return view('Alumno.show', ['alumno'=> $persona]);
+        return redirect()->route('alumno.show', $alumno->id);
     }
   
 }

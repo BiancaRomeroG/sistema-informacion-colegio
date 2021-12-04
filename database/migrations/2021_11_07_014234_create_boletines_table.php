@@ -18,7 +18,7 @@ class CreateBoletinesTable extends Migration
             $table->year('anho');
             $table->tinyInteger('nro_trim');
             $table->unsignedBigInteger('id_cardex');
-            $table->foreign('id_cardex')->references('id')->on('cardexes');
+            $table->foreign('id_cardex')->references('id')->on('cardexes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

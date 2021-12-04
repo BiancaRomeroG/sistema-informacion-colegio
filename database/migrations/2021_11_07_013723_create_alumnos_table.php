@@ -19,8 +19,8 @@ class CreateAlumnosTable extends Migration
             $table->string('cod_rude', 50);
             $table->unsignedBigInteger('id_tutor');
             $table->timestamps();
-            $table->foreign('id_persona')->references('id')->on('personas');
-            $table->foreign('id_tutor')->references('id')->on('tutores');
+            $table->foreign('id_persona')->references('id')->on('personas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_tutor')->references('id')->on('tutores')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
