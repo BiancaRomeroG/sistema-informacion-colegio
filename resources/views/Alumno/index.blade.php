@@ -4,12 +4,6 @@
 
 @section('navigation')
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
     <div class="row justify-content-center">
         <div class="col-9 mt-5">
             <div class="row justify-content-between mb-2">
