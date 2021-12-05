@@ -1,38 +1,46 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Test')
+@section('title', 'Alumnos')
 
 @section('navigation')
 
-        <div class="card">
-            <table class="table" >
-                <caption>List of studets</caption>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>apellidos</th>
-                    <th>Acciones</th>
-
-                </tr>
+    <div class="row justify-content-center">
+        <div class="col-9 mt-5">
+            <div class="row justify-content-between mb-2">
+                <div class="col">
+                    <h2>Lista de Alumnos</h2>
+                </div>
+                <div class="col text-end">
+                    <a class="btn btn-sm btn-success" href="{{ route('alumno.create') }}"> Registrar nuevo</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>Nro</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th width="120px">Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    @foreach($personas as $persona)
+                    @foreach ($personas as $persona)
                         <tr>
-                            <td>{{$persona->id}}</td>
+                            <td>{{ ++$i }}</td>
                             <td>{{ $persona->nombre }}</td>
-                            <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat}}</td>
+                            <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>
-                                <a href="{{route('alumno.show', $persona)}}">ver</a> 
-                                <a href="{{route('alumno.edit', $persona->id)}}">editar</a> 
-                                <a href="{{route('alumno.destroy', $persona->id)}}" method = 'DELETE'>borrar</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('alumno.show', $persona) }}">Ver</a>
+                                <a class="btn btn-sm btn-secondary"
+                                    href="{{ route('alumno.edit', $persona->id) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex">
+                {!! $personas->links() !!}
+            </div>
         </div>
-        {{$personas->links()}}
-
+    </div>
 @endsection
-

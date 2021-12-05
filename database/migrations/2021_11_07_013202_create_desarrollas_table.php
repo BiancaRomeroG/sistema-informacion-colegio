@@ -18,8 +18,8 @@ class CreateDesarrollasTable extends Migration
             $table->unsignedBigInteger('id_materia');
             $table->unsignedBigInteger('id_curso');
             $table->year('gestion');
-            $table->foreign('id_materia')->references('id')->on('materias');
-            $table->foreign('id_curso')->references('id')->on('cursos');
+            $table->foreign('id_materia')->references('id')->on('materias')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

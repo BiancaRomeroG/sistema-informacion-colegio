@@ -16,7 +16,7 @@
                             <label for="nombre">
                                 Nombre<br>
                             </label>
-                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{$persona->nombre}}")>
+                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{$persona->nombre}}">
                         </div>
                         <div class="col m-2">
                             <label for="apellidoPat">
@@ -126,7 +126,7 @@
                             </div>
                             <div class="mt-3 text-center me-2">
                                 <button type="submit" onclick="sendForm()" class="btn btn-primary">
-                                    editar
+                                    Editar
                                 </button>
                             </div>
                         </div>

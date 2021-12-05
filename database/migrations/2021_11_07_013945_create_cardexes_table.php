@@ -18,8 +18,8 @@ class CreateCardexesTable extends Migration
             $table->year('gestion');
             $table->unsignedBigInteger('id_curso');
             $table->unsignedBigInteger('id_alumno');
-            $table->foreign('id_curso')->references('id')->on('cursos');
-            $table->foreign('id_alumno')->references('id')->on('alumnos');
+            $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_alumno')->references('id')->on('alumnos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
