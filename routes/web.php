@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\administrativoController;
 use App\Http\Controllers\alumnoController;
 use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\apoderadoController;
@@ -66,6 +67,9 @@ Route::resource('apoderado', apoderadoController::class);
 
 //ruta para profesor
 Route::resource('profesor', profesorController::class);
+
+//ruta para administrativo
+Route::resource('administrativo', administrativoController::class);
 
 //ruta para usuario
 Route::resource('usuario', usuarioController::class);
