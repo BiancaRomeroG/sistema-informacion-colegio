@@ -61,6 +61,7 @@ class User extends Authenticatable
     return $this->contrasenha;
     }
 
+
     public function registrarBitacora($accion){
         
         /*  $acciones = acciones::create([
@@ -72,18 +73,17 @@ class User extends Authenticatable
           
           $acciones->id_usuario=  Auth::user()->getAuthIdentifier();
           $acciones->fecha = new DateTime('now');
-
+          $user_name = Auth::user()->nombre_usuario;
 
           if ($accion == "login"){
-            $user_name = Auth::user()->nombre_usuario;
+            
             $acciones->descripcion = "Usuario ".$user_name." iniciando sesión";
           }
           if($accion == "logout"){
-            $user_name = Auth::user()->nombre_usuario;
+            
             $acciones->descripcion = "Usuario ".$user_name." cerrando sesión";
           }
         
-          
           
           $acciones->save();
           

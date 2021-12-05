@@ -99,25 +99,11 @@
                                 <div class="card-body p-4">
                                     <div class="row mb-3 justify-content-around">
                                         <div class="col m-2">
-                                            <label for="codigorude">
-                                                Codigo Rude<br>
+                                            <label for="profesion">
+                                                Profesión<br>
                                             </label>
-                                            <input class="form-control" id="codrude" type="number" name="codrude" value="{{$alumno->cod_rude}}" form="register_form">
-                                        </div>
-                                        <div class="col m-2">
-                                            <label for="tutor">Apoderado</label>
-                                    
-                                            <select id="tutor" name = "tutor_id" class="form-select " aria-label="Default select example" form="register_form">
-                                            <option selected>Seleccione un Apoderado</option>
-                                                @foreach($tutores as $tutor)
-                                                <option value="{{$tutor->id}}" 
-                                                @if ($tutor->id === $tutorid)
-                                                    selected
-                                                @endif    
-                                                > {{$tutor->nombre}} {{$tutor->apellido_pat}} {{$tutor->apellido_mat}} </option>
-                                                @endforeach
-                                            </select>
-                                    
+                                            <input form="register_form" class="form-control" 
+                                            id="profesion" type="text" name="profesion" value="{{$profesor->profesion}}">
                                         </div>
                                     </div>
                                     </div>

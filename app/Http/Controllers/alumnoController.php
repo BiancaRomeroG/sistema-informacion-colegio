@@ -18,7 +18,7 @@ class alumnoController extends Controller
     }
 
     public function show($alumno) {
-        $persona = Persona::find($alumno);
+        $persona = Persona::find(alumnos::findOrFail($alumno)->id_persona);
         return view('alumno.show', compact('persona'));
     }
 
@@ -93,7 +93,7 @@ class alumnoController extends Controller
         $alumno->id_tutor = $request->tutor_id;
         $alumno->save();
         
-        return view('Alumno.show', ['alumno'=> $persona]);
+        return view('Alumno.show', compact('persona'));
     }
   
 }
