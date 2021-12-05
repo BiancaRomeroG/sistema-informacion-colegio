@@ -30,9 +30,9 @@
                             <td>{{ $persona->nombre }}</td>
                             <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ route('apoderado.show', $persona) }}">Ver</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('apoderado.show', $persona->idTutor) }}">Ver</a>
                                 <a class="btn btn-sm btn-secondary"
-                                    href="{{ route('apoderado.edit', $persona->id) }}">Editar</a>
+                                    href="{{ route('apoderado.edit', $persona->idTutor) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach

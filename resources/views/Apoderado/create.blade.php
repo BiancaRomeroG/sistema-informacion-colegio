@@ -13,5 +13,4 @@
         <input class="form-control" id="parentesco" type="text" name="parentesco" value="{{old('parentesco')}}" form="register_form">
     </div>
 </div>
-</div>
 @endsection
