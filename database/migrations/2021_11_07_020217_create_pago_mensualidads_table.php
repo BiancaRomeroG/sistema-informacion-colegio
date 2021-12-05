@@ -18,8 +18,8 @@ class CreatePagoMensualidadsTable extends Migration
             $table->unsignedBigInteger('id_pago');
             $table->tinyInteger('nro_cuota');
             $table->unsignedBigInteger('id_tutor');
-            $table->foreign('id_pago')->references('id')->on('pagos');
-            $table->foreign('id_tutor')->references('id')->on('tutores');
+            $table->foreign('id_pago')->references('id')->on('pagos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_tutor')->references('id')->on('tutores')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
