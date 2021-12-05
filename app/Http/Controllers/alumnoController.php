@@ -65,7 +65,7 @@ class alumnoController extends Controller
         $cardex->delete();
         $alumno->delete();
         $persona->delete();
-        return redirect()->route('alumno.index')->with('success', 'Alumno eliminado');
+        return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
     }
 
     public function create()
@@ -134,6 +134,6 @@ class alumnoController extends Controller
         $alumno->id_tutor = $request->tutor_id;
         $alumno->save();
 
-        return redirect()->route('alumno.show', $alumno->id);
+        return redirect()->route('alumno.show', $alumno->id)->with('success', 'Alumno editado correctamente');
     }
 }
