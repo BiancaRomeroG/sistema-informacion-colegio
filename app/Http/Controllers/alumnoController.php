@@ -22,6 +22,7 @@ class alumnoController extends Controller
         return view('alumno.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
 
+
     public function show($alumno)
     {
         $alumno = alumnos::find($alumno);
