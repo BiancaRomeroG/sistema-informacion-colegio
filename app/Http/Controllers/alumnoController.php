@@ -95,7 +95,7 @@ class alumnoController extends Controller
         $alumno->cod_rude = $request->codrude;
         $alumno->id_tutor = $request->tutor_id;
         $alumno->save();
-        return redirect()->back()->with(
+        return redirect()->route('alumno.index')->with(
             'success',
             'Alumno creado correctamente'
         );
