@@ -36,35 +36,7 @@ class alumnoController extends Controller
     {
         $alumno = alumnos::findOrFail($id);
         $persona = Persona::findOrFail($alumno->id_persona);
-
-        $inscripciones = inscripciones::where('id_alumno', $id)
-            ->get();
-        foreach ($inscripciones as $inscripcion) {
-            $inscripcion->delete();
-        }
-
-        $cardex = cardex::where('id_alumno', $alumno->id)
-            ->first();
-
-        $boletin = boletines::where('id_cardex', $cardex->id)
-        ->first();
-
-        $notas = notas::where('id_boletin', $boletin->id)
-            ->get();
-        foreach ($notas as $nota) {
-            $nota->delete();
-        }
-
-        $boletin->delete();
-        $cardex->delete();
         
-        $inscripciones = inscripciones::where('id_alumno', $id)
-            ->get();
-        foreach ($inscripciones as $inscripcion) {
-            $inscripcion->delete();
-        }
-        $cardex->delete();
-        $alumno->delete();
         $persona->delete();
         return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
     }
