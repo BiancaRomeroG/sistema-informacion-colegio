@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class apoderadoController extends Controller
 {
-    public function index() {
-        //$personas = Persona::orderBy('id', 'desc')->paginate();
-        //return view('welcome', compact('personas'));
-        $actionform = route('apoderado.store'); 
-        return view('apoderado.create', compact('actionform'));
+    public function index()
+    {
+        $personas = Persona::join('tutores', 'personas.id', 'tutores.id_persona')
+            ->select('tutores.id', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat')
+            ->orderBy('id', 'desc')->paginate(14);
+        return view('apoderado.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
+
 
     public function create(){ 
         $actionform = route('apoderado.store'); 
