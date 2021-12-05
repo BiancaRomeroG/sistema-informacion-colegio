@@ -1,6 +1,6 @@
 @extends('layouts.datosPersonales_plantilla')
 
-@section('title', 'Registro de Administradores')
+@section('title', 'Registro de Administrativo')
 
 @section('form-action', '')
 
