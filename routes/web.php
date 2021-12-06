@@ -5,6 +5,7 @@ use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\apoderadoController;
 use App\Http\Controllers\cursoController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
@@ -76,6 +77,5 @@ Route::resource('materia', materiaController::class);
 //ruta para curso
 Route::resource('curso', cursoController::class);
 
-
-
-
+//ruta para la inscripcion
+Route::resource('inscripcion', inscripcionController::class);
