@@ -1,40 +1,46 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Test')
+@section('title', 'Administrativo')
 
 @section('navigation')
 
-        <div class="card">
-            <div class="col s4">
-                <a href="{{ route('administrativo.create') }}" class="waves-effect waves-light btn dark-primary-color">Registrar nuevo</a>
+    <div class="row justify-content-center">
+        <div class="col-9 mt-5">
+            <div class="row justify-content-between mb-2">
+                <div class="col">
+                    <h2>Lista de Administrativos</h2>
+                </div>
+                <div class="col text-end">
+                    <a class="btn btn-sm btn-success" href="{{ route('administrativo.create') }}"> Registrar nuevo</a>
+                </div>
             </div>
-            <table class="table" >
-                <caption>Lista de Administradores</caption>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>apellidos</th>
-                    <th>Acciones</th>
-
-                </tr>
+            <table class="table table-bordered">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>Nro</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th width="120px">Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    @foreach($personas as $persona)
+                    @foreach ($personas as $persona)
                         <tr>
-                            <td>{{$persona->id}}</td>
+                            <td>{{ ++$i }}</td>
                             <td>{{ $persona->nombre }}</td>
-                            <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat}}</td>
+                            <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>
-                                <a href="{{route('administrativo.show', $persona)}}">ver</a> 
-                                <a href="{{route('administrativo.edit', $persona->id)}}">editar</a> 
-                                <a href="{{route('administrativo.destroy', $persona->id)}}" method = 'DELETE'>borrar</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('administrativo.show', $persona->id) }}">Ver</a>
+                                <a class="btn btn-sm btn-secondary"
+                                    href="{{ route('administrativo.edit', $persona->id) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex">
+                {!! $personas->links() !!}
+            </div>
         </div>
-        {{$personas->links()}}
-
+    </div>
 @endsection

@@ -19,8 +19,8 @@ class CreateAdministrativosTable extends Migration
             $table->string('profesion', 100)->nullable();
             $table->unsignedBigInteger('id_usuario');
             $table->timestamps();
-            $table->foreign('id_persona')->references('id')->on('personas');
-            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            $table->foreign('id_persona')->references('id')->on('personas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

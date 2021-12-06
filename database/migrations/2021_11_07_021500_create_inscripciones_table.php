@@ -20,7 +20,7 @@ class CreateInscripcionesTable extends Migration
             $table->unsignedBigInteger('id_admin');
             $table->unsignedBigInteger('id_alumno');
             $table->unsignedBigInteger('id_curso');
-            $table->foreign('id_admin')->references('id')->on('administrativos');
+            $table->foreign('id_admin')->references('id')->on('administrativos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_alumno')->references('id')->on('alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
         });
