@@ -6,6 +6,7 @@ use App\Models\Persona;
 use App\Models\profesores;
 use App\Models\User;
 use App\Models\usuario;
+use Faker\Provider\ar_JO\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,13 +15,14 @@ class profesorController extends Controller
 {
     public function index() {
         $personas = Persona::join('profesores', 'personas.id', 'profesores.id_persona')
-        ->orderBy('personas.id', 'asc')->paginate();
-        return view('profesor.index', compact('personas'));
+        ->orderBy('personas.id', 'asc')->paginate(14);
+        return view('profesor.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
 
-    public function show($profesor) {
-        $persona = Persona::find(profesores::findOrFail($profesor)->id_persona);
-        return view('profesor.show', compact('persona'));
+    public function show($profesorId) {
+        $profesor = profesores::findOrFail($profesorId);
+        $persona = Persona::find($profesor->id_persona);
+        return view('profesor.show', compact('persona', 'profesor'));
     }
 
     public function create(){
@@ -55,7 +57,7 @@ class profesorController extends Controller
         $profesor->id_usuario = $usuario->id;
         $profesor->save();
       
-       return redirect()->back()->with(
+       return redirect()->route('profesor.index')->with(
         'success',
         'Profesor creado correctamente'
     );
@@ -90,13 +92,13 @@ class profesorController extends Controller
 
         $persona->save();
 
-        return view('profesor.show', compact('persona'));
+        return view('profesor.show', compact('persona', 'profesor'));
 
     }
 
     public function destroy($id){
-        $profesor= profesores::findOrFail($id);
-        $profesor->delete();
-        return redirect()->route('alumno.index');
+        $persona = Persona::findOrFail($id);
+        $persona->delete();
+        return redirect()->route('profesor.index')->with('success', 'Profesor eliminado correctamente');
     }
 }

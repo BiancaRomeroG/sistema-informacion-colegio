@@ -12,13 +12,16 @@ class administrativoController extends Controller
 {
     public function index() {
         $personas = Persona::join('administrativos', 'personas.id', 'administrativos.id_persona')
-        ->orderBy('personas.id', 'asc')->paginate();
-        return view('administrativo.index', compact('personas'));
+        ->orderBy('personas.id', 'desc')->paginate(14);
+        return view('administrativo.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
-    public function show($administrativo) {
-        $persona = Persona::find(administrativos::findOrFail($administrativo)->id_persona);
-        return view('administrativo.show', compact('persona'));
+   
+    public function show($administrativoId) {
+        $administrativo = administrativos::findOrFail($administrativoId);
+        $persona = Persona::find($administrativo->id_persona);
+        return view('administrativo.show', compact('persona', 'administrativo'));
     }
+    
     public function create(){
         $actionform = route("administrativo.store"); 
         return view('administrativo.create', compact('actionform'));
@@ -40,7 +43,7 @@ class administrativoController extends Controller
         $usuario = new usuario();
         $usuario->nombre_usuario = $persona->email;
         $usuario->contrasenha = Hash::make($persona->ci);
-        $usuario->id_rol = 3;
+        $usuario->id_rol = 2;
         $usuario->estado = 1;
         $usuario->save();
 
@@ -84,15 +87,14 @@ class administrativoController extends Controller
 
         $persona->save();
 
-        return view('administrativo.show', compact('persona'));
+        return redirect()->route('administrativo.show', $administrativo->id)->with('success', 'Administrativo editado correctamente');
 
     }
 
     public function destroy($id){
-        $administrativo= administrativos::findOrFail($id);
-        $administrativo->delete();
-        return redirect()->route('administrativo.index');
+        $persona = Persona::findOrFail($id);   
+        $persona->delete();
+        return redirect()->route('administrativo.index')->with('success', 'Administrativo eliminado correctamente');
     }
-
 
 }

@@ -112,7 +112,7 @@
                             </div>
                             <div class="mt-3 text-center me-2">
                                 <button type="submit" onclick="sendForm()" class="btn btn-primary">
-                                    editar
+                                    Editar
                                 </button>
                             </div>
                         </div>

@@ -20,8 +20,8 @@ class CreatePagoSalariosTable extends Migration
             $table->decimal('descuento_iva', 8, 2, true)->nullable();
             $table->decimal('aporte_afp', 8, 2, true)->nullable();
             $table->unsignedBigInteger('id_profesor');
-            $table->foreign('id_pago')->references('id')->on('pagos');
-            $table->foreign('id_profesor')->references('id')->on('profesores');
+            $table->foreign('id_pago')->references('id')->on('pagos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_profesor')->references('id')->on('profesores')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
