@@ -34,11 +34,11 @@
                         {{$persona->nombre}} {{$persona->apellido_pat}} {{$persona->apellido_mat}}
                     </label>
                 </div>
-                <div class="row">
-                    <div class="col-2">
+                <div class="row justify-content-around">
+                    <div class="col text-center">
                         <button type="button" class="btn btn-primary">Editar</button>
                     </div>
-                    <div class="col">
+                    <div class="col text-center">
                         <form action="{{route('materia.destroy', $materia->id)}}" method="POST">
                             @csrf
                             @method('delete')
