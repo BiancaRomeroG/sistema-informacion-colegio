@@ -8,6 +8,7 @@ use App\Http\Controllers\cursoController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
+use App\Http\Controllers\pagoMensualidadController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
@@ -79,14 +80,11 @@ Route::resource('usuario', usuarioController::class);
 Route::resource('materia', materiaController::class);
 
 //ruta para curso
-
-
-
 Route::resource('curso', cursoController::class)->except(['show','destroy']);
-
 Route::get('/curso/{id}/{gestion}',[cursoController::class, 'show'])->name('curso.show');
-
-
 
 //ruta para la inscripcion
 Route::resource('inscripcion', inscripcionController::class);
+
+//ruta para pago mensualidad
+Route::resource('mensualidad', pagoMensualidadController::class);
