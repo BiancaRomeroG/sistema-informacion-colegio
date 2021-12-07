@@ -36,13 +36,13 @@
                 </div>
                 <div class="row justify-content-around">
                     <div class="col text-center">
-                        <button type="button" class="btn btn-primary">Editar</button>
+                        <a class="btn btn-secondary" href="{{ route('materia.edit', $materia->id) }}">Editar</a>
                     </div>
                     <div class="col text-center">
                         <form action="{{route('materia.destroy', $materia->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-primary">Eliminar</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </div>
                 </div>

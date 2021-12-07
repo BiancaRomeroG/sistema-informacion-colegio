@@ -14,7 +14,6 @@
                 <form method="POST" id='register_form' action="{{$actionform}}"> 
                     @csrf
                     @method('PUT')
-                    @method('DELETE')
                     <div class="row"> 
                         <div class="row justify-content-around">
                           <div class="col-4 ">
@@ -28,7 +27,7 @@
                             </div>
                             <div class="row-5 mt-4">
                               <button class="btn btn-primary" type="submit">
-                                Registrar
+                                Guardar
                               </button>
                             </div>
                         </div>
