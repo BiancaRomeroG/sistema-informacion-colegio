@@ -8,6 +8,8 @@ use App\Models\profesores;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Hash;
+
 class usuarioController extends Controller
 {
     public function index(){
@@ -42,7 +44,7 @@ class usuarioController extends Controller
         ->select('personas.*','usuarios.id as idUsuario', 'usuarios.nombre_usuario', 'usuarios.id_rol')
         ->first();
 
-        $usuario->contrasenha = $persona->ci;
+        $usuario->contrasenha = Hash::make($persona->ci);
         $usuario->save();
         return redirect()->route('usuario.index')->with(
             'success',
