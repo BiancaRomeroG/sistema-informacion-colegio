@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use DateTime;
 
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, Notifiable;
 
