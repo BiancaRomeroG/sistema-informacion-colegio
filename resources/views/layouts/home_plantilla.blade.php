@@ -288,6 +288,14 @@
                 </div>
             </div>
             <div class="col-10 offset-2 p-0" id="main">
+                <!--NavBar-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid justify-content-end">
+                        <span class="navbar-text fw-bold">
+                          {{Auth::user()->id_rol == 1 ? 'Director' : (Auth::user()->id_rol == 2 ? 'Secretaria' : 'Profesor')}} : {{Auth::user()->nombre_usuario}}
+                        </span>
+                      </div>
+                </nav>
                 <!--Alert Messages-->
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
