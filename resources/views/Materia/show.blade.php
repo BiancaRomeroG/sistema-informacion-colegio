@@ -34,15 +34,15 @@
                         {{$persona->nombre}} {{$persona->apellido_pat}} {{$persona->apellido_mat}}
                     </label>
                 </div>
-                <div class="row">
-                    <div class="col-2">
-                        <button type="button" class="btn btn-primary">Editar</button>
+                <div class="row justify-content-around">
+                    <div class="col text-center">
+                        <a class="btn btn-secondary" href="{{ route('materia.edit', $materia->id) }}">Editar</a>
                     </div>
-                    <div class="col">
+                    <div class="col text-center">
                         <form action="{{route('materia.destroy', $materia->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-primary">Eliminar</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </div>
                 </div>

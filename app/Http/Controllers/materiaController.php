@@ -15,8 +15,9 @@ class materiaController extends Controller
     public function index() {
         $materias = Persona::join('profesores', 'profesores.id_persona', 'personas.id')
                            ->join('materias', 'materias.id_profesor', 'profesores.id')
-        ->select('materias.id AS idMateria', 'profesores.id AS idProfesor', 'materias.nombre', 'materias.descripcion', 'personas.nombre AS nombrePersona', 'personas.apellido_pat', 'personas.apellido_mat')->get();
-        return view('materia.index', compact('materias'));
+        ->select('materias.id AS idMateria', 'profesores.id AS idProfesor', 'materias.nombre', 'materias.descripcion', 'personas.nombre AS nombrePersona', 'personas.apellido_pat', 'personas.apellido_mat')
+        ->orderBy('personas.id', 'asc')->paginate(14);;
+        return view('materia.index', compact('materias'))->with('i', (request()->input('page', 1) - 1) * 14);;
     }
 
     public function store(Request $request) {
@@ -55,6 +56,6 @@ class materiaController extends Controller
     public function update($id, Request $request) {
         $materia = materias::findOrFail($id);
         $materia->update($request->all());
-        return redirect()->route('materia.show', $materia);
+        return redirect()->route('materia.show', $materia)->with('success', 'Materia editada correctamente');
     }
 }
