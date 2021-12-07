@@ -23,7 +23,7 @@ class cursoController extends Controller
         foreach ($cursoA as $curso){
             $curso->cant_alumnos = $curso->cant_alumnos($gestion); 
         }
-        $cursos = new Collection($cursoA);
+        $cursos = $cursoA;
 
         $cursos = $cursos->filter( function($curso){return $curso->cant_alumnos !=0;
             });
