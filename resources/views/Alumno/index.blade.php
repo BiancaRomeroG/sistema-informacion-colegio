@@ -5,7 +5,7 @@
 @section('navigation')
 
     <div class="row justify-content-center">
-        <div class="col-9 mt-5">
+        <div class="col-8 mt-5">
             <div class="row justify-content-between mb-2">
                 <div class="col">
                     <h2>Lista de Alumnos</h2>
@@ -14,8 +14,8 @@
                     <a class="btn btn-sm btn-success" href="{{ route('alumno.create') }}"> Registrar nuevo</a>
                 </div>
             </div>
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+            <table class="table table-hover table-bordered">
+                <thead class="table-light">
                     <tr>
                         <th>Nro</th>
                         <th>Nombre</th>

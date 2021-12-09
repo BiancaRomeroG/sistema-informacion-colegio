@@ -72,6 +72,7 @@
                         </div>
                     </div>
                     <div class="mt-3 text-end me-5 mb-5">
+                        <a class="btn btn-danger" href="{{route('inscripcion.index')}}">Cancelar</a>
                         <button type="submit" class="btn btn-primary">
                             Inscribir
                         </button>

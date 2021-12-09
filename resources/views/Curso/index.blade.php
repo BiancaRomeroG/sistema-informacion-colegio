@@ -11,7 +11,7 @@
                     <h2>Cursos de la gestion {{$gestion}}</h2>
                 </div>
                 <div class="col text-end">
-                    <a class="btn btn-sm btn-success" href="{{ route('alumno.create') }}"> Registrar nuevo</a>
+                    <a class="btn btn-sm btn-success" href="{{ route('curso.create') }}"> Registrar nuevo</a>
                 </div>
             </div>
             <table class="table table-bordered">

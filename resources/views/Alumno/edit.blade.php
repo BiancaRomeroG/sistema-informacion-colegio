@@ -1,5 +1,7 @@
 @extends('layouts.home_plantilla')
 
+@section('title', 'Editar Alumno')
+
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-9">
@@ -121,28 +123,20 @@
                                         </div>
                                     </div>
                                     </div>
-                                </div>
-                                
+                                </div>          
                             </div>
-                            <div class="mt-3 text-center me-2">
-                                <button type="submit" onclick="sendForm()" class="btn btn-primary">
+                            <div class="mt-3 me-2 text-end">
+                                <a class="btn btn-danger" href="{{route('alumno.index')}}">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">
                                     Editar
-                                </button>
+                                </button>      
                             </div>
                         </div>
-                        
                     </section>
-                    
                 </form>
             </div>
         </div>
     </div>
-    
     </section>
-    </div>
-    <script>
-        function sendForm() {
-            document.all['register_form'].submit();
-        }
-    </script>
+</div>
 @endsection

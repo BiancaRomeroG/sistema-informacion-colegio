@@ -28,7 +28,7 @@
                         </a>
                         @if (Auth::user()->id_rol == 1)
                             <!-- Director Menu -->
-                            <a href="./alumno" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('usuario.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-people mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -36,7 +36,7 @@
                                 </svg>
                                 Usuarios
                             </a>
-                            <a href="./alumno" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('alumno.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-pencil-square mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -46,7 +46,7 @@
                                 </svg>
                                 Alumnos
                             </a>
-                            <a href="./apoderado" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('apoderado.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-person-rolodex mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -55,7 +55,7 @@
                                 </svg>
                                 Apoderados
                             </a>
-                            <a href="./administrativo" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('administrativo.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-person-workspace mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -65,7 +65,7 @@
                                 </svg>
                                 Administrativos
                             </a>
-                            <a href="./profesor" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('profesor.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-book mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -73,7 +73,7 @@
                                 </svg>
                                 Profesores
                             </a>
-                            <a href="./cardex" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -85,7 +85,7 @@
                                 </svg>
                                 Cardex
                             </a>
-                            <a href="./pago" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('mensualidad.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-cash-stack mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
@@ -104,7 +104,7 @@
                                 </svg>
                                 Bitacora
                             </a>
-                            <a href="./curso" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('curso.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -112,7 +112,7 @@
                                 </svg>
                                 Cursos
                             </a>
-                            <a href="./materia" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('materia.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark-fill mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -124,7 +124,7 @@
                                 </svg>
                                 Materias
                             </a>
-                            <a href="./boletin" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-briefcase mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -135,7 +135,7 @@
 
                         @elseif(Auth::user()->id_rol == 2)
                             <!-- Secretaria Menu -->
-                            <a href="./alumno" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('alumno.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-pencil-square mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -145,7 +145,7 @@
                                 </svg>
                                 Alumnos
                             </a>
-                            <a href="./apoderado" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('apoderado.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-person-rolodex mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -154,7 +154,7 @@
                                 </svg>
                                 Apoderados
                             </a>
-                            <a href="./profesor" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('profesor.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-book mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -162,7 +162,7 @@
                                 </svg>
                                 Profesores
                             </a>
-                            <a href="./cardex" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -174,7 +174,7 @@
                                 </svg>
                                 Cardex
                             </a>
-                            <a href="./pago" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('mensualidad.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-cash-stack mx-2 my-1" viewBox="0 0 16 16">
                                     <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
@@ -183,7 +183,7 @@
                                 </svg>
                                 Pagos
                             </a>
-                            <a href="./curso" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('curso.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -191,7 +191,7 @@
                                 </svg>
                                 Cursos
                             </a>
-                            <a href="./materia" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('materia.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark-fill mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -203,7 +203,7 @@
                                 </svg>
                                 Materias
                             </a>
-                            <a href="./boletin" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-briefcase mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -211,7 +211,7 @@
                                 </svg>
                                 Boletines
                             </a>
-                            <a href="./inscripcion" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('inscripcion.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-card-checklist  mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -223,7 +223,7 @@
                             </a>
                         @else
                             <!-- Profesor Menu -->
-                            <a href="./alumno" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('alumno.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-pencil-square mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -233,7 +233,7 @@
                                 </svg>
                                 Alumnos
                             </a>
-                            <a href="./cardex" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -245,7 +245,7 @@
                                 </svg>
                                 Cardex
                             </a>
-                            <a href="./curso" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('curso.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -253,7 +253,7 @@
                                 </svg>
                                 Cursos
                             </a>
-                            <a href="./materia" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('materia.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark-fill mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -265,7 +265,7 @@
                                 </svg>
                                 Materias
                             </a>
-                            <a href="./boletin" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-briefcase mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path
@@ -294,14 +294,30 @@
             </div>
             <div class="col-10 offset-2 p-0" id="main">
                 <!--NavBar-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid justify-content-end">
-                        <span class="navbar-text fw-bold">
-                            {{ Auth::user()->id_rol == 1 ? 'Director' : (Auth::user()->id_rol == 2 ? 'Secretaria' : 'Profesor') }}
-                            : {{ Auth::user()->nombre_usuario }}
-                        </span>
-                    </div>
-                </nav>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top offset-2">
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Opcion</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Opcion</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Opcion</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="./">Volver</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container-fluid justify-content-end">
+                            <span class="navbar-text fw-bold">
+                                {{ Auth::user()->id_rol == 1 ? 'Director' : (Auth::user()->id_rol == 2 ? 'Secretaria' : 'Profesor') }}
+                                : {{ Auth::user()->nombre_usuario }}
+                            </span>
+                        </div>
+                    </nav>     
                 <!--Alert Messages-->
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
@@ -318,8 +334,11 @@
                 @endif
 
                 <!--Contenido-->
-            @section('navigation')
-            @show
+                <div class="container-fluid m-2">
+                    @section('navigation')
+                    @show
+                </div>
+            
 
         </div>
     </div>

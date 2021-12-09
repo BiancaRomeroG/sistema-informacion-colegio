@@ -95,21 +95,18 @@
                             @show
                         </div>
                     </div>
-                    </form>
                     <div class="mt-3 text-end">
-                        <button type="submit" onclick="sendForm()" class="btn btn-primary">
+                        @section('btn')
+                        @show
+                        <button type="submit" class="btn btn-primary">
                             Registrar
-                        </button>
+                        </button>       
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-
-    </section>
     </div>
-    <script>
-        function sendForm() {
-            document.all['register_form'].submit();
-        }
-    </script>
+
+</section>
+</div>
 @endsection

@@ -24,8 +24,10 @@
                         {{ $tutor->apellido_mat }}</option>
                 @endforeach
             </select>
-
+            
         </div>
     </div>
-
+@endsection
+@section('btn')
+    <a class="btn btn-danger" href="{{route('alumno.index')}}">Cancelar</a>
 @endsection

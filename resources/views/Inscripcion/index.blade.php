@@ -9,22 +9,8 @@
     <div class="col-9 mt-5">
         <div class="row justify-content-between mb-2">
             <div class="col">
-                <h2>Lista de Alumnos</h2>
+                <h2>Lista de Alumnos Inscritos</h2>
             </div>
-            <!--<div class="col text-end">
-                <select name="select">
-                    <option selected>Seleccione un curso</option>
-                    <option value="1">1° Secundaria</option>
-                    <option value="2">2° Secundaria</option>
-                    <option value="3">3° Secundaria</option>
-                    <option value="4">4° Secundaria</option>
-                    <option value="5">5° Secundaria</option>
-                    <option value="6">6° Secundaria</option>
-                </select>
-            </div>-
-            <div class="col">
-                <button type="submit">Mostrar</button>
-            </div>-->
             <div class="col text-end">
                 <a class="btn btn-sm btn-success" href="{{ route('inscripcion.create') }}">Nueva Inscripcion</a>
             </div>
@@ -45,7 +31,7 @@
                         <td>{{ ++$i }}</td>
                         <td>{{ $persona->nombre }}</td>
                         <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
-                        <td>{{ $persona->curso }}°</td>
+                        <td>{{ $persona->curso }}° Secundaria</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('inscripcion.show', $persona->idAlumno) }}">Ver</a>
                         </td>

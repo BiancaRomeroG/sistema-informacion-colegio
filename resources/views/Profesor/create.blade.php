@@ -15,3 +15,6 @@
             id="profesion" type="text" name="profesion" value="{{old('nombre')}}">
         </div>
 @endsection
+@section('btn')
+    <a class="btn btn-danger" href="{{route('profesor.index')}}">Cancelar</a>
+@endsection

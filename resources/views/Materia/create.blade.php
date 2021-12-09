@@ -26,6 +26,7 @@
                                           <textarea class="form-control" name="descripcion" cols="30" rows="5"></textarea>
                                         </div>
                                         <div class="row-5 mt-4">
+                                          <a class="btn btn-danger" href="{{route('materia.index')}}">Cancelar</a>
                                           <button class="btn btn-primary" type="submit">
                                             Registrar
                                           </button>
@@ -49,7 +50,6 @@
                                 </form>
                             </div>
                         </div>
-
                 </div>
             </div>
         </section>
