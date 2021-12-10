@@ -108,7 +108,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-3 text-center me-2">
+                            <div class="mt-3 text-end me-2">
+
+                                <a class="btn btn-danger" href="{{route('apoderado.index')}}">Cancelar</a>
+
                                 <button type="submit" onclick="sendForm()" class="btn btn-primary">
                                     Editar
                                 </button>

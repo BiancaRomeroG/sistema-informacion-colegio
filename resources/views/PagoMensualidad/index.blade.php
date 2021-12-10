@@ -30,7 +30,7 @@
                             <td>{{ ++$i }}</td>
                             <td>{{ $persona->nombre.' '.$persona->apellido_pat.' '.$persona->apellido_mat }}</td>
                             <td>{{ $persona->nro_cuota }}</td>
-                            <td>{{ $persona->monto }}</td>
+                            <td>{{ $persona->monto }} Bs.</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{route('mensualidad.show', $persona->idPago)}}">Ver</a>
                             </td>

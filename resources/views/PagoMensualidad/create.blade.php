@@ -63,6 +63,7 @@
                         </div>
                     </div>
                     <div class="row-2 text-end m-2">
+                        <a class="btn btn-danger" href="{{route('mensualidad.index')}}">Cancelar</a>
                         <button type="submit" class="btn btn-primary" form="form-reg">Registrar</button>
                     </div>
                 </form>

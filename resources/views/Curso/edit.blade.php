@@ -30,7 +30,10 @@
                         </div>
                     </div>
                    
-                    <div class="mt-3 text-center me-2">
+                    <div class="mt-3 text-end me-2">
+
+                        <a class="btn btn-danger" href="{{route('curso.index')}}">Cancelar</a>
+
                         <button type="submit"  class="btn btn-primary">
                             Editar
                         </button>

@@ -14,3 +14,6 @@
     </div>
 </div>
 @endsection
+@section('btn')
+    <a class="btn btn-danger" href="{{route('apoderado.index')}}">Cancelar</a>
+@endsection
