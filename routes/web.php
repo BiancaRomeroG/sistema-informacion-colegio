@@ -9,6 +9,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\pagoMensualidadController;
+use App\Http\Controllers\pagoSalarioController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
@@ -88,3 +89,6 @@ Route::resource('inscripcion', inscripcionController::class);
 
 //ruta para pago mensualidad
 Route::resource('mensualidad', pagoMensualidadController::class);
+
+//ruta para pago salario
+Route::resource('salario',pagoSalarioController::class);
