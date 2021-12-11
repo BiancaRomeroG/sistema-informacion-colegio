@@ -31,8 +31,7 @@
                             <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('profesor.show', $persona) }}">Ver</a>
-                                <a class="btn btn-sm btn-secondary"
-                                    href="{{ route('profesor.edit', $persona->id) }}">Editar</a>
+                                <a class="btn btn-sm btn-secondary" href="{{ route('profesor.edit', $persona->id) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach
