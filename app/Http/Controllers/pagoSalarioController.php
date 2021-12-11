@@ -49,7 +49,6 @@ class pagoSalarioController extends Controller
     }
 
     public function show($id) {
-        return $id;
         $pagoSalario = pagoSalarios::findOrFail($id);
         $pago = pagos::findOrFail($pagoSalario->id_pago);
         $profesor = profesores::findOrFail($pagoSalario->id_profesor);
