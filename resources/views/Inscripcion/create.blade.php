@@ -61,7 +61,7 @@
                                 Curso a inscribir
                             </label>
                             <select name="curso" id="curso" class="form-select" aria-label="Default select example">
-                                <option selected>Seleccione el curso</option>
+                                <option selected value="0">Seleccione el curso</option>
                                 <option value="1">1° Secundaria</option>
                                 <option value="2">2° Secundaria</option>
                                 <option value="3">3° Secundaria</option>

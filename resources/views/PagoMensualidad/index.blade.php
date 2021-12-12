@@ -1,6 +1,6 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Profesor')
+@section('title', 'Pago Mensualidad')
 
 @section('navigation')
 

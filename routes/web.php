@@ -4,6 +4,7 @@ use App\Http\Controllers\administrativoController;
 use App\Http\Controllers\alumnoController;
 use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\apoderadoController;
+use App\Http\Controllers\cardexController;
 use App\Http\Controllers\cursoController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\inscripcionController;
@@ -88,3 +89,6 @@ Route::resource('inscripcion', inscripcionController::class);
 
 //ruta para pago mensualidad
 Route::resource('mensualidad', pagoMensualidadController::class);
+
+//ruta para cardex
+Route::resource('cardex', cardexController::class);

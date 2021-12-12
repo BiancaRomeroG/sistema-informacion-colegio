@@ -73,7 +73,7 @@
                                 </svg>
                                 Profesores
                             </a>
-                            <a href="" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('cardex.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -162,7 +162,7 @@
                                 </svg>
                                 Profesores
                             </a>
-                            <a href="" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('cardex.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -233,7 +233,7 @@
                                 </svg>
                                 Alumnos
                             </a>
-                            <a href="" class="nav-link text-white my-1 py-0 px-1">
+                            <a href="{{route('cardex.index')}}" class="nav-link text-white my-1 py-0 px-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -319,19 +319,23 @@
                         </div>
                     </nav>     
                 <!--Alert Messages-->
-                @if (session()->has('success'))
+
+                <div class="container mt-5">
+                    @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
                         <strong>Exito!</strong> {{ session()->get('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                @endif
+                    @endif
 
-                @if (session()->has('error'))
-                    <div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-                        <strong>Error!</strong> {{ session()->get('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
+                    @if (session()->has('error'))
+                        <div class="alert alert-danger alert-dismissible fade show m-10" role="alert">
+                            <strong>Error!</strong> {{ session()->get('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
+                
 
                 <!--Contenido-->
                 <div class="container-fluid m-2">

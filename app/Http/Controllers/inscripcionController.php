@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\alumnos;
+use App\Models\cardex;
 use App\Models\inscripciones;
 use App\Models\Persona;
 use Carbon\Carbon;
@@ -32,8 +33,11 @@ class inscripcionController extends Controller
         ->where('inscripciones.id_alumno', '=', $request->id_alumno)->get();
 
         
-        if (count($ins) > 0)
+        if (count($ins) > 0 )
             return redirect()->route('inscripcion.create')->with('error', 'El alumno ya esa inscrito');
+
+        if ($request->curso == 0)
+            return redirect()->route('inscripcion.create')->with('error', 'Debe seleccionar un curso');
 
         $inscripcion = inscripciones::create([
             'fecha' => Carbon::now()->format('Y,m,d'),
@@ -41,6 +45,12 @@ class inscripcionController extends Controller
             'id_admin' => 2,
             'id_alumno' => $request->id_alumno,
             'id_curso' => $request->curso
+        ]);
+
+        $cardex = cardex::create([
+            'gestion' =>  Carbon::now()->format('Y'),
+            'id_curso' => $request->curso,
+            'id_alumno' => $request->id_alumno
         ]);
         return redirect()->route('inscripcion.show', $inscripcion->id);
     }
