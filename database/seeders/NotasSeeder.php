@@ -133,6 +133,127 @@ class NotasSeeder extends Seeder
         $nota->id_boletin = 1;
         $nota->timestamps = false;
         $nota->save();
+
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 48;
+        $nota->saber = 55;
+        $nota->hacer = 80;
+        $nota->decidir = 100;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 1;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 93;
+        $nota->saber = 92;
+        $nota->hacer = 88;
+        $nota->decidir = 87;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 2;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 96;
+        $nota->saber = 39;
+        $nota->hacer = 67;
+        $nota->decidir = 31;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 3;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 33;
+        $nota->saber = 26;
+        $nota->hacer = 91;
+        $nota->decidir = 75;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 4;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 38;
+        $nota->saber = 79;
+        $nota->hacer = 20;
+        $nota->decidir = 74;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 5;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 62;
+        $nota->saber = 59;
+        $nota->hacer = 46;
+        $nota->decidir = 98;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 6;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 39;
+        $nota->saber = 34;
+        $nota->hacer = 25;
+        $nota->decidir = 79;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 7;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 66;
+        $nota->saber = 46;
+        $nota->hacer = 87;
+        $nota->decidir = 100;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 8;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 25;
+        $nota->saber = 37;
+        $nota->hacer = 75;
+        $nota->decidir = 73;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 9;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        
+        $nota = new notas();
+        $nota->nro_trim = 2;
+        $nota->ser = 69;
+        $nota->saber = 60;
+        $nota->hacer = 32;
+        $nota->decidir = 77;
+        $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+        $nota->id_materia = 10;
+        $nota->id_boletin = 1;
+        $nota->timestamps = false;
+        $nota->save();
+        //----------------------------------------------------------
         
         $nota = new notas();
         $nota->nro_trim = 1;

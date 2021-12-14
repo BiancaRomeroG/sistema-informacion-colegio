@@ -47,7 +47,7 @@ class pagoMensualidadController extends Controller
             'id_tutor' => $request->id_tutor
         ]);
         $pagoMen->save();
-        return $pagoMen;
+        return redirect()->route('mensualidad.show', $pagoMen->id);
     }
 
     public function show($id) {
