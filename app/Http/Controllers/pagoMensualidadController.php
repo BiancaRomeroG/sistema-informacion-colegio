@@ -55,6 +55,8 @@ class pagoMensualidadController extends Controller
         $pago = pagos::findOrFail($pagoMen->id_pago);
         $tutor = tutores::findOrFail($pagoMen->id_tutor);
         $persona = Persona::findOrFail($tutor->id_persona);
-        return view('pagoMensualidad.show', compact('persona', 'pago', 'tutor', 'pagoMen'));
+        $alumno = alumnos::where('id_tutor', $tutor->id)->first();
+        $personaAlumno = Persona::where('id', $alumno->id_persona)->first();
+        return view('pagoMensualidad.show', compact('persona', 'pago', 'tutor', 'pagoMen', 'alumno', 'personaAlumno'));
     }
 }
