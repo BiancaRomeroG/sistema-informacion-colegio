@@ -87,5 +87,7 @@ class User extends Authenticatable
           
           $acciones->save();
           
-      }
+    
+    }
+    
 }

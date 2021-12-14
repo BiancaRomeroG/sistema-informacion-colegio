@@ -37,6 +37,7 @@ class alumnoController extends Controller
         $alumno = alumnos::findOrFail($id);
         $persona = Persona::findOrFail($alumno->id_persona);
         
+        
         $persona->delete();
         return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
     }

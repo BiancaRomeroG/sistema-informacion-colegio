@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\administrativoController;
 use App\Http\Controllers\alumnoController;
-use App\Http\Controllers\AlumnosController;
+use App\Http\Controllers\bitacoraController;
 use App\Http\Controllers\apoderadoController;
 use App\Http\Controllers\cardexController;
 use App\Http\Controllers\cursoController;
@@ -10,6 +10,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\pagoMensualidadController;
+use App\Http\Controllers\pagoSalarioController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
@@ -90,5 +91,15 @@ Route::resource('inscripcion', inscripcionController::class);
 //ruta para pago mensualidad
 Route::resource('mensualidad', pagoMensualidadController::class);
 
+
 //ruta para cardex
 Route::resource('cardex', cardexController::class);
+
+
+//ruta para bitacora
+Route::resource('bitacora', bitacoraController::class)->only(['show']);
+
+
+//ruta para pago salario
+Route::resource('salario',pagoSalarioController::class);
+

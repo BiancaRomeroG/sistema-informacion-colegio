@@ -22,7 +22,7 @@
                         <th>Apellidos</th>
                         <th>Usuario</th>
                         <th>Rol</th>
-                        <th width="120px">Acciones</th>
+                        <th width="140px">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +43,9 @@
                             </td>
                             <td class="text-center">
                                 <a class="btn btn-sm btn-primary" href="{{ route('usuario.show', $persona->idUsuario) }}">Ver</a>
+                               @if (Auth::user()->id_rol === 1)
+                                    <a class="btn btn-sm btn-secondary" href="{{ route('bitacora.show', $persona->idUsuario) }}">Bitacora</a>    
+                               @endif
                             </td>
                         </tr>
                     @endforeach
