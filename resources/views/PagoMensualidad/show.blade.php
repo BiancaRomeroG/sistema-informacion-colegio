@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="button" class="btn btn-success">Imprimir</button>
+            <a href="{{ route('reporteMensualidad', $pagoMen->id) }}" type="button" class="btn btn-success">Imprimir</a>
         </div>
     </section>
 @endsection
