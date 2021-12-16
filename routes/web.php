@@ -107,5 +107,6 @@ Route::resource('salario',pagoSalarioController::class);
 
 //ruta para reportes
 Route::get('/reporteMensualidad/{id}', 'App\Http\Controllers\pagoMensualidadController@generarReporte')->name('reporteMensualidad');
+Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@generarReporte')->name('reporteSalario');
 
 

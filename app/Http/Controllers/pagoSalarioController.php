@@ -7,6 +7,7 @@ use App\Models\profesores;
 use App\Models\Persona;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class pagoSalarioController extends Controller
 {
@@ -54,6 +55,24 @@ class pagoSalarioController extends Controller
         $profesor = profesores::findOrFail($pagoSalario->id_profesor);
         $persona = Persona::findOrFail($profesor->id_persona);
         return view('pagoSalario.show', compact('persona', 'pago', 'profesor', 'pagoSalario'));
+    }
+
+    public function generarReporte(Request $request, $id)
+    {
+        $pagoSalario = pagoSalarios::findOrFail($id);
+        $pago = pagos::findOrFail($pagoSalario->id_pago);
+        $profesor = profesores::findOrFail($pagoSalario->id_profesor);
+        $persona = Persona::findOrFail($profesor->id_persona);
+        $data = [
+            'pagoSalario' => $pagoSalario,
+            'pago' => $pago,
+            'profesor' => $profesor,
+            'persona' => $persona,
+        ];
+          
+        $pdf = PDF::loadView('pagoSalario.reporte', $data);
+
+        return $pdf->download('reporteSalario.pdf');
     }
 
 }

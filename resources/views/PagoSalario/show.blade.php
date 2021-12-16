@@ -43,5 +43,8 @@
             </div>
         </div>
     </div>
+    <div class="text-center">
+        <a href="{{ route('reporteSalario', $pagoSalario->id) }}" type="button" class="btn btn-success">Imprimir</a>
+    </div>
 </section>
 @endsection
