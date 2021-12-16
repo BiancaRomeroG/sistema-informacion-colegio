@@ -36,9 +36,9 @@ class pagoSalarioController extends Controller
         $pagoSalario = pagoSalarios::create([
             'id_pago' => $pago->id,
             'nro_pago' => $request->pago,
-            'id_profesor' => $request->id_profesor
-            //iva
-            //afp
+            'id_profesor' => $request->id_profesor,
+            'descuento_iva' => number_format($request->monto * (12.5 / 100), 2),
+            'aporte_afp' => number_format($request->monto * (12.71 / 100), 2)
         ]);
         $pagoSalario->save();
         $id = $pago->id_pago;
