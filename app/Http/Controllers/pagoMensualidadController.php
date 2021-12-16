@@ -11,6 +11,7 @@ use App\Models\tutores;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class pagoMensualidadController extends Controller
 {
@@ -55,6 +56,31 @@ class pagoMensualidadController extends Controller
         $pago = pagos::findOrFail($pagoMen->id_pago);
         $tutor = tutores::findOrFail($pagoMen->id_tutor);
         $persona = Persona::findOrFail($tutor->id_persona);
-        return view('pagoMensualidad.show', compact('persona', 'pago', 'tutor', 'pagoMen'));
+        $alumno = alumnos::where('id_tutor', $tutor->id)->first();
+        $personaAlumno = Persona::where('id', $alumno->id_persona)->first();
+        return view('pagoMensualidad.show', compact('persona', 'pago', 'tutor', 'pagoMen', 'alumno', 'personaAlumno'));
+    }
+
+    public function generarReporte(Request $request, $id)
+    {
+        $pagoMen = pagoMensualidad::findOrFail($id);
+        $pago = pagos::findOrFail($pagoMen->id_pago);
+        $tutor = tutores::findOrFail($pagoMen->id_tutor);
+        $persona = Persona::findOrFail($tutor->id_persona);
+        $alumno = alumnos::where('id_tutor', $tutor->id)->first();
+        $personaAlumno = Persona::where('id', $alumno->id_persona)->first();
+        $data = [
+            'pagoMen' => $pagoMen,
+            'pago' => $pago,
+            'tutor' => $tutor,
+            'personaTutor' => $persona,
+            'alumno' => $alumno,
+            'personaAlumno' => $personaAlumno
+        ];
+          
+        $pdf = PDF::loadView('pagoMensualidad.reporte', $data);
+
+        return $pdf->download('reporteMensualidad.pdf');
+    
     }
 }
