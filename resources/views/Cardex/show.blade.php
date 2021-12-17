@@ -87,7 +87,7 @@
             </div>
         @else
 
-            <!--Tabla del 1er trimestre-->
+            <!--Tabla del 2do trimestre-->
             <table class="table table-bordered">
                 <thead class="table-secondary">
                     <tr>
@@ -128,7 +128,7 @@
             </div>
         @else
 
-            <!--Tabla del 1er trimestre-->
+            <!--Tabla del 3er trimestre-->
             <table class="table table-bordered">
                 <thead class="table-secondary">
                     <tr>

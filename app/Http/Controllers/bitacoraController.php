@@ -32,5 +32,6 @@ class bitacoraController extends Controller
         $tittle = 'Bitacora-'.$persona->nombre.$persona->apellido_pat.$persona->apellido_mat;
         return $pdf->download($tittle);
       //  return view('Bitacora.pdf', compact('persona', 'acciones'));
+
     }
 }

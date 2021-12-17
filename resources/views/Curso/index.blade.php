@@ -1,6 +1,6 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Alumnos')
+@section('title', 'Cursos')
 
 @section('navigation')
 
@@ -28,7 +28,6 @@
                 <tbody>
                     @foreach ($cursos as $curso)
                         <tr>
-                            
                             <td>{{ $curso->nivel }}</td>
                             @if ($gestion === Date('Y'))
                             <td> {{$curso->cupo_max}} </td>

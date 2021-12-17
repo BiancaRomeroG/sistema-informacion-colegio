@@ -4,6 +4,7 @@ use App\Http\Controllers\administrativoController;
 use App\Http\Controllers\alumnoController;
 use App\Http\Controllers\bitacoraController;
 use App\Http\Controllers\apoderadoController;
+use App\Http\Controllers\boletinController;
 use App\Http\Controllers\cardexController;
 use App\Http\Controllers\cursoController;
 use App\Http\Controllers\homeController;
@@ -106,8 +107,16 @@ Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPD
 //ruta para pago salario
 Route::resource('salario',pagoSalarioController::class);
 
+//ruta para boletin
+Route::get('/boleta/{id}/trim1',[boletinController::class, 'trim1'])->name('boletin.trim1');
+Route::get('/boleta/{id}/trim2',[boletinController::class, 'trim2'])->name('boletin.trim2');
+Route::get('/boleta/{id}/trim3',[boletinController::class, 'trim3'])->name('boletin.trim3');
+Route::resource('boletin',boletinController::class);
+
+=======
 //ruta para reportes
 Route::get('/reporteMensualidad/{id}', 'App\Http\Controllers\pagoMensualidadController@generarReporte')->name('reporteMensualidad');
 Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@generarReporte')->name('reporteSalario');
+
 
 
