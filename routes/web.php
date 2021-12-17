@@ -100,6 +100,7 @@ Route::resource('cardex', cardexController::class);
 
 //ruta para bitacora
 Route::resource('bitacora', bitacoraController::class)->only(['show']);
+Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPDF'])->name('bitacora.pdf');
 
 
 //ruta para pago salario
