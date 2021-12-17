@@ -12,9 +12,11 @@ use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\pagoMensualidadController;
 use App\Http\Controllers\pagoSalarioController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
+use App\Models\pagoMensualidad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -99,19 +101,22 @@ Route::resource('cardex', cardexController::class);
 
 //ruta para bitacora
 Route::resource('bitacora', bitacoraController::class)->only(['show']);
+Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPDF'])->name('bitacora.pdf');
 
 
 //ruta para pago salario
 Route::resource('salario',pagoSalarioController::class);
 
-Route::get('/boleta/{id}/trim1',[boletinController::class, 'trim1'])->name('boletin.trim1');
-
-Route::get('/boleta/{id}/trim2',[boletinController::class, 'trim2'])->name('boletin.trim2');
-
-Route::get('/boleta/{id}/trim3',[boletinController::class, 'trim3'])->name('boletin.trim3');
-
 //ruta para boletin
+Route::get('/boleta/{id}/trim1',[boletinController::class, 'trim1'])->name('boletin.trim1');
+Route::get('/boleta/{id}/trim2',[boletinController::class, 'trim2'])->name('boletin.trim2');
+Route::get('/boleta/{id}/trim3',[boletinController::class, 'trim3'])->name('boletin.trim3');
 Route::resource('boletin',boletinController::class);
+
+=======
+//ruta para reportes
+Route::get('/reporteMensualidad/{id}', 'App\Http\Controllers\pagoMensualidadController@generarReporte')->name('reporteMensualidad');
+Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@generarReporte')->name('reporteSalario');
 
 
 

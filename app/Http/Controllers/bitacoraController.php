@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\acciones;
+use DateTime;
 use Illuminate\Http\Request;
+use PDF;
 
 class bitacoraController extends Controller
 {
@@ -15,6 +17,21 @@ class bitacoraController extends Controller
     }
 
     static public function bitacoraRegister($id, $descripcion){
-        $accion = acciones::created();
+        $accion = acciones::create([
+            'fecha' => new DateTime('Now'),
+            'descripcion' => $descripcion,
+            'id_usuario' => $id,
+        ]);
+        $accion->save();
+    }
+
+    public function downloadPDF($id){
+        $persona = usuarioController::getPersonByIdUser($id);
+        $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->get();
+        $pdf = PDF::loadView('Bitacora.pdf',['acciones' => $acciones, 'persona' => $persona])->setPaper('a4');
+        $tittle = 'Bitacora-'.$persona->nombre.$persona->apellido_pat.$persona->apellido_mat;
+        return $pdf->download($tittle);
+      //  return view('Bitacora.pdf', compact('persona', 'acciones'));
+
     }
 }

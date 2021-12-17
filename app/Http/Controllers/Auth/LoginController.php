@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\bitacoraController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -80,7 +81,7 @@ class LoginController extends Controller
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
-            Auth::user()->registrarBitacora('login');
+            bitacoraController::bitacoraRegister(Auth::user()->id, 'Iniciando sessión');
             return $this->sendLoginResponse($request);
         }
 
@@ -94,7 +95,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::user()->registrarBitacora('logout');
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Cerrando sessión');
         $this->guard()->logout();
 
         $request->session()->invalidate();

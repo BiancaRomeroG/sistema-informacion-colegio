@@ -10,13 +10,16 @@
                 <div class="col">
                     <h2>Bitacora de {{$persona->nombre}} {{$persona->apellido_pat}} {{$persona->apellido_mat}}</h2>
                 </div>
+                <div class="col text-end">
+                    <a class="btn btn-sm btn-success" href="{{ route('bitacora.pdf', $persona->idUsuario) }}">Descargar PDF</a>
+                </div>
             </div>
             <table class="table table-bordered">
                 <thead class="table-secondary">
                     <tr>
                         <th>Nro</th>
-                        <th>Fecha y hora</th>
-                   
+                        <th>Fecha</th>
+                        <th>Hora</th>
                         <th>Descripción</th>
                     </tr>
                 </thead>
@@ -24,8 +27,8 @@
                     @foreach ($acciones as $accion)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $accion->fecha }}</td>
-                       
+                            <td>{{ Carbon\Carbon::parse($accion->fecha)->format('d-m-Y')}}</td>
+                            <td>{{ Carbon\Carbon::parse($accion->fecha)->format('H:i:s')}}</td>
                             <td>{{ $accion->descripcion}} </td>
                         </tr>
                     @endforeach
