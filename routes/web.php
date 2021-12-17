@@ -113,7 +113,6 @@ Route::get('/boleta/{id}/trim2',[boletinController::class, 'trim2'])->name('bole
 Route::get('/boleta/{id}/trim3',[boletinController::class, 'trim3'])->name('boletin.trim3');
 Route::resource('boletin',boletinController::class);
 
-=======
 //ruta para reportes
 Route::get('/reporteMensualidad/{id}', 'App\Http\Controllers\pagoMensualidadController@generarReporte')->name('reporteMensualidad');
 Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@generarReporte')->name('reporteSalario');
