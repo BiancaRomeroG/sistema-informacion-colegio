@@ -4,15 +4,18 @@ use App\Http\Controllers\administrativoController;
 use App\Http\Controllers\alumnoController;
 use App\Http\Controllers\bitacoraController;
 use App\Http\Controllers\apoderadoController;
+use App\Http\Controllers\cardexController;
 use App\Http\Controllers\cursoController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\pagoMensualidadController;
 use App\Http\Controllers\pagoSalarioController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
+use App\Models\pagoMensualidad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -91,6 +94,10 @@ Route::resource('inscripcion', inscripcionController::class);
 Route::resource('mensualidad', pagoMensualidadController::class);
 
 
+//ruta para cardex
+Route::resource('cardex', cardexController::class);
+
+
 //ruta para bitacora
 Route::resource('bitacora', bitacoraController::class)->only(['show']);
 Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPDF'])->name('bitacora.pdf');
@@ -98,4 +105,9 @@ Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPD
 
 //ruta para pago salario
 Route::resource('salario',pagoSalarioController::class);
+
+//ruta para reportes
+Route::get('/reporteMensualidad/{id}', 'App\Http\Controllers\pagoMensualidadController@generarReporte')->name('reporteMensualidad');
+Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@generarReporte')->name('reporteSalario');
+
 

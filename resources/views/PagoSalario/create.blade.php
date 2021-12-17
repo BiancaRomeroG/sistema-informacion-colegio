@@ -46,17 +46,31 @@
                 <form method="POST" action="{{route('salario.store')}}" id="form-reg">
                     @csrf
                     <input type="hidden" name="id_profesor" value="{{$profesor->id}}">
-                    <div class="row m-2">
-                        <div class="col-4 m-2">
-                            <label for="monto" class="fw-bold">
-                                Monto: <br>
-                                <input type="number" name="monto" id="monto" placeholder="Monto Bs.">
-                            </label>
-                        </div>
+                    <div class="row m-2 justify-content-around">
                         <div class="col-4 m-2">
                             <label for="pago" class="fw-bold">
                                 Nro. Pago: <br>
-                                <input type="number" name="pago" id="pago" placeholder="Nro. de pago">
+                                <input class="form-control" type="number" name="pago" id="pago" placeholder="Nro. de pago">
+                            </label>
+                        </div>
+                        <div class="col-4 m-2">
+                            <label for="monto" class="fw-bold">
+                                Monto Bruto: <br>
+                                <input class="form-control" type="number" name="monto" id="monto" placeholder="Monto Bs.">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row m-2 justify-content-around">
+                        <div class="col-4 m-2">
+                            <label for="iva" class="fw-bold">
+                                % Descuento IVA: <br>
+                                <input class="form-control" type="number" value="12.5" name="descuento_iva" id="iva" disabled>
+                            </label>
+                        </div>
+                        <div class="col-4 m-2">
+                            <label for="afp" class="fw-bold">
+                                % Aporte Laboral: <br>
+                                <input class="form-control" type="number" value="12.71" name="aporte_afp" id="afp" disabled>
                             </label>
                         </div>
                     </div>
@@ -68,6 +82,5 @@
         </div>
     </div>
 </section>
-
 
 @endsection
