@@ -15,6 +15,6 @@ class bitacoraController extends Controller
     }
 
     static public function bitacoraRegister($id, $descripcion){
-        $accion = acciones::created()
+        $accion = acciones::created();
     }
 }
