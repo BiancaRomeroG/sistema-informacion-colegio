@@ -169,7 +169,7 @@
             </div>
         @else
 
-            <!--Tabla del 1er trimestre-->
+            <!--Tabla de pagos-->
             <table class="table table-bordered">
                 <thead class="table-secondary">
                     <tr>

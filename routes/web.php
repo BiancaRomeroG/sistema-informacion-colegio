@@ -115,6 +115,9 @@ Route::get('salario/index/dowload-PDF', [pagoSalarioController::class,'PDFList']
 Route::get('/boleta/{id}/trim1',[boletinController::class, 'trim1'])->name('boletin.trim1');
 Route::get('/boleta/{id}/trim2',[boletinController::class, 'trim2'])->name('boletin.trim2');
 Route::get('/boleta/{id}/trim3',[boletinController::class, 'trim3'])->name('boletin.trim3');
+Route::get('/reporteTrim1/{id}','App\Http\Controllers\boletinController@reporteTrim1')->name('boletinTrim1');
+Route::get('/reporteTrim2/{id}','App\Http\Controllers\boletinController@reporteTrim2')->name('boletinTrim2');
+Route::get('/reporteTrim3/{id}','App\Http\Controllers\boletinController@reporteTrim3')->name('boletinTrim3');
 Route::resource('boletin',boletinController::class);
 
 //ruta para reportes
