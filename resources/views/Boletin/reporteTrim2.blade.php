@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Reporte Pago Salario</title>
+
+    <title>Boletin</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +35,7 @@
     }
 
     header h1 {
-        margin: 0 0 10px 0;
+        margin: 10px 0;
     }
 
     header h2 {
@@ -65,11 +66,8 @@
     footer .izq {
         text-align: left;
     }
-
-    th {
-        text-align: center
-    }
     </style>
+
 </head>
 
 <body>
@@ -97,51 +95,53 @@
     </header>
 
     <main>
-        <br>
-        <br>
         <div style="text-align: center">
-            <h2> RECIBO DE PAGO DE SALARIO </h2>
+            <h1> BOLETIN DE CALIFICACIONES </h1>
         </div>
+        <table style="border: 1px solid black; width: 100%; ">
+            <tr>
+                <td>
+                    <p class="mb-1 ">
+                        <b class="fw-bold text-secondary">Nombre Completo: </b> {{$persona->nombre}}
+                        {{$persona->apellido_pat}} {{$persona->apellido_mat}}
+                    </p>
 
+                    <p class="mb-1"><b class="fw-bold text-secondary">Codigo Rude: </b> {{$alumno->cod_rude}}
+                    </p>
+                </td>
+                <td>
+                    <p class="mb-1"><b class="fw-bold text-secondary">Curso: </b> {{$cardex->id_curso}}°
+                        Secundaria</p>
+                    <p class="mb-1"><b class="fw-bold text-secondary">Trimestre: </b> 2</p>
+                </td>
+        </table>
+        <br>
         <table class="table table-bordered table-sm ">
-            <tr>
-                <th colspan="2"><b>Datos Profesor</b></th>
-            </tr>
-            <tr>
-                <td><b>Nombre</b></td>
-                <td>{{ $persona->nombre . ' ' . $persona->apellido_pat . ' ' . $persona->apellido_mat }}</td>
-            </tr>
-            <tr>
-                <td><b>CI</b></td>
-                <td>{{ $persona->ci }}</td>
-            </tr>
-            <tr>
-                <th colspan="2"><b>Acerca del Pago</b></th>
-            </tr>
-            <tr>
-                <td><b>Nro Cuota</b></td>
-                <td>{{ $pagoSalario->nro_pago }}</td>
-            </tr>
-            <tr>
-                <td><b>Monto bruto</b></td>
-                <td>Bs. {{ $pago->monto }}</td>
-            </tr>
-            <tr>
-                <td><b>Descuento IVA</b></td>
-                <td>Bs. {{$pagoSalario->descuento_iva}}</td>
-            </tr>
-            <tr>
-                <td><b>Aporte AFP</b></td>
-                <td>Bs. {{$pagoSalario->aporte_afp}}</td>
-            </tr>
-            <tr>
-                <td><b>Monto neto</b></td>
-                <td>Bs. {{$pago->monto - $pagoSalario->descuento_iva - $pagoSalario->aporte_afp}} Bs.</td>
-            </tr>
+            <thead class="table-secondary">
+                <tr>
+                    <th>Asignatura</th>
+                    <th>Ser</th>
+                    <th>Saber</th>
+                    <th>Hacer</th>
+                    <th>Decidir</th>
+                    <th>Nota Trimestral</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($trimestre2 as $trimestre)
+                <tr>
+                    <td class="text-start">{{ $trimestre->nombre }}</td>
+                    <td>{{ $trimestre->ser }}</td>
+                    <td>{{ $trimestre->saber }}</td>
+                    <td>{{ $trimestre->hacer }}</td>
+                    <td>{{ $trimestre->decidir }}</td>
+                    <td>{{ $trimestre->nota_trimestral }}</td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
 
     </main>
-
 </body>
 
 </html>
