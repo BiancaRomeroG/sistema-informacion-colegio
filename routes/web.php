@@ -17,6 +17,7 @@ use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
 use App\Models\pagoMensualidad;
+use App\Models\pagoSalarios;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -91,8 +92,9 @@ Route::get('/curso/{id}/{gestion}',[cursoController::class, 'show'])->name('curs
 //ruta para la inscripcion
 Route::resource('inscripcion', inscripcionController::class);
 
-//ruta para pago mensualidad
+//rutas para pago mensualidad
 Route::resource('mensualidad', pagoMensualidadController::class);
+Route::get('mensualidad/index/download-PDF', [pagoMensualidadController::class, 'PDFList'])->name('mensualidad.PDFList');
 
 
 //ruta para cardex
@@ -106,6 +108,7 @@ Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPD
 
 //ruta para pago salario
 Route::resource('salario',pagoSalarioController::class);
+Route::get('salario/index/dowload-PDF', [pagoSalarioController::class,'PDFList'])->name('salario.PDFList');
 
 //ruta para boletin
 Route::get('/boleta/{id}/trim1',[boletinController::class, 'trim1'])->name('boletin.trim1');

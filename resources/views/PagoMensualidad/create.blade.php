@@ -32,7 +32,7 @@
                                             <p class="mb-1"><b class="fw-bold  text-secondary">Ci: </b> {{$persona->ci}}</p>
                                             <p class="mb-1"><b class="fw-bold  text-secondary">Sexo: </b> {{$persona->sexo}}</p>
                                             <p class="mb-1"><b class="fw-bold  text-secondary">Fecha Nacimiento: </b> {{$persona->fecha_nac}}</p>
-                                            <p class="mb-1"><b class="fw-bold  text-secondary">Nombre Apoderado: </b> {{$personaApoderado->nombre.' '.$personaApoderado->apellido_pat.' '.$personaApoderado->apellido_pat}}</p>
+                                            <p class="mb-1"><b class="fw-bold  text-secondary">Nombre Apoderado: </b> {{$personaApoderado->nombre.' '.$personaApoderado->apellido_pat.' '.$personaApoderado->apellido_mat}}</p>
                                         </div>
                                         <div class="col mb-2">
                                             <strong class="mt-2">Datos Academicos</strong>
