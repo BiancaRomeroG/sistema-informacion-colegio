@@ -83,4 +83,49 @@ class pagoMensualidadController extends Controller
         return $pdf->download('reporteMensualidad.pdf');
     
     }
+
+    public function PDFList(){
+             
+        $meses = [
+            0 => 'Febrero',
+            1 => 'Marzo',
+            2 => 'Abril',
+            3 => 'Mayo',
+            4 => 'Junio',
+            5 => 'Julio',
+            6 => 'Agosto',
+            7 => 'Septiembre',
+            8 => 'Octubre',
+            9 =>  'Noviembre',
+        ];
+        $pagos = [];
+        for($i = 1; $i<=10; $i++){
+            if(pagoMensualidadController::existePago($i)){
+                $consultaPagos = pagoMensualidad::where('nro_cuota', '=', $i);
+
+                $pagos[] = Persona::join('alumnos','alumnos.id_persona', 'personas.id')
+                ->join('tutores','tutores.id', 'alumnos.id_tutor')
+                ->join('personas as tutorPersonas', 'tutorPersonas.id', '=', 'tutores.id_persona')
+                ->leftJoinSub($consultaPagos, 'pagosMensualidades', function($join){
+                    $join->on('pagosMensualidades.id_tutor','=', 'tutores.id');
+                })->leftjoin('pagos', 'pagos.id', 'pagosMensualidades.id_pago')
+               // ->where('pago_salarios.nro_pago', $i)
+                ->select('personas.*', 'pagos.monto as monto','tutorPersonas.nombre as nombre_tutor',
+                'tutorPersonas.apellido_pat as apellido_pat_tutor', 'tutorPersonas.apellido_mat as apellido_mat_tutor',
+                'pagos.fecha as fechaPago','pagosMensualidades.nro_cuota as nro_cuota','alumnos.cod_rude as cod_rude')
+                ->orderBy('personas.apellido_pat','asc')->get(); 
+            }
+        }
+        $pagos = collect($pagos);
+        $pdf = PDF::loadView('PagoMensualidad.indexPDF',['pagos' => $pagos, 'meses' => $meses])->setPaper('a4', 'landscape');
+        $tittle = 'Mensualidades'.Date('Y').'pdf';
+       // return $pagos;
+        //return $pdf->stream();
+        return $pdf->download($tittle);
+    }
+
+    static public function existePago($cuota){
+        $pago = pagoMensualidad::where('nro_cuota', '=', $cuota)->first();
+        return !empty($pago);
+    }
 }

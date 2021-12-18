@@ -11,6 +11,7 @@
                     <h2>Lista de Pagos</h2>
                 </div>
                 <div class="col text-end">
+                    <a class="btn btn-sm btn-dark" href="{{ route('mensualidad.PDFList') }}">PDF</a>
                     <a class="btn btn-sm btn-success" href="{{ route('mensualidad.create') }}">Nuevo pago</a>
                 </div>
             </div>
