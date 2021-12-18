@@ -10,6 +10,7 @@ use App\Http\Controllers\cursoController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\inscripcionController;
 use App\Http\Controllers\materiaController;
+use App\Http\Controllers\notasController;
 use App\Http\Controllers\pagoMensualidadController;
 use App\Http\Controllers\pagoSalarioController;
 use App\Http\Controllers\PDFController;
@@ -122,3 +123,7 @@ Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@g
 
 
 
+//ruta para las notas
+
+Route::post('/notasMod', [notasController::class, 'mod'])->name('mod.notas');
+Route::resource('notas', notasController::class);
