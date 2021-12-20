@@ -26,7 +26,7 @@ class boletinController extends Controller
         $alumnos = alumnos::join('inscripciones', 'inscripciones.id_alumno', 'alumnos.id')
             ->where('inscripciones.id_curso', '=', $curso->id)
             ->get();
-        // $boletin = boletines::findOrFail($id);
+
         $personas = [];
         foreach ($alumnos as $alumno) {
             $personas[] = Persona::findOrFail($alumno->id_persona);

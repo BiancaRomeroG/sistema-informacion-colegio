@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\usuario;
 use Faker\Provider\ar_JO\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -56,6 +57,8 @@ class profesorController extends Controller
         $profesor->profesion = $request->profesion;
         $profesor->id_usuario = $usuario->id;
         $profesor->save();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Profesor registrado ID: '.$profesor->id);
       
        return redirect()->route('profesor.index')->with(
         'success',
@@ -92,13 +95,17 @@ class profesorController extends Controller
 
         $persona->save();
 
-        return view('profesor.show', compact('persona', 'profesor'));
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Profesor ID: '.$profesor->id);
 
+        return view('profesor.show', compact('persona', 'profesor'));
     }
 
     public function destroy($id){
         $persona = Persona::findOrFail($id);
         $persona->delete();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Profesor eliminado ID Persona: '.$persona->id);
+
         return redirect()->route('profesor.index')->with('success', 'Profesor eliminado correctamente');
     }
 }

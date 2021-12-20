@@ -11,6 +11,7 @@ use App\Models\notas;
 use App\Models\tutores;
 use App\Models\Persona;
 use Brick\Math\BigInteger;
+use Illuminate\Support\Facades\Auth;
 
 class alumnoController extends Controller
 {
@@ -21,7 +22,6 @@ class alumnoController extends Controller
             ->orderBy('id', 'desc')->paginate(14);
         return view('alumno.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
-
 
     public function show($alumno)
     {
@@ -36,9 +36,10 @@ class alumnoController extends Controller
     {
         $alumno = alumnos::findOrFail($id);
         $persona = Persona::findOrFail($alumno->id_persona);
-        
-        
         $persona->delete();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno eliminado. ID: '.$alumno->id);
+
         return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
     }
 
@@ -69,6 +70,9 @@ class alumnoController extends Controller
         $alumno->cod_rude = $request->codrude;
         $alumno->id_tutor = $request->tutor_id;
         $alumno->save();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno registrado ID: '.$alumno->id);
+
         return redirect()->route('alumno.index')->with(
             'success',
             'Alumno creado correctamente'
@@ -88,8 +92,6 @@ class alumnoController extends Controller
 
     public function update(alumnos $alumno, Request $request)
     {
-
-
         $persona = Persona::findOrfail($alumno->id_persona);
 
         $persona->nombre = $request->nombre;
@@ -107,6 +109,8 @@ class alumnoController extends Controller
         $alumno->cod_rude = $request->codrude;
         $alumno->id_tutor = $request->tutor_id;
         $alumno->save();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del alumno ID: '.$alumno->id);
 
         return redirect()->route('alumno.show', $alumno->id)->with('success', 'Alumno editado correctamente');
     }

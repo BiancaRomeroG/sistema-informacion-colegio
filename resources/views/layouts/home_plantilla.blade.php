@@ -16,7 +16,7 @@
                         <h5 class="mx-2 text-white">Colegio Cristo Rey</h5>
                     </div>
                     <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white my-3 mx-0 px-3">
-                        <a href="/home" class="nav-link text-white my-1 py-0 px-1">
+                        <a href="{{route('home.index')}}" class="nav-link text-white my-1 py-0 px-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-house mx-2 mb-2 mt-1" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"

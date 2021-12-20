@@ -12,7 +12,8 @@
                 </h5>
             </div>
             <div class="card-body p-4">
-                <form method='get' action=''>
+                <form method='POST' action='{{route('curso.store')}}'>
+                    @csrf
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
                             <label for="nivel">

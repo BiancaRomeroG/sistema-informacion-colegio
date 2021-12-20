@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\alumnos;
 use App\Models\cardex;
+use App\Models\cursos;
 use App\Models\inscripciones;
 use App\Models\Persona;
 use Carbon\Carbon;
@@ -17,8 +18,6 @@ use function PHPUnit\Framework\isEmpty;
 
 class inscripcionController extends Controller
 {
-    var $persona;
-
     public function index(Request $request) {
         //$select = trim($request->select);
         $personas = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')
@@ -32,6 +31,8 @@ class inscripcionController extends Controller
         $ins = inscripciones::join('alumnos', 'alumnos.id', 'inscripciones.id_alumno')
         ->where('inscripciones.id_alumno', '=', $request->id_alumno)->get();
 
+        if (cursoController::cant_alumnos($request->curso) >= cursoController::cupo_max($request->curso))
+            return redirect()->route('inscripcion.create')->with('error', 'El curso '.$request->curso.'° de secundaria ya no tiene cupos disponibles');
         
         if (count($ins) > 0 )
             return redirect()->route('inscripcion.create')->with('error', 'El alumno ya esa inscrito');
@@ -52,7 +53,13 @@ class inscripcionController extends Controller
             'id_curso' => $request->curso,
             'id_alumno' => $request->id_alumno
         ]);
-        return redirect()->route('inscripcion.show', $inscripcion->id);
+
+        $curso = cursos::findOrFail($request->curso);
+        $curso->cant_alumnos++;
+        $curso->save();
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno inscrito ID: '.$request->id_alumno.' - Cardex creado ID:'.$cardex->id);
+
+        return redirect()->route('inscripcion.show', $inscripcion->id)->with('success', 'Alumno inscrito correctamente');
     }
 
     public function create(Request $request) {

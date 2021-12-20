@@ -8,6 +8,7 @@ use App\Models\profesores;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class usuarioController extends Controller
@@ -29,13 +30,15 @@ class usuarioController extends Controller
     
     public function update($id){
 
-
         $usuario = User::findOrFail($id);
 
         $persona = Persona::getPersonByIdUser($usuario->id);
 
         $usuario->contrasenha = Hash::make($persona->ci);
         $usuario->save();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Usuario ID: '.$usuario->id);
+
         return redirect()->route('usuario.index')->with(
             'success',
             'Contraseña restablecida correctamente'

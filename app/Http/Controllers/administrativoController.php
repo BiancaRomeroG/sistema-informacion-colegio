@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Persona;
 use App\Models\administrativos;
 use App\Models\usuario;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class administrativoController extends Controller
@@ -53,7 +54,9 @@ class administrativoController extends Controller
         $administrativo->id_usuario = $usuario->id;
         $administrativo->save();
       
-       return redirect()->back()->with(
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Registro de Administrativo ID: '.$administrativo->id);
+
+       return redirect()->route('administrativo.index')->with(
         'success',
         'Administrativo creado correctamente'
     );
@@ -63,8 +66,7 @@ class administrativoController extends Controller
         $administrativo = administrativos::findOrFail($id);
         $persona = Persona::findOrFail($administrativo->id_persona);
         $actionform = route('administrativo.update',[$administrativo->id]); 
-       return view('administrativo.edit', compact('administrativo','persona','actionform'));
-      
+        return view('administrativo.edit', compact('administrativo','persona','actionform'));
     }
 
     public function update($id, Request $request){
@@ -87,6 +89,8 @@ class administrativoController extends Controller
 
         $persona->save();
 
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del Administrativo ID: '.$administrativo->id);
+
         return redirect()->route('administrativo.show', $administrativo->id)->with('success', 'Administrativo editado correctamente');
 
     }
@@ -94,6 +98,7 @@ class administrativoController extends Controller
     public function destroy($id){
         $persona = Persona::findOrFail($id);   
         $persona->delete();
+
         return redirect()->route('administrativo.index')->with('success', 'Administrativo eliminado correctamente');
     }
 
