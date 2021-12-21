@@ -15,6 +15,7 @@ class cursoController extends Controller
         $gestion = $request->gestion;
         $cursoA = cursos::all();
 
+       // return $request;
         if($gestion == Date('Y')){
             $cursos = $cursoA;
             return view('Curso.index',compact('cursos','gestion'));
@@ -44,7 +45,7 @@ class cursoController extends Controller
 
         $curso = cursos::create([
             'nivel' => $request->nivel,
-            'cupo_max' => $request->cupo_max,
+            'cupo_max' => $request->cupos_max,
             'cant_alumnos' => 0,
         ]
         ); 

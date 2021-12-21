@@ -13,5 +13,7 @@
             </label>
             <input form="register_form" class="form-control" 
             id="profesion" type="text" name="profesion" value="{{old('nombre')}}">
-        </div>
+            {!! $errors->first('profesion', '<span class="help-block text-danger">*:message</span>') !!}
+
+     </div>
 @endsection

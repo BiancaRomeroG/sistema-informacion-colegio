@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAlumno;
 use Illuminate\Http\Request;
 use App\Models\alumnos;
 use App\Models\boletines;
@@ -50,7 +51,7 @@ class alumnoController extends Controller
         return view('alumno.create', compact('actionform', 'tutores'));
     }
 
-    public function store(Request $request)
+    public function store(StoreAlumno $request)
     {
         $persona = Persona::create([
             'nombre' => $request->nombre,
@@ -86,7 +87,7 @@ class alumnoController extends Controller
         return view('Alumno.edit', compact('alumno', 'persona', 'tutores', 'tutorid', 'actionform'));
     }
 
-    public function update(alumnos $alumno, Request $request)
+    public function update(alumnos $alumno, StoreAlumno $request)
     {
 
 

@@ -32,7 +32,8 @@
                             <label for="cupos_max">
                                 Cantidad maxima de alumnos:<br>
                             </label>
-                            <input class="form-control" id="cupos_max" type="number" name="cupos_max" min="10" max="100" required> 
+                            <input class="form-control" id="cupos_max" type="number" name="cupos_max" min="10" max="100" 
+                             required> 
                         </div>
                     </div>
                    

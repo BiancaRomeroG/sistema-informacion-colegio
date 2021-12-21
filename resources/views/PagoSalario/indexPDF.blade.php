@@ -99,6 +99,7 @@
       </tr>
     </table>
   </footer>
+  
   <main>
     <div style= "text-align: center">
     <h1 > Lista de pagos salarios de la gestion {{Date('Y')}} </h1>

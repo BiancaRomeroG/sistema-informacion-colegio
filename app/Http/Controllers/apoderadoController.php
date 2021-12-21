@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreApoderado;
 use App\Models\Persona;
 use App\Models\tutores;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class apoderadoController extends Controller
         return view('apoderado.create', compact('actionform'));
     }
 
-    public function store(Request $request)
+    public function store(StoreApoderado $request)
     {
         $persona = Persona::create([
             'nombre'       => $request->nombre,
@@ -71,7 +72,7 @@ class apoderadoController extends Controller
         return view('apoderado.edit', compact('tutor', 'persona', 'actionform'));
     }
 
-    public function update($tutorId, Request $request)
+    public function update($tutorId, StoreApoderado $request)
     {
         $tutor = tutores::findOrfail($tutorId);
         $persona = Persona::findOrfail($tutor->id_persona);

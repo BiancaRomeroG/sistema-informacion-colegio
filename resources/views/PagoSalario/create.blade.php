@@ -25,6 +25,11 @@
                         <div class="col m-2">
                             <div class="card">
                                 <div class="card-body">
+                                    @if ($persona == null)
+                                        <div class = "text-center alert alert-danger">
+                                        <p>No hay resultados</p>
+                                        </div>      
+                                     @else
                                     <div class="row justify-content-around">
                                         <div class="col">
                                             <strong class="mt-2">Datos Personales</strong>
@@ -39,24 +44,28 @@
                                             <p class="mb-1 "><span class="fw-bold text-secondary">Profesion: </span> {{$profesor->profesion}}</p>
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 <form method="POST" action="{{route('salario.store')}}" id="form-reg">
                     @csrf
-                    <input type="hidden" name="id_profesor" value="{{$profesor->id}}">
+                    <input type="hidden" name="id_profesor" @if($profesor!=null)value="{{$profesor->id}}"@else value ="" @endif>
                     <div class="row m-2 justify-content-around">
                         <div class="col-4 m-2">
                             <label for="pago" class="fw-bold">
                                 Nro. Pago: <br>
                                 <input class="form-control" type="number" name="pago" id="pago" placeholder="Nro. de pago">
+                                {!! $errors->first('pago', '<span class="help-block text-danger">*:message</span>') !!}
                             </label>
                         </div>
                         <div class="col-4 m-2">
                             <label for="monto" class="fw-bold">
                                 Monto Bruto: <br>
                                 <input class="form-control" type="number" name="monto" id="monto" placeholder="Monto Bs.">
+                                {!! $errors->first('monto', '<span class="help-block text-danger">*:message</span>') !!}
+                                
                             </label>
                         </div>
                     </div>
@@ -76,7 +85,7 @@
                     </div>
                     <div class="row-2 text-end m-2">
                         <a class="btn btn-danger" href="{{route('salario.index')}}">Cancelar</a>
-                        <button type="submit" class="btn btn-primary" form="form-reg">Registrar</button>
+                        <button type="submit" class="btn btn-primary" form="form-reg" @if($persona == null) disabled @endif>Registrar</button>
                     </div>
                 </form>
         </div>

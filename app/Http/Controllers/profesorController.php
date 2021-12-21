@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProfesor;
 use App\Models\Persona;
 use App\Models\profesores;
 use App\Models\User;
@@ -30,7 +31,7 @@ class profesorController extends Controller
         return view('Profesor.create', compact('actionform'));
     }
 
-    public function store (Request $request){
+    public function store (StoreProfesor $request){
         $persona = Persona::create([
             'nombre'=> $request->nombre,
             'apellido_pat' => $request->apellido_pat,
@@ -72,7 +73,7 @@ class profesorController extends Controller
       
     }
 
-    public function update($id, Request $request){
+    public function update($id, StoreProfesor $request){
 
         $profesor = profesores::findOrFail($id);
         $profesor->profesion = $request->profesion;

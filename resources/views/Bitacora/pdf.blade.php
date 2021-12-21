@@ -11,7 +11,7 @@
 
     body {
       font-family: "Times New Roman", serif;
-      margin: 1.5cm 1cm 1cm;
+      margin: 1.5cm 1cm 2cm 1cm;
     }
     
     @page {
