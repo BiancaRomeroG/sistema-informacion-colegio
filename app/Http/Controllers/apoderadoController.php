@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Persona;
 use App\Models\tutores;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class apoderadoController extends Controller
 {
@@ -50,6 +51,8 @@ class apoderadoController extends Controller
         ]);
         $apoderado->save();
 
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Apoderado registrado ID: '.$apoderado->id);
+
         return redirect()->route('apoderado.index')->with(
             'success',
             'Apoderado creado correctamente'
@@ -60,6 +63,9 @@ class apoderadoController extends Controller
     {
         $tutor = tutores::findOrFail($id);
         $tutor->delete();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Apoderado eliminado ID: '.$tutor->id);
+
         return redirect()->route('apoderado.index')->with('success', 'Apoderado eliminado correctamente');
     }
 
@@ -92,7 +98,8 @@ class apoderadoController extends Controller
         $tutor->parentesco = $request->parentesco;
         $tutor->save();
 
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del apoderado ID: '.$tutor->id);
+
         return redirect()->route('apoderado.show', $tutor->id)->with('success', 'Apoderado editado correctamente');
-        return $tutor;
     }
 }

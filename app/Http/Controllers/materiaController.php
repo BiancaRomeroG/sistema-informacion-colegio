@@ -9,6 +9,7 @@ use App\Models\profesores;
 use App\Models\tutores;
 use Faker\Provider\ar_JO\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class materiaController extends Controller
 {
@@ -23,6 +24,9 @@ class materiaController extends Controller
     public function store(Request $request) {
         $materia = materias::create($request->all());
         $materia->save();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Materia creada ID: '.$materia->id);
+
         return redirect()->route('materia.index');
     }
 
@@ -36,6 +40,9 @@ class materiaController extends Controller
     public function destroy($id){
         $materia = materias::findOrFail($id);
         $materia->delete();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Materia eliminada ID: '.$materia->id);
+
         return redirect()->route('materia.index')->with('success', 'Materia eliminada');
     }
 
@@ -56,6 +63,9 @@ class materiaController extends Controller
     public function update($id, Request $request) {
         $materia = materias::findOrFail($id);
         $materia->update($request->all());
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Materia ID: '.$materia->id);
+
         return redirect()->route('materia.show', $materia)->with('success', 'Materia editada correctamente');
     }
 }

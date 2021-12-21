@@ -103,6 +103,9 @@ class notasController extends Controller
             $nota->save();
             $i++;
         }
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Notas ingresadas del curso '.$request->id_curso.'° de secundaria');
+
         return redirect()->route('notas.show', $request->id_curso);
     }
 
@@ -146,6 +149,9 @@ class notasController extends Controller
 
             $i++;
         }
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Notas modicadas del curso '.$id_curso.'° de secundaria');
+
         return redirect()->route('notas.show', $id_curso)->with('success', 'Notas modificadas exitosamente');
     }
 }

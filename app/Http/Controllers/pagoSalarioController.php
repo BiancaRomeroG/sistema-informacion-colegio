@@ -8,6 +8,7 @@ use App\Models\Persona;
 use Carbon\Carbon;
 use Database\Seeders\PersonaSeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class pagoSalarioController extends Controller
@@ -44,6 +45,9 @@ class pagoSalarioController extends Controller
         ]);
         $pagoSalario->save();
         $id = $pago->id_pago;
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Pago Salario registrado ID: '.$pagoSalario->id);
+
         return redirect()->route('salario.index')->with(
             'success',
             'Pago registrado correctamente'

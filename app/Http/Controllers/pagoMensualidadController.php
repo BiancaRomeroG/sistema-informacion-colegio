@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Auth;
 
 class pagoMensualidadController extends Controller
 {
@@ -48,6 +49,9 @@ class pagoMensualidadController extends Controller
             'id_tutor' => $request->id_tutor
         ]);
         $pagoMen->save();
+
+        bitacoraController::bitacoraRegister(Auth::user()->id, 'Pago Mensualidad registrado ID: '.$pagoMen->id);
+
         return redirect()->route('mensualidad.show', $pagoMen->id);
     }
 
