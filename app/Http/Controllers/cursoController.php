@@ -16,6 +16,7 @@ class cursoController extends Controller
         $gestion = $request->gestion;
         $cursoA = cursos::all();
 
+       // return $request;
         if($gestion == Date('Y')){
             $cursos = $cursoA;
             return view('Curso.index',compact('cursos','gestion'));

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\StorePagoSalario;
 use App\Models\pagoSalarios;
 use App\Models\pagos;
 use App\Models\profesores;
@@ -24,12 +26,16 @@ class pagoSalarioController extends Controller
 
     public function create(Request $request) {
         $id = $request->id != null? trim($request->id):1;
-        $profesor = profesores::findOrFail($id);
+        $profesor = profesores::find($id);
+        if($profesor == null){
+            $persona = null;
+            return view('pagoSalario.create', compact('id', 'profesor', 'persona'));
+        }
         $persona = Persona::findOrFail($profesor->id_persona);
         return view('pagoSalario.create', compact('id', 'profesor', 'persona'));
     }
 
-    public function store(Request $request) {
+    public function store(StorePagoSalario $request) {
         $pago = pagos::create([
             'monto' => $request->monto,
             'fecha' => Carbon::now()->format('Y,m,d')

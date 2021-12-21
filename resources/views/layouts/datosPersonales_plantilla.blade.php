@@ -8,15 +8,18 @@
                     <h5 class="m-2">Datos Personales</h5>
                 </div>
                 <div class="card-body p-4">
+
+                    <!--  FORMULARIO DE LOGIN  -->
                     <form method="POST" id='register_form' action="{{ $actionform }}">
                         @csrf
                         <div class="row mb-3 justify-content-around">
                             <div class="col m-2">
-                                <label for="nombre">
+                                <label for="nombre" class="col-sm-2 col-form-label">
                                     Nombre<br>
                                 </label>
                                 <input class="form-control" id="nombre" type="text" name="nombre"
-                                    value="{{ old('nombre') }}" )>
+                                    value="{{ old('nombre') }}">
+                                    {!! $errors->first('nombre', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
                         <div class="row mb-3 justify-content-around">
@@ -26,6 +29,7 @@
                                 </label>
                                 <input class="form-control" id="apellidoPat" type="text" name="apellido_pat"
                                     value="{{ old('apellido_pat') }}">
+                                    {!! $errors->first('apellido_pat', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                             <div class="col m-2">
                                 <label for="apellidoMat">
@@ -33,6 +37,7 @@
                                 </label>
                                 <input class="form-control" id="apellidoMat" type="text" name="apellido_mat"
                                     value="{{ old('apellido_mat') }}">
+                                    {!! $errors->first('apellido_mat', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
                         <div class="row mb-3 justify-content-around">
@@ -40,7 +45,8 @@
                                 <label for="ci">
                                     Cédula de identidad<br>
                                 </label>
-                                <input class="form-control" id="ci" type="number" name="ci" value="{{ old('ci') }}">
+                                <input class="form-control" id="ci" type="number" name="ci" value="{{ old('ci') }}" >
+                                {!! $errors->first('ci', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                             <div class="col m-2">
                                 <label for="email">
@@ -48,6 +54,7 @@
                                 </label>
                                 <input class="form-control" id="email" type="email" name="email"
                                     value="{{ old('email') }}">
+                                    {!! $errors->first('email', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
                         <div class="row mb-3 justify-content-around">
@@ -57,6 +64,7 @@
                                 </label>
                                 <input class="form-control" id="fechaNac" type="date" name="fecha_nac"
                                     value="{{ old('fecha_nac') }}">
+                                    {!! $errors->first('fecha_nac', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                             <div class="col m-2">
                                 <p class="mb-1">
@@ -70,6 +78,7 @@
                                     <input class="form-check-input" id="mujer" type="radio" name="sexo" value="2">
                                     <label for="mujer">Mujer</label>
                                 </div>
+                                {!! $errors->first('sexo', '<br><span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
                         <div class="row mb-3 justify-content-around">
@@ -78,12 +87,14 @@
                                     Dirección<br>
                                 </label>
                                 <input class="form-control" type="text" name="direccion" value="{{ old('direccion') }}">
+                                {!! $errors->first('direccion', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                             <div class="col m-2">
                                 <label>
                                     Telefono<br>
                                 </label>
                                 <input class="form-control" type="tel" name="telefono" value="{{ old('telefono') }}">
+                                {!! $errors->first('telefono', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
                         <div class="card shadow m-5">
@@ -110,3 +121,5 @@
 </section>
 </div>
 @endsection
+
+

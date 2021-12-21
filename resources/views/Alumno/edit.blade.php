@@ -18,13 +18,15 @@
                             <label for="nombre">
                                 Nombre<br>
                             </label>
-                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{$persona->nombre}}">
+                            <input class="form-control" id="nombre" type="text" name="nombre" value="{{old('nombre' ,$persona->nombre)}}">
+                            {!! $errors->first('nombre', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <label for="apellidoPat">
                                 Apellido paterno<br>
                             </label>
-                            <input class="form-control" id="apellidoPat" type="text" name="apellido_pat" value = "{{$persona->apellido_pat}}">
+                            <input class="form-control" id="apellidoPat" type="text" name="apellido_pat" value = "{{old('apellido_pat',$persona->apellido_pat)}}">
+                            {!! $errors->first('apellido_pat', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -32,7 +34,8 @@
                             <label for="apellidoMat">
                                 Apellido materno<br>
                             </label>
-                            <input class="form-control" id="apellidoMat" type="text" name="apellido_mat" value="{{$persona->apellido_mat}}">
+                            <input class="form-control" id="apellidoMat" type="text" name="apellido_mat" value="{{old('apellido_mat',$persona->apellido_mat)}}">
+                            {!! $errors->first('apellido_mat', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -40,13 +43,15 @@
                             <label for="ci">
                                 Cédula de identidad<br>
                             </label>
-                            <input class="form-control" id="ci" type="number" name="ci" value="{{$persona->ci}}">
+                            <input class="form-control" id="ci" type="number" name="ci" value="{{old('ci',$persona->ci)}}">
+                            {!! $errors->first('ci', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <label for="email">
                                 Email<br>
                             </label>
-                            <input class="form-control" id="email" type="email" name="email" value= "{{$persona->email}}">
+                            <input class="form-control" id="email" type="email" name="email" value= "{{old('email',$persona->email)}}">
+                            {!! $errors->first('email', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -54,7 +59,8 @@
                             <label for="fechaNac">
                                 Fecha de nacimiento<br>
                             </label>
-                            <input class="form-control" id="fechaNac" type="date" name="fecha_nac" value= "{{$persona->fecha_nac}}">
+                            <input class="form-control" id="fechaNac" type="date" name="fecha_nac" value= "{{old('fecha_nac',$persona->fecha_nac)}}">
+                            {!! $errors->first('fecha_nac', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <p class="mb-1">
@@ -76,6 +82,7 @@
                                 >
                                 <label for="mujer">Mujer</label>
                             </div>
+                            {!! $errors->first('sexo', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -83,13 +90,15 @@
                             <label>
                                 Dirección<br>
                             </label>
-                            <input class="form-control" type="text" name="direccion" value="{{$persona->direccion}}">
+                            <input class="form-control" type="text" name="direccion" value="{{old('direccion',$persona->direccion)}}">
+                            {!! $errors->first('direccion', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <label>
                                 Telefono<br>
                             </label>
-                            <input class="form-control" type="tel" name="telefono" value="{{$persona->telefono}}">
+                            <input class="form-control" type="tel" name="telefono" value="{{old('telefono',$persona->telefono)}}">
+                            {!! $errors->first('telefono', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <section class="row justify-content-center" id="main">
@@ -104,7 +113,8 @@
                                             <label for="codigorude">
                                                 Codigo Rude<br>
                                             </label>
-                                            <input class="form-control" id="codrude" type="number" name="codrude" value="{{$alumno->cod_rude}}" form="register_form">
+                                            <input class="form-control" id="codrude" type="number" name="codrude" value="{{old('codrude',$alumno->cod_rude)}}" form="register_form">
+                                            {!! $errors->first('codrude', '<span class="help-block text-danger">*:message</span>') !!}
                                         </div>
                                         <div class="col m-2">
                                             <label for="tutor">Apoderado</label>
@@ -119,7 +129,7 @@
                                                 > {{$tutor->nombre}} {{$tutor->apellido_pat}} {{$tutor->apellido_mat}} </option>
                                                 @endforeach
                                             </select>
-                                    
+                                            {!! $errors->first('tutor_id', '<span class="help-block text-danger">*:message</span>') !!}
                                         </div>
                                     </div>
                                     </div>

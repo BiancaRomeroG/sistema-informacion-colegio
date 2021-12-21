@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAdministrativo;
 use Illuminate\Http\Request;
 use App\Models\Persona;
 use App\Models\administrativos;
@@ -27,7 +28,7 @@ class administrativoController extends Controller
         $actionform = route("administrativo.store"); 
         return view('administrativo.create', compact('actionform'));
     }
-    public function store (Request $request){
+    public function store (StoreAdministrativo $request){
         $persona = Persona::create([
             'nombre'=> $request->nombre,
             'apellido_pat' => $request->apellido_pat,
@@ -69,7 +70,7 @@ class administrativoController extends Controller
         return view('administrativo.edit', compact('administrativo','persona','actionform'));
     }
 
-    public function update($id, Request $request){
+    public function update($id, StoreAdministrativo $request){
 
         $administrativo = administrativos::findOrFail($id);
         $administrativo->profesion = $request->profesion;

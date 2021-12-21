@@ -17,12 +17,14 @@
                                 Nombre<br>
                             </label>
                             <input class="form-control" id="nombre" type="text" name="nombre" value="{{$persona->nombre}}">
+                            {!! $errors->first('nombre', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <label for="apellidoPat">
                                 Apellido paterno<br>
                             </label>
                             <input class="form-control" id="apellidoPat" type="text" name="apellido_pat" value = "{{$persona->apellido_pat}}">
+                            {!! $errors->first('apellido_pat', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -31,6 +33,7 @@
                                 Apellido materno<br>
                             </label>
                             <input class="form-control" id="apellidoMat" type="text" name="apellido_mat" value="{{$persona->apellido_mat}}">
+                            {!! $errors->first('apellido_mat', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -45,6 +48,7 @@
                                 Email<br>
                             </label>
                             <input class="form-control" id="email" type="email" name="email" value= "{{$persona->email}}">
+                            {!! $errors->first('email', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -53,6 +57,7 @@
                                 Fecha de nacimiento<br>
                             </label>
                             <input class="form-control" id="fechaNac" type="date" name="fecha_nac" value= "{{$persona->fecha_nac}}">
+                            {!! $errors->first('fecha_nac', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <p class="mb-1">
@@ -74,6 +79,7 @@
                                 >
                                 <label for="mujer">Mujer</label>
                             </div>
+                            {!! $errors->first('sexo', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row mb-3 justify-content-around">
@@ -82,12 +88,14 @@
                                 Dirección<br>
                             </label>
                             <input class="form-control" type="text" name="direccion" value="{{$persona->direccion}}">
+                            {!! $errors->first('direccion', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col m-2">
                             <label>
                                 Telefono<br>
                             </label>
                             <input class="form-control" type="tel" name="telefono" value="{{$persona->telefono}}">
+                            {!! $errors->first('telefono', '<span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <section class="row justify-content-center" id="main">
@@ -103,6 +111,7 @@
                                                 Parentesco<br>
                                             </label>
                                             <input class="form-control" type="text" name="parentesco" value="{{$tutor->parentesco}}">
+                                            {!! $errors->first('parentesco', '<span class="help-block text-danger">*:message</span>') !!}
                                         </div>
                                     </div>
                                     </div>

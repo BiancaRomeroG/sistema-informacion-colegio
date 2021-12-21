@@ -11,6 +11,7 @@
             Parentesco<br>
         </label>
         <input class="form-control" id="parentesco" type="text" name="parentesco" value="{{old('parentesco')}}" form="register_form">
+        {!! $errors->first('parentesco', '<span class="help-block text-danger">*:message</span>') !!}
     </div>
 </div>
 @endsection

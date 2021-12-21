@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePagoMensualidad;
 use App\Models\alumnos;
 use App\Models\inscripciones;
 use App\Models\pagoMensualidad;
@@ -28,15 +29,22 @@ class pagoMensualidadController extends Controller
 
     public function create(Request $request) {
         $id = $request->id != null? trim($request->id):1;
-        $alumno = alumnos::findOrFail($id);
-        $persona = Persona::findOrFail($alumno->id_persona);
-        $apoderado = tutores::findOrFail($alumno->id_tutor);
-        $personaApoderado = Persona::findOrFail($apoderado->id_persona);
+        $alumno = alumnos::find($id);
+        if($alumno == null){
+            $persona = null;
+            $apoderado = null;
+            $personaApoderado = null;
+            $inscripcion = null;
+            return view('pagoMensualidad.create', compact('id', 'alumno', 'persona', 'inscripcion', 'apoderado', 'personaApoderado'));
+        }
+        $persona = Persona::find($alumno->id_persona);
+        $apoderado = tutores::find($alumno->id_tutor);
+        $personaApoderado = Persona::find($apoderado->id_persona);
         $inscripcion = DB::table('inscripciones')->where('inscripciones.id_alumno', $alumno->id)->first();
         return view('pagoMensualidad.create', compact('id', 'alumno', 'persona', 'inscripcion', 'apoderado', 'personaApoderado'));
     }
 
-    public function store(Request $request) {
+    public function store(StorePagoMensualidad $request) {
         $pago = pagos::create([
             'monto' => $request->monto,
             'fecha' => Carbon::now()->format('Y,m,d')

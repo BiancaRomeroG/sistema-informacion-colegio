@@ -25,6 +25,11 @@
                         <div class="col m-2">
                             <div class="card">
                                 <div class="card-body">
+                                    @if ($persona == null)
+                                        <div class = "text-center alert alert-danger">
+                                        <p>No hay resultados</p>
+                                        </div>      
+                                    @else
                                     <div class="row justify-content-around">
                                         <div class="col">
                                             <strong class="mt-2">Datos Personales</strong>
@@ -41,30 +46,33 @@
                                             <p class="mb-1"><b class="fw-bold text-secondary">Codigo RUDE: </b> {{$alumno->cod_rude}}</p>
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 <form method="POST" action="{{route('mensualidad.store')}}" id="form-reg">
                     @csrf
-                    <input type="hidden" name="id_tutor" value="{{$apoderado->id}}">
+                    <input type="hidden" name="id_tutor" @if($apoderado!=null)value="{{$apoderado->id}}"@else value ="" @endif>
                     <div class="row m-2">
                         <div class="col-4 m-2">
                             <label for="monto" class="fw-bold">
                                 Monto: <br>
                                 <input type="number" name="monto" id="monto" placeholder="Monto Bs.">
+                                {!! $errors->first('monto', '<span class="help-block text-danger">*:message</span>') !!}
                             </label>
                         </div>
                         <div class="col-4 m-2">
                             <label for="cuota" class="fw-bold">
                                 Cuota: <br>
                                 <input type="number" name="cuota" id="cuota" placeholder="Nro. de cuota">
+                                {!! $errors->first('cuota', '<span class="help-block text-danger">*:message</span>') !!}
                             </label>
                         </div>
                     </div>
                     <div class="row-2 text-end m-2">
                         <a class="btn btn-danger" href="{{route('mensualidad.index')}}">Cancelar</a>
-                        <button type="submit" class="btn btn-primary" form="form-reg">Registrar</button>
+                        <button type="submit" class="btn btn-primary" form="form-reg" @if($persona == null) disabled @endif>Registrar</button>
                     </div>
                 </form>
         </div>

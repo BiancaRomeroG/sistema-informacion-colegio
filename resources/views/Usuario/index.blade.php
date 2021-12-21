@@ -10,9 +10,6 @@
                 <div class="col">
                     <h2>Lista de Usuarios</h2>
                 </div>
-                <div class="col text-end">
-                    <a class="btn btn-sm btn-success" href="{{ route('profesor.create') }}"> Registrar nuevo</a>
-                </div>
             </div>
             <table class="table table-bordered">
                 <thead class="table-secondary">
