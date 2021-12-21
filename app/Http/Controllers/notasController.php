@@ -133,6 +133,7 @@ class notasController extends Controller
 
     public function update( $id_curso, Request $request) {
         $i = 1;
+
         while ($i <= $request->count) {
             $ser = 'ser'.$i;
             $saber = 'saber'.$i;
@@ -144,9 +145,9 @@ class notasController extends Controller
             $nota->ser = $request->$ser;
             $nota->saber = $request->$saber;
             $nota->hacer = $request->$hacer;
-            $nota->decidirr = $request->$decidir;
+            $nota->decidir = $request->$decidir;
             $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
-
+            $nota->save();
             $i++;
         }
 
