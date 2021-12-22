@@ -10,9 +10,11 @@
                 <div class="col">
                     <h2>Cursos de la gestion {{$gestion}}</h2>
                 </div>
+                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                 <div class="col text-end">
                     <a class="btn btn-sm btn-success" href="{{ route('curso.create') }}"> Registrar nuevo</a>
                 </div>
+                @endif
             </div>
             <table class="table table-bordered">
                 <thead class="table-secondary">
@@ -35,8 +37,10 @@
                             <td>{{ $curso->cant_alumnos}}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('curso.show', ['id' =>$curso->id, 'gestion' => $gestion])}}">Ver</a>
-                                @if ($gestion === Date('Y') )
-                                <a class="btn btn-sm btn-secondary" href="{{ route('curso.edit', $curso->id) }}">Editar</a>   
+                                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+                                    @if ($gestion === Date('Y') )
+                                    <a class="btn btn-sm btn-secondary" href="{{ route('curso.edit', $curso->id) }}">Editar</a>   
+                                    @endif
                                 @endif
                             </td>
                         </tr>

@@ -3,347 +3,241 @@
 @section('title', 'Home')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!--Sidebar-->
-    <div class="container-fluid overflow-hidden">
-        <div class="row">
-            <div class="col-2 px-0 bg-primary position-fixed" id="sticky-sidebar">
-                <div class="overflow-auto">
-                    <div class="text-center">
-                        <div class="container">
-                            <img class="img-fluid" src="{{ asset('img\logocr1.png') }}" width="150" height="150"
-                                alt="Logo Colegio Cristo Rey">
-                        </div>
-                        <h5 class="mx-2 text-white">Colegio Cristo Rey</h5>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-2 col-md-2 col-xl-2 px-sm-2 px-0 bg-primary position-fixed">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <div class="container">
+                        <img class="img-fluid" src="{{ asset('img\logocr1.png') }}" width="150" height="150"
+                            alt="Logo Colegio Cristo Rey">
                     </div>
-                    <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white my-3 mx-0 px-3">
-                        <a href="{{route('home.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-house mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                                <path fill-rule="evenodd"
-                                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                            </svg>
-                            Inicio
-                        </a>
+                    <h5 class="mx-2 text-white">Colegio Cristo Rey</h5>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start m-3" id="menu">
+                        <li class="nav-item">
+                            <a href="{{route('home.index')}}" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi bi-house-fill text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi bi-pencil-square text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Registro</span> </a>
+                            <ul class="collapse show nav flex-column ms-1 text-white" id="submenu1" data-bs-parent="#menu">
+                                <div class="container">
+                                    <li class="w-100">
+                                        <a href="{{route('alumno.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Alumno</span> 1 </a>
+                                    </li>
+                                    <li class="w-100">
+                                        <a href="{{route('apoderado.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Apoderado</span> 1 </a>
+                                    </li>
+                                    @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+                                    <li class="w-100">
+                                        <a href="{{route('profesor.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Profesor</span> 2 </a>
+                                    </li>
+                                    @endif
+                                    @if (Auth::user()->id_rol == 1)
+                                    <li class="w-100">
+                                        <a href="{{route('administrativo.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Administrativo</span> 2 </a>
+                                    </li>
+                                    @endif
+                                </div>  
+                            </ul>
+                        </li>
                         @if (Auth::user()->id_rol == 1)
-                            <!-- Director Menu -->
-                            <a href="{{route('usuario.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-people mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
-                                </svg>
-                                Usuarios
-                            </a>
-                            <a href="{{route('alumno.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-pencil-square mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                </svg>
-                                Alumnos
-                            </a>
-                            <a href="{{route('apoderado.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-person-rolodex mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                                    <path
-                                        d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1H1Zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1V2Z" />
-                                </svg>
-                                Apoderados
-                            </a>
-                            <a href="{{route('administrativo.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-person-workspace mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                                    <path
-                                        d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
-                                </svg>
-                                Administrativos
-                            </a>
-                            <a href="{{route('profesor.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-book mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-                                </svg>
-                                Profesores
-                            </a>
-                            <a href="{{route('cardex.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-                                    <path
-                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                    <path
-                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                </svg>
-                                Cardex
-                            </a>
-                            <a href="{{route('mensualidad.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-cash-stack mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                    <path
-                                        d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-                                </svg>
-                                Mensualidades
-                            </a>
-                            <a href="{{route('salario.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-newspaper mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                    <path
-                                        d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-                                </svg>
-                                Salarios
-                            </a>
-                            <a href="{{ route('curso.index',['gestion' => Date('Y')]) }}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                                </svg>
-                                Cursos
-                            </a>
-                            <a href="{{route('materia.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-journal-bookmark-fill mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z" />
-                                    <path
-                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                    <path
-                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                </svg>
-                                Materias
-                            </a>
-                            <a href="{{route('boletin.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-briefcase mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
-                                </svg>
-                                Boletines
-                            </a>
-
-                        @elseif(Auth::user()->id_rol == 2)
-                            <!-- Secretaria Menu -->
-                            <a href="{{route('alumno.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-pencil-square mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                </svg>
-                                Alumnos
-                            </a>
-                            <a href="{{route('apoderado.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-person-rolodex mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                                    <path
-                                        d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1H1Zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1V2Z" />
-                                </svg>
-                                Apoderados
-                            </a>
-                            <a href="{{route('profesor.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-book mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-                                </svg>
-                                Profesores
-                            </a>
-                            <a href="{{route('cardex.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-                                    <path
-                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                    <path
-                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                </svg>
-                                Cardex
-                            </a>
-                            <a href="{{route('mensualidad.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-cash-stack mx-2 my-1" viewBox="0 0 16 16">
-                                    <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                    <path
-                                        d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-                                </svg>
-                                Mensualidades
-                            </a>
-                            <a href="{{route('curso.index',['gestion' => Date('Y')])}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                                </svg>
-                                Cursos
-                            </a>
-                            <a href="{{route('materia.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-journal-bookmark-fill mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z" />
-                                    <path
-                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                    <path
-                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                </svg>
-                                Materias
-                            </a>
-                            <a href="{{route('boletin.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-briefcase mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
-                                </svg>
-                                Boletines
-                            </a>
-                            <a href="{{route('inscripcion.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-card-checklist  mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-                                    <path
-                                        d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
-                                </svg>
-                                Inscripciones
-                            </a>
-                        @else
-                            <!-- Profesor Menu -->
-                            <a href="{{route('alumno.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-pencil-square mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                </svg>
-                                Alumnos
-                            </a>
-                            <a href="{{route('cardex.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-journal-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-                                    <path
-                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                    <path
-                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                </svg>
-                                Cardex
-                            </a>
-                            <a href="{{route('curso.index',['gestion' => Date('Y')])}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-bookmark mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                                </svg>
-                                Cursos
-                            </a>
-                            <a href="{{route('materia.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-journal-bookmark-fill mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z" />
-                                    <path
-                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                                    <path
-                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                                </svg>
-                                Materias
-                            </a>
-                            <a href="{{route('boletin.index')}}" class="nav-link text-white my-1 py-0 px-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-briefcase mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
-                                </svg>
-                                <span class="pt-1">Boletines</span>
-                            </a>
+                        <li>
+                            <a href="{{route('usuario.index')}}" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi bi-people text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Usuarios</span></a>
+                        </li>
                         @endif
-
-                        <form style="display: inline" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <a href="#" onclick="this.closest('form').submit()" class="nav-link text-white my-1 py-0 px-1">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-box-arrow-right mx-2 mb-2 mt-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                    <path fill-rule="evenodd"
-                                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                                </svg>
-                                Cerrar Sesion
-                            </a>
-                        </form>
+                        @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+                        <li>
+                            <a href="{{route('inscripcion.index')}}" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi bi-card-checklist text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Inscripción</span></a>
+                        </li>
+                        @endif
+                        <li>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi bi-journal-bookmark-fill text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Academico</span></a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                <div class="container">
+                                    <li class="w-100">
+                                        <a href="{{route('curso.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Cursos</span> 1</a>
+                                    </li>
+                                    <li class="w-100">
+                                        <a href="{{route('materia.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Materias</span> 2</a>
+                                    </li>
+                                    <li class="w-100">
+                                        <a href="{{route('cardex.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Cardex</span> 1</a>
+                                    </li>
+                                    @if (Auth::user()->id_rol == 3)
+                                    <li class="w-100">
+                                        <a href="{{route('notas.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Notas</span> 2</a>
+                                    </li>
+                                    @endif
+                                    <li class="w-100">
+                                        <a href="{{route('boletin.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Boletin</span> 1</a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+                        <li>
+                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi bi-wallet-fill text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Pagos</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <div class="container">
+                                    <li class="w-100">
+                                        <a href="{{route('mensualidad.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Mensualidad</span> 1</a>
+                                    </li>
+                                    <li class="w-100">
+                                        <a href="{{route('salario.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Salario</span> 2</a>
+                                    </li>                                    
+                                </div>
+                            </ul>
+                        </li>
+                        @endif
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-bounding-box"></i>
+                            <span class="d-none d-sm-inline mx-1">{{ Auth::user()->nombre_usuario }}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="{{route('usuario.show', Auth::user()->id)}}">Mi usuario</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <form style="display: inline" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a href="#" onclick="this.closest('form').submit()" class="nav-link text-white my-1 py-0 px-1">Cerrar sesión</a>
+                            </form>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-10 offset-2 p-0" id="main">
-                <!--NavBar-->
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top offset-2">
-                        <div class="collapse navbar-collapse">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Opcion</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Opcion</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Opcion</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="./">Volver</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="container-fluid justify-content-end">
-                            <span class="navbar-text fw-bold">
-                                {{ Auth::user()->id_rol == 1 ? 'Director' : (Auth::user()->id_rol == 2 ? 'Secretaria' : 'Profesor') }}
-                                : {{ Auth::user()->nombre_usuario }}
-                            </span>
-                        </div>
-                    </nav>     
-                <!--Alert Messages-->
+            
+            <div class="col-10 offset-2">
+                <a class="btn btn-success" href="./"><i class="bi bi-arrow-return-left"></i></a>
+                @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
+                    <strong>Exito!</strong> {{ session()->get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
 
-                <div class="container mt-5">
-                    @if (session()->has('success'))
-                    <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-                        <strong>Exito!</strong> {{ session()->get('success') }}
+                @if (session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show m-10" role="alert">
+                        <strong>Error!</strong> {{ session()->get('error') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                    @endif
-
-                    @if (session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show m-10" role="alert">
-                            <strong>Error!</strong> {{ session()->get('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                </div>
-                
-
-                <!--Contenido-->
-                <div class="container-fluid m-2">
-                    @section('navigation')
-                    @show
-                </div>
-            
-
+                @endif
+                @section('navigation')
+                @show
+            </div>
         </div>
     </div>
-</div>
+<style>
+    /*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.anyClass {
+  height:150px;
+  overflow-y: scroll;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+</style>
 @endsection

@@ -9,9 +9,11 @@
                 <div class="col">
                     <h2>Lista de Materias</h2>
                 </div>
+                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                 <div class="col text-end">
                     <a class="btn btn-sm btn-success" href="{{ route('materia.create') }}"> Registrar nueva</a>
                 </div>
+                @endif
             </div>
             <table class="table table-bordered">
                 <thead class="table-secondary">
@@ -32,8 +34,10 @@
                             <td>{{ $materia->nombrePersona }} {{ $materia->apellido_pat }} {{ $materia->apellido_mat }}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('materia.show', $materia->idMateria) }}">Ver</a>
+                                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                                 <a class="btn btn-sm btn-secondary"
                                     href="{{ route('materia.edit', $materia->idMateria) }}">Editar</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

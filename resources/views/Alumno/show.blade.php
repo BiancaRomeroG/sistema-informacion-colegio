@@ -22,6 +22,7 @@
     </div>
 
     <div class="row justify-content-around">
+        @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
         <div class="col text-center">
             <a class="btn btn-secondary" href="{{ route('alumno.edit', $alumno->id) }}">Editar</a>
         </div>
@@ -32,6 +33,7 @@
                 <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
         </div>
+        @endif
     </div>
 
     
