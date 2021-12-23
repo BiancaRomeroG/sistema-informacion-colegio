@@ -17,7 +17,7 @@
         <div class="col m-2">
             <label for="tutor">Apoderado</label>
 
-            <select id="tutor_id" name="tutor_id"  class="js-example-responsive" style="heigth: 20px" aria-label="Default select example"
+            <select id="tutor_id" name="tutor_id"  class="form-select" style="heigth: 20px" aria-label="Default select example"
                 form="register_form">
                 <option selected disabled>Seleccione un Apoderado</option>
                 @foreach ($tutores as $tutor)
