@@ -117,6 +117,7 @@
                     </div>
                 </div>
             </div>
+
             
             <div class="col-10 offset-2">
                 <a class="btn btn-success" href="./"><i class="bi bi-arrow-return-left"></i></a>
@@ -126,6 +127,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
+
 
                 @if (session()->has('error'))
                     <div class="alert alert-danger alert-dismissible fade show m-10" role="alert">

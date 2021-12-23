@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCurso;
 use App\Models\alumnos;
 use App\Models\cursos;
 use App\Models\Persona;
@@ -42,7 +43,7 @@ class cursoController extends Controller
         return view('curso.create');
     }
 
-    public function store(Request $request){
+    public function store(StoreCurso $request){
         $curso = cursos::create([
             'nivel' => $request->nivel,
             'cupo_max' => $request->cupos_max,
@@ -73,7 +74,7 @@ class cursoController extends Controller
         return view('Curso.edit', compact('curso'));
     }
     
-    public function update($id, Request $request){
+    public function update($id, StoreCurso $request){
         $curso = cursos::findOrFail($id);
         $curso->cupo_max = $request->cupos_max;
         $curso->save();

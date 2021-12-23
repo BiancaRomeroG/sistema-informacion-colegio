@@ -36,6 +36,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('welcome', function() {
+    return view('welcome');
+});
+
 
 Route::get('/', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 Route::get('/home', [HomeController::class, 'homePage'])->name('home')->middleware('auth');
