@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMateria;
 use App\Models\alumnos;
 use App\Models\materias;
 use App\Models\Persona;
@@ -21,7 +22,7 @@ class materiaController extends Controller
         return view('materia.index', compact('materias'))->with('i', (request()->input('page', 1) - 1) * 14);;
     }
 
-    public function store(Request $request) {
+    public function store(StoreMateria $request) {
         $materia = materias::create($request->all());
         $materia->save();
 
@@ -60,7 +61,7 @@ class materiaController extends Controller
         return view('materia.edit', compact('profesores', 'materia', 'actionform'));
     }
 
-    public function update($id, Request $request) {
+    public function update($id, StoreMateria $request) {
         $materia = materias::findOrFail($id);
         $materia->update($request->all());
 

@@ -51,6 +51,7 @@
                                     </tr>
                                 @endforeach
                         </table>
+                        {!! $personas->links() !!}
                     </div>
                     @endif   
                     <div class="mt-3 text-end me-5 mb-5">

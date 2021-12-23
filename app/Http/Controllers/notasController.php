@@ -144,9 +144,9 @@ class notasController extends Controller
             $nota->ser = $request->$ser;
             $nota->saber = $request->$saber;
             $nota->hacer = $request->$hacer;
-            $nota->decidirr = $request->$decidir;
+            $nota->decidir = $request->$decidir;
             $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
-
+            $nota->save();
             $i++;
         }
 

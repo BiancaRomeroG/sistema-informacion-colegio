@@ -56,17 +56,18 @@
                         <div class="col-4 m-2">
                             <label for="pago" class="fw-bold">
                                 Nro. Pago: <br>
-                                <input class="form-control" type="number" name="pago" id="pago" placeholder="Nro. de pago">
-                                {!! $errors->first('pago', '<span class="help-block text-danger">*:message</span>') !!}
+                                <input class="form-control" type="number" name="pago" id="pago" placeholder="Nro. de pago"
+                                oninvalid="setCustomValidity('Por favor inserte solo números.')">
                             </label>
+                            {!! $errors->first('pago', '<br><span class="help-block text-danger">*:message</span>') !!}
                         </div>
                         <div class="col-4 m-2">
                             <label for="monto" class="fw-bold">
                                 Monto Bruto: <br>
-                                <input class="form-control" type="number" name="monto" id="monto" placeholder="Monto Bs.">
-                                {!! $errors->first('monto', '<span class="help-block text-danger">*:message</span>') !!}
-                                
+                                <input class="form-control" type="number" name="monto" id="monto" placeholder="Monto Bs."
+                                oninvalid="setCustomValidity('Por favor inserte solo números.')">                                
                             </label>
+                            {!! $errors->first('monto', '<br><span class="help-block text-danger">*:message</span>') !!}
                         </div>
                     </div>
                     <div class="row m-2 justify-content-around">

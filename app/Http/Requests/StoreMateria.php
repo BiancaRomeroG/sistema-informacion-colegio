@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePagoMensualidad extends FormRequest
+class StoreMateria extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,16 @@ class StorePagoMensualidad extends FormRequest
     public function rules()
     {
         return [
-            'monto'    => 'required',
-            'cuota'    => 'required|numeric|between:1,10',
+            'nombre'        => 'required|alpha',
+            'descripcion'   => 'required|alpha',
         ];
     }
 
     public function attributes()
     {
         return [
-            'monto' => '',
-            'cuota' => '',
+            'nombre'        => '',
+            'descripcion'   => '',
         ];
     }
 }

@@ -292,31 +292,7 @@
                 </div>
             </div>
             <div class="col-10 offset-2 p-0" id="main">
-                <!--NavBar-->
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top offset-2">
-                        <div class="collapse navbar-collapse">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Opcion</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Opcion</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Opcion</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="./">Volver</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="container-fluid justify-content-end">
-                            <span class="navbar-text fw-bold">
-                                {{ Auth::user()->id_rol == 1 ? 'Director' : (Auth::user()->id_rol == 2 ? 'Secretaria' : 'Profesor') }}
-                                : {{ Auth::user()->nombre_usuario }}
-                            </span>
-                        </div>
-                    </nav>     
+                
                 <!--Alert Messages-->
 
                 <div class="container mt-5">
