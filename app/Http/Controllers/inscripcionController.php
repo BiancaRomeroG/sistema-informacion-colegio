@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInscripcion;
 use App\Models\alumnos;
 use App\Models\cardex;
 use App\Models\cursos;
@@ -27,7 +28,7 @@ class inscripcionController extends Controller
         return view('inscripcion.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
     }
 
-    public function store(Request $request) {
+    public function store(StoreInscripcion $request) {
         $ins = inscripciones::join('alumnos', 'alumnos.id', 'inscripciones.id_alumno')
         ->where('inscripciones.id_alumno', '=', $request->id_alumno)->get();
 

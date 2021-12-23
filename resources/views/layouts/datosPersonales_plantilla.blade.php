@@ -10,7 +10,7 @@
                 <div class="card-body p-4">
 
                     <!--  FORMULARIO DE LOGIN  -->
-                    <form method="POST" id='register_form' action="{{ $actionform }}">
+                    <form method="POST" id='register_form' class ='needs-validation' action="{{ $actionform }}">
                         @csrf
                         <div class="row mb-3 justify-content-around">
                             <div class="col m-2">
@@ -18,7 +18,7 @@
                                     Nombre<br>
                                 </label>
                                 <input class="form-control" id="nombre" type="text" name="nombre"
-                                    value="{{ old('nombre') }}">
+                                    value="{{ old('nombre') }}" >
                                     {!! $errors->first('nombre', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                                 <label for="apellidoPat">
                                     Apellido paterno<br>
                                 </label>
-                                <input class="form-control" id="apellidoPat" type="text" name="apellido_pat"
+                                <input class="form-control" id="apellido_pat" type="text" name="apellido_pat"
                                     value="{{ old('apellido_pat') }}">
                                     {!! $errors->first('apellido_pat', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
@@ -35,7 +35,7 @@
                                 <label for="apellidoMat">
                                     Apellido materno<br>
                                 </label>
-                                <input class="form-control" id="apellidoMat" type="text" name="apellido_mat"
+                                <input class="form-control" id="apellido_mat" type="text" name="apellido_mat"
                                     value="{{ old('apellido_mat') }}">
                                     {!! $errors->first('apellido_mat', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
@@ -53,7 +53,7 @@
                                     Email<br>
                                 </label>
                                 <input class="form-control" id="email" type="email" name="email"
-                                    value="{{ old('email') }}">
+                                    value="{{ old('email') }}"  oninvalid="setCustomValidity('Inserte un correo valido.')">
                                     {!! $errors->first('email', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 <label for="fechaNac">
                                     Fecha de nacimiento<br>
                                 </label>
-                                <input class="form-control" id="fechaNac" type="date" name="fecha_nac"
+                                <input class="form-control" id="fecha_nac" type="date" name="fecha_nac"
                                     value="{{ old('fecha_nac') }}">
                                     {!! $errors->first('fecha_nac', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
@@ -86,14 +86,14 @@
                                 <label>
                                     Dirección<br>
                                 </label>
-                                <input class="form-control" type="text" name="direccion" value="{{ old('direccion') }}">
+                                <input class="form-control" id='direccion' type="text" name="direccion" value="{{ old('direccion') }}">
                                 {!! $errors->first('direccion', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                             <div class="col m-2">
                                 <label>
                                     Telefono<br>
                                 </label>
-                                <input class="form-control" type="tel" name="telefono" value="{{ old('telefono') }}">
+                                <input class="form-control" id= 'telefono' type="tel" name="telefono" value="{{ old('telefono') }}">
                                 {!! $errors->first('telefono', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
                         </div>

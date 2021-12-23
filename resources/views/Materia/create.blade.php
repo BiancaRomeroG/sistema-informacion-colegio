@@ -18,13 +18,18 @@
                                     <div class="row justify-content-around">
                                       <div class="col-4 ">
                                         <div class="row">
+                                          <label for = "materia_nombre" class = "fw-bold">
                                           Nombre: <br>
-                                          <input class="form-control" height="ml-5" type="text" name="nombre" value="{{old('nombre')}}">
+                                          </label>
+                                          <input class="form-control" height="ml-5" id = "nombre" type="text" name="nombre" value="{{old('nombre')}}">
+                                          {!! $errors->first('nombre', '<span class="text-danger">*:message</span>') !!}
                                         </div>
                                         <div class="row">
-                                          Descripción: <br>
-                                          <textarea class="form-control" name="descripcion" cols="30" rows="5"></textarea>
-                                        </div>
+                                          <label for = "materia_descripcion" class = "fw-bold">
+                                            Descripción: <br>
+                                            </label>
+                                          <textarea class="form-control" id= "descripcion" name="descripcion" cols="30" rows="5" value = "old('descripcion')"></textarea>
+                                          {!! $errors->first('descripcion', '<span class="text-danger">*:message</span>') !!}                                        </div>
                                         <div class="row-5 mt-4">
                                           <a class="btn btn-danger" href="{{route('materia.index')}}">Cancelar</a>
                                           <button class="btn btn-primary" type="submit">

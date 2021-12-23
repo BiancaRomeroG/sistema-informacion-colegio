@@ -42,7 +42,10 @@
                             </tr>
                                 @foreach ($personas as $persona)
                                     <tr>
-                                        <td><input name="id_alumno" type="radio" value="{{$persona->idAlumno}}"></td>
+                                        <td>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio"  id ="id_alumno" name="id_alumno" class="custom-control-input " value="{{$persona->idAlumno}}"></td>
+                                            </div>
                                         <td>
                                             {{$persona->nombre}} {{$persona->apellido_pat}} {{$persona->apellido_mat}}
                                         </td>
@@ -54,6 +57,7 @@
                                 @endforeach
                             @endif
                         </table>
+                        {!! $errors->first('id_alumno', '<span class="text-danger">*:message</span>') !!}
                     </div>
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
@@ -61,14 +65,15 @@
                                 Curso a inscribir
                             </label>
                             <select name="curso" id="curso" class="form-select" aria-label="Default select example">
-                                <option selected value="0">Seleccione el curso</option>
-                                <option value="1">1° Secundaria</option>
-                                <option value="2">2° Secundaria</option>
-                                <option value="3">3° Secundaria</option>
-                                <option value="4">4° Secundaria</option>
-                                <option value="5">5° Secundaria</option>
-                                <option value="6">6° Secundaria</option>
+                                <option selected disabled>Seleccione el curso</option>
+                                <option value="1" {{old('curso') == "1"? 'selected':''}}>1° Secundaria</option>
+                                <option value="2" {{old('curso') == "1"? 'selected':''}}>2° Secundaria</option>
+                                <option value="3" {{old('curso') == "1"? 'selected':''}}>3° Secundaria</option>
+                                <option value="4" {{old('curso') == "1"? 'selected':''}}>4° Secundaria</option>
+                                <option value="5" {{old('curso') == "1"? 'selected':''}}>5° Secundaria</option>
+                                <option value="6" {{old('curso') == "1"? 'selected':''}}>6° Secundaria</option>
                             </select>
+                            {!! $errors->first('curso', '<span class="text-danger">*:message</span>') !!} 
                         </div>
                     </div>
                     <div class="mt-3 text-end me-5 mb-5">

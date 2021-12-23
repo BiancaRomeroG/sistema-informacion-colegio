@@ -5,32 +5,15 @@
 @section('navigation')
 
         <div class="card">
-            <table class="table" >
-                <caption>List of studets</caption>
-                <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>apellidos</th>
-                    <th>Acciones</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach($personas as $persona)
-                        <tr>
-                            <td>{{ $persona->nombre }}</td>
-                            <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat}}</td>
-                            <td>
-                                <a href="{{route('alumno.show', $persona)}}">ver</a> 
-                                <a href="{{route('alumno.edit', $persona->id)}}">editar</a> 
-                                <a href="{{route('alumno.destroy', $persona->id)}}" method = 'DELETE'>borrar</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="form-outline mb-4">
+                <input type="search" class="form-control" id="datatable-search-input">
+                <label class="form-label" for="datatable-search-input">Search</label>
+              </div>
+              <div id="datatable">
+              </div>
         </div>
-        {{$personas->links()}}
-
+       
 @endsection
+
+
 

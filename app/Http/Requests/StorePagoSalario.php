@@ -25,7 +25,7 @@ class StorePagoSalario extends FormRequest
     {
         return [
             'monto'    => 'required',
-            'pago'    => 'required',
+            'pago'    => 'required|numeric|between:1,10',
         ];
     }
 

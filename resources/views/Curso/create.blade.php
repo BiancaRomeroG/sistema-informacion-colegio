@@ -19,7 +19,7 @@
                             <label for="nivel">
                                 Nivel<br>
                             </label>
-                            <select id = "nivel" name = "nivel" class="form-select" aria-label="Disabled select example" required>
+                            <select id = "nivel" name = "nivel" class="form-select" aria-label="Disabled select example">
                                 <option selected disabled>Elige el nivel del curso</option>
                                 <option value = '1'> 1º </option>    
                                 <option value = '2'> 2º </option>    
@@ -33,8 +33,8 @@
                             <label for="cupos_max">
                                 Cantidad maxima de alumnos:<br>
                             </label>
-                            <input class="form-control" id="cupos_max" type="number" name="cupos_max" min="10" max="100" 
-                             required> 
+                            <input class="form-control"  id="cupos_max" type="number" name="cupos_max" value="old('cupos_max')"> 
+                            {!! $errors->first('cupos_max', '<span class="text-danger">*:message</span>') !!}
                         </div>
                     </div>
                    
