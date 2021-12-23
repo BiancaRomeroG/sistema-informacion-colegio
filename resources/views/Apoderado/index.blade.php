@@ -10,6 +10,11 @@
                 <div class="col">
                     <h2>Lista de Apoderados</h2>
                 </div>
+                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+                <div class="col text-end">
+                    <a class="btn btn-sm btn-success" href="{{ route('alumno.create') }}"> Registrar nuevo</a>
+                </div>
+                @endif
             </div>
             <table class="table table-bordered">
                 <thead class="table-secondary">
