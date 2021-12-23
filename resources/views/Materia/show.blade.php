@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h5 class="m-2">Informacion Academica</h5>
             </div>
-            <div class="card-body p-4">
+            <div class="card-body p-4 m-4">
                 <div class="row mb-4">
                     <strong>
                         Nombre:
@@ -34,6 +34,7 @@
                         {{$persona->nombre}} {{$persona->apellido_pat}} {{$persona->apellido_mat}}
                     </label>
                 </div>
+                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                 <div class="row justify-content-around">
                     <div class="col text-center">
                         <a class="btn btn-secondary" href="{{ route('materia.edit', $materia->id) }}">Editar</a>
@@ -46,6 +47,7 @@
                         </form>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
