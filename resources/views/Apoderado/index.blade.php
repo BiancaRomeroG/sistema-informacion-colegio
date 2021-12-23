@@ -10,9 +10,6 @@
                 <div class="col">
                     <h2>Lista de Apoderados</h2>
                 </div>
-                <div class="col text-end">
-                    <a class="btn btn-sm btn-success" href="{{ route('apoderado.create') }}"> Registrar nuevo</a>
-                </div>
             </div>
             <table class="table table-bordered">
                 <thead class="table-secondary">
@@ -31,8 +28,10 @@
                             <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ route('apoderado.show', $persona->idTutor) }}">Ver</a>
+                                @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                                 <a class="btn btn-sm btn-secondary"
                                     href="{{ route('apoderado.edit', $persona->idTutor) }}">Editar</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

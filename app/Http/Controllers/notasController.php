@@ -133,6 +133,7 @@ class notasController extends Controller
 
     public function update( $id_curso, Request $request) {
         $i = 1;
+
         while ($i <= $request->count) {
             $ser = 'ser'.$i;
             $saber = 'saber'.$i;
