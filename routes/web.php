@@ -132,5 +132,5 @@ Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@g
 
 //ruta para las notas
 
-Route::post('/notasMod', [notasController::class, 'mod'])->name('mod.notas');
+Route::get('/notasMod', [notasController::class, 'mod'])->name('mod.notas');
 Route::resource('notas', notasController::class);

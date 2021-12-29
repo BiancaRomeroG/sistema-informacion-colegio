@@ -38,13 +38,13 @@
                     <td>{{ $persona->nombre }}</td>
                     <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                     <td class="text-center">
-                        <a class="btn btn-sm btn-primary" href="{{ route('boletin.trim1', $persona) }}">Ver</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('boletin.trim1', $persona->id) }}">Ver</a>
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-sm btn-primary" href="{{ route('boletin.trim2', $persona) }}">Ver</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('boletin.trim2', $persona->id) }}">Ver</a>
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-sm btn-primary" href="{{ route('boletin.trim3', $persona) }}">Ver</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('boletin.trim3', $persona->id) }}">Ver</a>
                     </td>
                 </tr>
                 @endforeach

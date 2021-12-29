@@ -29,7 +29,7 @@ class bitacoraController extends Controller
         $persona = usuarioController::getPersonByIdUser($id);
         $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->get();
         $pdf = PDF::loadView('Bitacora.pdf',['acciones' => $acciones, 'persona' => $persona])->setPaper('a4');
-        $tittle = 'Bitacora-'.$persona->nombre.$persona->apellido_pat.$persona->apellido_mat.'pdf';
+        $tittle = 'Bitacora-'.$persona->nombre.$persona->apellido_pat.$persona->apellido_mat.'.pdf';
         return $pdf->download($tittle);
       //  return view('Bitacora.pdf', compact('persona', 'acciones'));
 

@@ -70,7 +70,7 @@
     @endif
 </div>
 </div>
-<div class="text-center">
+<div class="text-center" style="margin-bottom: 2rem">
     @if (count($trimestre1) > 0)
     <a href="{{ route('boletinTrim1', $cardex->id) }}" type="button" class="btn btn-success">Imprimir</a>
     @endif
