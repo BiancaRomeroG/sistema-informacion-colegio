@@ -130,7 +130,7 @@ class pagoMensualidadController extends Controller
         }
         $pagos = collect($pagos);
         $pdf = PDF::loadView('PagoMensualidad.indexPDF',['pagos' => $pagos, 'meses' => $meses])->setPaper('a4', 'landscape');
-        $tittle = 'Mensualidades'.Date('Y').'pdf';
+        $tittle = 'Mensualidades'.Date('Y').'.pdf';
        // return $pagos;
         //return $pdf->stream();
         return $pdf->download($tittle);

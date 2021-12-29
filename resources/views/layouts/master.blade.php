@@ -47,13 +47,14 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 <script>
     
 (function(){
-    if(<?php echo !empty($errors->first())?'1':'0' ?>){
+    if(<?php echo $errors->any()?'1':'0' ?>){
+       
         var errors = <?php echo $errors ?>;
-        // console.log(errors);
+       // console.log(errors);
         Object.keys(errors).forEach(function(key){
             //  console.log(key);
             var element = document.getElementById(key);
-            //  console.log(element);
+           //   console.log(element);
             if(element != null){
                 element.classList.add('is-invalid');
                 element.addEventListener('input', function(){

@@ -35,9 +35,12 @@ class boletinController extends Controller
     }
 
     public function trim1($id){
-        $cardex = cardex::findOrFail($id);
+        $persona = Persona::findOrFail($id);
+        $alumno = alumnos::where('alumnos.id_persona', '=', $id)->first();
+        $cardex = cardex::where('cardexes.id_alumno', '=', $alumno->id)->first();
+/*         $cardex = cardex::findOrFail($id);
         $alumno = alumnos::findOrFail($cardex->id_alumno);
-        $persona = Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($alumno->id_persona); */
         $tutor = tutores::findOrFail($alumno->id_tutor);
         $personaTutor = Persona::findOrFail($tutor->id_persona);
         $trimestre1 = materias::join('notas', 'notas.id_materia', 'materias.id')
@@ -52,9 +55,9 @@ class boletinController extends Controller
     }
 
     public function trim2($id){
-        $cardex = cardex::findOrFail($id);
-        $alumno = alumnos::findOrFail($cardex->id_alumno);
-        $persona = Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($id);
+        $alumno = alumnos::where('alumnos.id_persona', '=', $id)->first();
+        $cardex = cardex::where('cardexes.id_alumno', '=', $alumno->id)->first();
         $tutor = tutores::findOrFail($alumno->id_tutor);
         $personaTutor = Persona::findOrFail($tutor->id_persona);
         $trimestre2 = materias::join('notas', 'notas.id_materia', 'materias.id')
@@ -69,9 +72,9 @@ class boletinController extends Controller
     }
 
     public function trim3($id){
-        $cardex = cardex::findOrFail($id);
-        $alumno = alumnos::findOrFail($cardex->id_alumno);
-        $persona = Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($id);
+        $alumno = alumnos::where('alumnos.id_persona', '=', $id)->first();
+        $cardex = cardex::where('cardexes.id_alumno', '=', $alumno->id)->first();
         $tutor = tutores::findOrFail($alumno->id_tutor);
         $personaTutor = Persona::findOrFail($tutor->id_persona);
         $trimestre3 = materias::join('notas', 'notas.id_materia', 'materias.id')
@@ -87,9 +90,9 @@ class boletinController extends Controller
 
     public function reporteTrim1(Request $request, $id)
     {
-        $cardex = cardex::findOrFail($id);
-        $alumno = alumnos::findOrFail($cardex->id_alumno);
-        $persona = Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($id);
+        $alumno = alumnos::where('alumnos.id_persona', '=', $id)->first();
+        $cardex = cardex::where('cardexes.id_alumno', '=', $alumno->id)->first();
         $tutor = tutores::findOrFail($alumno->id_tutor);
         $personaTutor = Persona::findOrFail($tutor->id_persona);
         $trimestre1 = materias::join('notas', 'notas.id_materia', 'materias.id')
@@ -114,9 +117,9 @@ class boletinController extends Controller
 
     public function reporteTrim2(Request $request, $id)
     {
-        $cardex = cardex::findOrFail($id);
-        $alumno = alumnos::findOrFail($cardex->id_alumno);
-        $persona = Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($id);
+        $alumno = alumnos::where('alumnos.id_persona', '=', $id)->first();
+        $cardex = cardex::where('cardexes.id_alumno', '=', $alumno->id)->first();
         $tutor = tutores::findOrFail($alumno->id_tutor);
         $personaTutor = Persona::findOrFail($tutor->id_persona);
         $trimestre2 = materias::join('notas', 'notas.id_materia', 'materias.id')
@@ -141,9 +144,9 @@ class boletinController extends Controller
 
     public function reporteTrim3(Request $request, $id)
     {
-        $cardex = cardex::findOrFail($id);
-        $alumno = alumnos::findOrFail($cardex->id_alumno);
-        $persona = Persona::findOrFail($alumno->id_persona);
+        $persona = Persona::findOrFail($id);
+        $alumno = alumnos::where('alumnos.id_persona', '=', $id)->first();
+        $cardex = cardex::where('cardexes.id_alumno', '=', $alumno->id)->first();
         $tutor = tutores::findOrFail($alumno->id_tutor);
         $personaTutor = Persona::findOrFail($tutor->id_persona);
         $trimestre3 = materias::join('notas', 'notas.id_materia', 'materias.id')
