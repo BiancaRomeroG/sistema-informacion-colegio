@@ -1,41 +1,32 @@
 @extends('layouts.showDatos')
 @section('title', 'Informacion del Alumno')
 
-@section('adicional-information')
+@section('info-adicional-col1')
 
-    <div class="row mb-4">
-        <strong>
-            Código Rude:
-        </strong>
-        <label>
-            {{ $alumno->cod_rude }}
-        </label>
-    </div>
+<p class="mb-1"><b class="fw-bold text-secondary">Código Rude:
+</b> {{$persona->cod_rude}}</p>
+<p class="mb-1"><b class="fw-bold text-secondary">Apoderado:
+</b> {{ $personaTutor->nombre }} {{ $personaTutor->apellido_pat }} {{ $personaTutor->apellido_mat }} </p>
+@endsection
 
-    <div class="row mb-4">
-        <strong>
-            Apoderado:  
-        </strong>
-        <label>
-            {{ $personaTutor->nombre }} {{ $personaTutor->apellido_pat }} {{ $personaTutor->apellido_mat }}  
-        </label>
-    </div>
-
-    <div class="row justify-content-around">
-        @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
-        <div class="col text-center">
-            <a class="btn btn-secondary" href="{{ route('alumno.edit', $alumno->id) }}">Editar</a>
-        </div>
-        <div class="col text-center">
-            <form action="{{ route('alumno.destroy', $alumno->id) }}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-            </form>
-        </div>
-        @endif
-    </div>
+@section('info-adicional-col2')
 
     
+@endsection
 
+@section('botones')
+<div class="row justify-content-around mt-3">
+    @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+    <div class="col text-center">
+        <a class="btn btn-secondary" href="{{ route('alumno.edit', $persona->idAlumno) }}">Editar</a>
+    </div>
+    <div class="col text-center">
+        <form action="{{ route('alumno.destroy', $persona->idAlumno) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+    @endif
+</div>
 @endsection

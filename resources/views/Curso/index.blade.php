@@ -36,7 +36,7 @@
                              @endif
                             <td>{{ $curso->cant_alumnos}}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ route('curso.show', ['id' =>$curso->id, 'gestion' => $gestion])}}">Ver</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('curso.show', $curso->id)}}">Ver</a>
                                 @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                                     @if ($gestion === Date('Y') )
                                     <a class="btn btn-sm btn-secondary" href="{{ route('curso.edit', $curso->id) }}">Editar</a>   

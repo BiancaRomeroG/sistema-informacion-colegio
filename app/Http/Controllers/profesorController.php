@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProfesor;
+use App\Models\materias;
 use App\Models\Persona;
 use App\Models\profesores;
 use App\Models\User;
@@ -23,8 +24,17 @@ class profesorController extends Controller
 
     public function show($profesorId) {
         $profesor = profesores::findOrFail($profesorId);
-        $persona = Persona::find($profesor->id_persona);
-        return view('profesor.show', compact('persona', 'profesor'));
+        
+        $persona = Persona::join('profesores', 'profesores.id_persona', 'personas.id')
+        ->where('profesores.id', '=', $profesor->id)
+        ->select('personas.*', 'profesores.id AS idProfesor', 'profesores.profesion')
+        ->first();
+
+        $materia = materias::join('profesores', 'profesores.id', 'materias.id_profesor')
+        ->where('profesores.id', '=', $profesor->id)
+        ->first();
+
+        return view('profesor.show', compact('persona', 'materia'));
     }
 
     public function create(){
