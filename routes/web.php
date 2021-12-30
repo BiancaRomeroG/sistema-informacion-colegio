@@ -107,7 +107,7 @@ Route::resource('cardex', cardexController::class);
 
 
 //ruta para bitacora
-Route::resource('bitacora', bitacoraController::class)->only(['show']);
+Route::resource('bitacora', bitacoraController::class)->only(['show','index']);
 Route::get('bitacora/{id}/download-PDF', [bitacoraController::class, 'downloadPDF'])->name('bitacora.pdf');
 
 

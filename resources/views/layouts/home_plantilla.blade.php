@@ -97,6 +97,13 @@
                             </ul>
                         </li>
                         @endif
+                        @if (Auth::user()->id_rol == 1)
+                            <li>
+                                <a href="{{route('bitacora.index')}}" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi bi-book-half  text-white"></i><span class="ms-1 d-none d-sm-inline text-white">Bicatora</span>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                     <hr>
                     <div class="dropdown pb-4">

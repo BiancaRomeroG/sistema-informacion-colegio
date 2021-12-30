@@ -23,10 +23,11 @@
             background-color: #ffffff;
         }
 
-        a:hover{
-            background-color: darkblue  ;
-            border-radius: 5px;
-        }
+      
+        th{
+            white-space:nowrap;
+            text-align: center;
+          }
         tr:hover {
             background-color: gainsboro;
         }
