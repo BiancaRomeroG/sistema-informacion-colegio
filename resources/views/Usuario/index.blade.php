@@ -19,6 +19,7 @@
                         <th>Apellidos</th>
                         <th>Usuario</th>
                         <th>Rol</th>
+                        <th>Estado</th>
                         <th width="140px">Acciones</th>
                     </tr>
                 </thead>
@@ -38,6 +39,16 @@
                                     Profesor
                                 @endif
                             </td>
+                            @if ($persona->estado == '1')
+                                <td class="bg-success text-white">
+                                    Activo
+                                </td>  
+                                @else
+                                <td class="bg-danger text-white">
+                                    Desactivo
+                                </td>
+                                
+                                @endif
                             <td class="text-center">
                                 <a class="btn btn-sm btn-primary" href="{{ route('usuario.show', $persona->idUsuario) }}">Ver</a>
                                @if (Auth::user()->id_rol === 1)

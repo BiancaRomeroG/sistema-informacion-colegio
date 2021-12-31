@@ -20,13 +20,23 @@
 @section('botones')
 <div class="row justify-content-around mt-3">
     @if (Auth::user()->id_rol == 1)
-        <div class="row justify-content-around">
-            <div class="col text-center">
+        <div class="row text-end">
+            <div class="col text-end">
                 <form action="{{ route('usuario.update', $persona->idUsuario) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <button type="submit" class="btn btn-warning">Restablecer contraseña</button>
                 </form>
+            </div>
+            <div class="col text-end">
+                <form action="{{ route('reset', $persona->idUsuario) }}" method="POST">
+                    @csrf
+                    @if ($persona->estado == 1)
+                        <button type="submit" class="btn btn-danger">Desactivar Usuario</button>  
+                    @else
+                        <button type="submit" class="btn btn-success">Activar Usuario</button>  
+                    @endif
+                </form> 
             </div>
         </div>
     @endif
