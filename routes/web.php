@@ -86,6 +86,7 @@ Route::resource('administrativo', administrativoController::class);
 
 //ruta para usuario
 Route::resource('usuario', usuarioController::class);
+Route::post('usuario/{id}/reset', [usuarioController::class, 'updateEstado'])->name('reset');
 
 //ruta para materia
 Route::resource('materia', materiaController::class);
