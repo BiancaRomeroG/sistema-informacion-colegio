@@ -8,12 +8,12 @@
         <div class="col-9 mt-5">
             <div class="row justify-content-between mb-2">
                 <div class="col">
-                    <h2>Cursos de la gestion {{$gestion}}</h2>
+                    <h2>Cursos de la gestion {{ $gestion }}</h2>
                 </div>
                 @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
-                <div class="col text-end">
-                    <a class="btn btn-sm btn-success" href="{{ route('curso.create') }}"> Registrar nuevo</a>
-                </div>
+                    <div class="col text-end">
+                        <a class="btn btn-sm btn-success" href="{{ route('curso.create') }}"> Registrar nuevo</a>
+                    </div>
                 @endif
             </div>
             <table class="table table-bordered">
@@ -32,14 +32,15 @@
                         <tr>
                             <td>{{ $curso->nivel }}</td>
                             @if ($gestion === Date('Y'))
-                            <td> {{$curso->cupo_max}} </td>
-                             @endif
-                            <td>{{ $curso->cant_alumnos}}</td>
+                                <td> {{ $curso->cupo_max }} </td>
+                            @endif
+                            <td>{{ $curso->cant_alumnos }}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ route('curso.show', $curso->id)}}">Ver</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('curso.show', $curso->id) }}">Ver</a>
                                 @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
-                                    @if ($gestion === Date('Y') )
-                                    <a class="btn btn-sm btn-secondary" href="{{ route('curso.edit', $curso->id) }}">Editar</a>   
+                                    @if ($gestion === Date('Y'))
+                                        <a class="btn btn-sm btn-secondary"
+                                            href="{{ route('curso.edit', $curso->id) }}">Editar</a>
                                     @endif
                                 @endif
                             </td>
@@ -47,26 +48,8 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="col-4 "  >
-                <form method='get' action="{{route('curso.index')}}">
-                    <div class="row mb-3 ">
-                        <div class="col m-2">
-                            <label for="cupos_max">
-                                Gestion:<br>
-                            </label>
-                            <input class="form-control" id="gestion" type="number" name="gestion" min="2010" max="3000" required> 
-                        </div>
-                    </div>
-                   
-                    <div class="mt-3  me-2">
-                        <button type="submit"  class="btn btn-primary">
-                            Buscar
-                        </button>
-                    </div>
-                    
-                </form>
-    </div>
         </div>
-        
+    </div>
+
     </div>
 @endsection

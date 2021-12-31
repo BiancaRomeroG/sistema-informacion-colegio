@@ -33,7 +33,9 @@ class alumnoController extends Controller
         ->where('alumnos.id', '=', $alumno->id)
         ->select('personas.*', 'alumnos.id AS idAlumno', 'alumnos.cod_rude', 'tutores.id as idApoderado')
         ->first();
-        $personaTutor = Persona::findOrFail($persona->idApoderado);
+        $personaTutor = Persona::join('tutores', 'tutores.id_persona', 'personas.id')
+        ->where('tutores.id', '=', $persona->idApoderado)
+        ->first();
         return view('alumno.show', compact('persona', 'personaTutor'));
     }
 

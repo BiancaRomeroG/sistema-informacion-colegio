@@ -30,6 +30,10 @@
                                     @if ($persona->idTutor != null)
                                         <p class="mb-1">ID del Apoderado: {{ $persona->idTutor }}</p>
                                     @endif
+
+                                    @if ($persona->idUsuario != null)
+                                        <p class="mb-1">ID del Usuario: {{ $persona->idUsuario }}</p>
+                                    @endif
                                 </div>
                                 <div class="container m-3">
                                     <h3>Informacion Personal</h3>
@@ -46,7 +50,7 @@
                                                 <p class="mb-1"><b class="fw-bold  text-secondary">Sexo: </b>
                                                     {{ $persona->sexo }}</p>
                                                 <p class="mb-1"><b class="fw-bold  text-secondary">Fecha
-                                                        Nacimiento: </b> {{ $persona->fecha_nac }}</p>
+                                                        Nacimiento: </b> {{ \Carbon\Carbon::parse($persona->fecha_nac)->format('d/m/Y') }}</p>
                                             </div>
                                             <div class="col m-2">
                                                 <p class="mb-1 "><span class="fw-bold text-secondary">Dirección:

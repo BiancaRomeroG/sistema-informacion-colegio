@@ -3,15 +3,16 @@
 
 @section('info-adicional-col1')
 
-<p class="mb-1"><b class="fw-bold text-secondary">Código Rude:
-</b> {{$persona->cod_rude}}</p>
+
 <p class="mb-1"><b class="fw-bold text-secondary">Apoderado:
 </b> {{ $personaTutor->nombre }} {{ $personaTutor->apellido_pat }} {{ $personaTutor->apellido_mat }} </p>
+<p class="mb-1"><b class="fw-bold text-secondary">Parentesco:
+</b> {{ $personaTutor->parentesco }} </p>
 @endsection
 
 @section('info-adicional-col2')
-
-    
+<p class="mb-1"><b class="fw-bold text-secondary">Código Rude:
+</b> {{$persona->cod_rude}}</p>   
 @endsection
 
 @section('botones')

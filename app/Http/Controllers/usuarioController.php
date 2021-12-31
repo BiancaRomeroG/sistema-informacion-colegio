@@ -50,7 +50,7 @@ class usuarioController extends Controller
 
         $persona = UsuarioController::getPersonByIdUser($usuario->id);
 
-        return view('usuario.show', compact('usuario','persona'));  
+        return view('usuario.show', compact('persona'));  
     }
 
 
@@ -60,13 +60,13 @@ class usuarioController extends Controller
         $persona = Persona::join('administrativos', 'administrativos.id_persona','personas.id')
         ->join('usuarios','administrativos.id_usuario','usuarios.id')
         ->where('administrativos.id_usuario', $usuario->id)
-        ->select('personas.*','usuarios.id as idUsuario', 'usuarios.nombre_usuario','usuarios.id_rol');
+        ->select('personas.*','usuarios.id as idUsuario', 'usuarios.nombre_usuario','usuarios.id_rol', 'usuarios.estado');
 
         $persona = Persona::join('profesores','profesores.id_persona', 'personas.id')
         ->join('usuarios',  'profesores.id_usuario', 'usuarios.id')
         ->where('profesores.id_usuario', $usuario->id)
         ->union($persona)
-        ->select('personas.*','usuarios.id as idUsuario', 'usuarios.nombre_usuario', 'usuarios.id_rol')
+        ->select('personas.*','usuarios.id as idUsuario', 'usuarios.nombre_usuario', 'usuarios.id_rol', 'usuarios.estado')
         ->first();
 
         return $persona;

@@ -12,7 +12,7 @@
                 </div>
                 @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                 <div class="col text-end">
-                    <a class="btn btn-sm btn-success" href="{{ route('alumno.create') }}"> Registrar nuevo</a>
+                    <a class="btn btn-sm btn-success" href="{{ route('apoderado.create') }}"> Registrar nuevo</a>
                 </div>
                 @endif
             </div>
