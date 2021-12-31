@@ -1,27 +1,29 @@
 @extends('layouts.showDatos')
+@section('title', 'Informacion del Apoderado')
 
-@section('title', 'Datos personales del Administrativo')
+@section('info-adicional-col1')
 
-@section('adicional-information')
+<p class="mb-1"><b class="fw-bold text-secondary">Profesion:
+</b> {{$persona->profesion}}</p>
+@endsection
 
+@section('info-adicional-col2')
 
-<div class="row mb-4">
-        <strong>
-            Profesion:
-        </strong>
-        <label>
-            {{ $administrativo->profesion }}
-        </label>
+@endsection
+
+@section('botones')
+<div class="row justify-content-around mt-3">
+    @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
+    <div class="col text-center">
+        <a class="btn btn-secondary" href="{{ route('administrativo.edit', $persona->idAdministrativo) }}">Editar</a>
     </div>
-
-<div class="row justify-content-around">
-        <div class="col text-center">
-            <form action="{{ route('administrativo.destroy', $persona->id) }}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-            </form>
-        </div>
+    <div class="col text-center">
+        <form action="{{ route('administrativo.destroy', $persona->idAdministrativo) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
     </div>
-
- @endsection
+    @endif
+</div>
+@endsection

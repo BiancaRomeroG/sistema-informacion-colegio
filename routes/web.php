@@ -91,8 +91,8 @@ Route::resource('usuario', usuarioController::class);
 Route::resource('materia', materiaController::class);
 
 //ruta para curso
-Route::resource('curso', cursoController::class)->except(['show','destroy']);
-Route::get('/curso/{id}/{gestion}',[cursoController::class, 'show'])->name('curso.show');
+Route::resource('curso', cursoController::class);
+//Route::get('/curso/{id}/{gestion}',[cursoController::class, 'show'])->name('curso.show');
 
 //ruta para la inscripcion
 Route::resource('inscripcion', inscripcionController::class);

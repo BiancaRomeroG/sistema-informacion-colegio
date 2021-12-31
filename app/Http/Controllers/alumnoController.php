@@ -26,11 +26,17 @@ class alumnoController extends Controller
 
     public function show($alumno)
     {
-        $alumno = alumnos::find($alumno);
-        $persona = Persona::find($alumno->id_persona);
-        $tutor = tutores::find($alumno->id_tutor);
-        $personaTutor = Persona::find($tutor->id_persona);
-        return view('alumno.show', compact('persona', 'alumno', 'tutor', 'personaTutor'));
+        $alumno = alumnos::findOrFail($alumno);
+        $personaAlumno = Persona::find($alumno->id_persona);
+        $persona = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')
+        ->join('tutores', 'tutores.id', 'alumnos.id_tutor')
+        ->where('alumnos.id', '=', $alumno->id)
+        ->select('personas.*', 'alumnos.id AS idAlumno', 'alumnos.cod_rude', 'tutores.id as idApoderado')
+        ->first();
+        $personaTutor = Persona::join('tutores', 'tutores.id_persona', 'personas.id')
+        ->where('tutores.id', '=', $persona->idApoderado)
+        ->first();
+        return view('alumno.show', compact('persona', 'personaTutor'));
     }
 
     public function destroy($id)
