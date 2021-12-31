@@ -21,8 +21,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi bi-pencil-square text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Registro</span> </a>
+                            <a href="#submenu1" data-bs-toggle="collapse" aria-expanded="false" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi bi-pencil-square text-white"></i> <span class="ms-1 d-none d-sm-inline text-white ">Registro</span> </a>
                             <ul class="collapse show nav flex-column ms-1 text-white" id="submenu1" data-bs-parent="#menu">
                                 <div class="container">
                                     <li class="w-100">
@@ -62,13 +62,13 @@
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <div class="container">
                                     <li class="w-100">
-                                        <a href="{{route('curso.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Cursos</span> 1</a>
+                                        <a href="{{route('curso.index', Date('Y'))}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Cursos</span> </a>
                                     </li>
                                     <li class="w-100">
-                                        <a href="{{route('materia.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Materias</span> 2</a>
+                                        <a href="{{route('materia.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Materias</span> </a>
                                     </li>
                                     <li class="w-100">
-                                        <a href="{{route('cardex.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Cardex</span> 1</a>
+                                        <a href="{{route('cardex.index')}}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Cardex</span> </a>
                                     </li>
                                     @if (Auth::user()->id_rol == 3)
                                     <li class="w-100">
@@ -96,6 +96,13 @@
                                 </div>
                             </ul>
                         </li>
+                        @endif
+                        @if (Auth::user()->id_rol == 1)
+                            <li>
+                                <a href="{{route('bitacora.index')}}" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi bi-book-half  text-white"></i><span class="ms-1 d-none d-sm-inline text-white">Bicatora</span>
+                                </a>
+                            </li>
                         @endif
                     </ul>
                     <hr>

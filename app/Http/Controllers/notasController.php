@@ -9,6 +9,7 @@ use App\Models\Persona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class notasController extends Controller
 {
@@ -72,6 +73,18 @@ class notasController extends Controller
     }
 
     public function store(Request $request) {
+        $rules =[];
+        for($i=1; $i<=$request->count; $i++){
+            $rules['saber'.$i]      = 'required|numeric|between:0,100';
+            $rules['ser'.$i]        = 'required|numeric|between:0,100';
+            $rules['hacer'.$i]      = 'required|numeric|between:0,100';
+            $rules['decidir'.$i]    = 'required|numeric|between:0,100';
+        }
+        $rules['nro_trimestre'] = 'required';
+
+        $request->validate($rules);
+
+
 
         if ($request->nro_trimestre == 0)
             return back()->with('error', 'Debe seleccionar un trimestre');
@@ -114,6 +127,7 @@ class notasController extends Controller
     }
 
     public function mod(Request $request) {
+    
         $curso = cursos::findOrFail($request->id_curso);
         $profesor = DB::table('profesores')->where('id_usuario', '=', Auth::user()->id)->first();
         $materia = DB::table('materias')->where('id_profesor', '=', $profesor->id)->first();
@@ -127,11 +141,25 @@ class notasController extends Controller
         ->where('materias.id', '=', $materia->id)
         ->where('notas.nro_trim', '=', $request->nro_trim)
         ->get();
+       // return $trimestres;
+        if (empty($trimestres->first()))
+            return back()->with('error', 'No existen notas a editar en este trimestre.');
+        
         $actionform = route('notas.update', [$curso->id]);
         return view('nota.modificacion', compact('trimestres', 'actionform'))->with('i');
     }
 
     public function update( $id_curso, Request $request) {
+        $rules =[];
+        for($i=1; $i<=$request->count; $i++){
+            $rules['saber'.$i]      = 'required|numeric|between:0,100';
+            $rules['ser'.$i]        = 'required|numeric|between:0,100';
+            $rules['hacer'.$i]      = 'required|numeric|between:0,100';
+            $rules['decidir'.$i]    = 'required|numeric|between:0,100';
+        }
+
+        $request->validate($rules);
+
         $i = 1;
 
         while ($i <= $request->count) {

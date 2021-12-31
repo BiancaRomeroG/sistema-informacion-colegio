@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\acciones;
+use App\Models\administrativos;
+use App\Models\Persona;
+use App\Models\profesores;
+use App\Models\usuario;
 use DateTime;
 use Illuminate\Http\Request;
 use PDF;
@@ -10,6 +14,17 @@ use PDF;
 class bitacoraController extends Controller
 {
     
+    public function index(){
+        $acciones = acciones::orderBy('id','desc')->paginate(14);
+        $personas = [];
+        foreach ($acciones as $accion) {
+           $personas[] = usuarioController::getPersonByIdUser($accion->id_usuario); 
+        }      
+
+       // return [0 => $acciones, 1 => $personas];
+
+        return view('bitacora.index', compact('acciones' ,'personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+    }
     public function show($id){
         $persona = usuarioController::getPersonByIdUser($id);
         $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->paginate(10);
@@ -29,7 +44,7 @@ class bitacoraController extends Controller
         $persona = usuarioController::getPersonByIdUser($id);
         $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->get();
         $pdf = PDF::loadView('Bitacora.pdf',['acciones' => $acciones, 'persona' => $persona])->setPaper('a4');
-        $tittle = 'Bitacora-'.$persona->nombre.$persona->apellido_pat.$persona->apellido_mat.'pdf';
+        $tittle = 'Bitacora-'.$persona->nombre.$persona->apellido_pat.$persona->apellido_mat.'.pdf';
         return $pdf->download($tittle);
       //  return view('Bitacora.pdf', compact('persona', 'acciones'));
 

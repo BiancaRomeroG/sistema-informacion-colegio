@@ -91,7 +91,7 @@
                 <tbody>
                     @foreach ($trimestre2 as $trimestre)
                         <tr>
-                            <td>{{ $trimestre->nombre.' '.$trimestre->apellido_pat.' '.$trimestre->apellido_mat }}</td>
+                            <td class = "text-start">{{ $trimestre->nombre.' '.$trimestre->apellido_pat.' '.$trimestre->apellido_mat }}</td>
                             <td>{{ $trimestre->ser }}</td>
                             <td>{{ $trimestre->saber }}</td>
                             <td>{{ $trimestre->hacer }}</td>
@@ -132,7 +132,7 @@
                 <tbody>
                     @foreach ($trimestre3 as $trimestre)
                         <tr>
-                            <td>{{ $trimestre->nombre.' '.$trimestre->apellido_pat.' '.$trimestre->apellido_mat }}</td>
+                            <td class = "text-start">{{ $trimestre->nombre.' '.$trimestre->apellido_pat.' '.$trimestre->apellido_mat }}</td>
                             <td>{{ $trimestre->ser }}</td>
                             <td>{{ $trimestre->saber }}</td>
                             <td>{{ $trimestre->hacer }}</td>

@@ -116,7 +116,7 @@ class pagoSalarioController extends Controller
         }
         $pagos = collect($pagos);
         $pdf = PDF::loadView('PagoSalario.indexPDF',['pagos' => $pagos, 'meses' => $meses])->setPaper('a4', 'landscape');
-        $tittle = 'Salarios'.Date('Y').'pdf';
+        $tittle = 'Salarios'.Date('Y').'.pdf';
         //return $pagos;
        // return $pdf->stream();
         return $pdf->download($tittle);

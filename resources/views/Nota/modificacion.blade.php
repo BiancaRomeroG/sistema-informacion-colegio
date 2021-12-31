@@ -49,18 +49,41 @@
                             <tr >
                                 <td hidden>{{ ++$i }}</td>
                                 <td>{{ $trimestre->nombre.' '.$trimestre->apellido_pat.' '.$trimestre->apellido_mat }}</td>
-                                <td style="width: 100px; height: 5px;" ><input class="text-center" style="width: 100px; height: 5;" name="ser{{$i}}" value="{{$trimestre->ser}}"></td>
-                                <td style="width: 100px; height: 5px;" ><input class="text-center" style="width: 100px; height: 5;" name="saber{{$i}}" value="{{$trimestre->saber}}"></td>
-                                <td style="width: 100px; height: 5px;" ><input class="text-center" style="width: 100px; height: 5;" name="hacer{{$i}}" value="{{$trimestre->hacer}}"></td>
-                                <td style="width: 100px; height: 5px;" ><input class="text-center" style="width: 100px; height: 5;" name="decidir{{$i}}" value="{{$trimestre->decidir}}"></td>
+                                <td style="width: 100px; height: 5px;" ><input class="form-control text-center" style="width: 100px; height: 5;" id ="ser{{$i}}"     name="ser{{$i}}"       value="{{old('ser'.$i, $trimestre->ser)}}"></td>
+                                <td style="width: 100px; height: 5px;" ><input class="form-control text-center" style="width: 100px; height: 5;" id ="saber{{$i}}"   name="saber{{$i}}"     value="{{old('saber'.$i, $trimestre->saber)}}"></td>
+                                <td style="width: 100px; height: 5px;" ><input class="form-control text-center" style="width: 100px; height: 5;" id ="hacer{{$i}}"   name="hacer{{$i}}"     value="{{old('hacer'.$i,  $trimestre->hacer)}}"></td>
+                                <td style="width: 100px; height: 5px;" ><input class="form-control text-center" style="width: 100px; height: 5;" id ="decidir{{$i}}" name="decidir{{$i}}"   value="{{old('decidir'.$i, $trimestre->decidir)}}"></td>
                                 <input type="hidden" name="idNota{{$i}}" value="{{$trimestre->idNota}}">   
                             </tr>
                             <input type="hidden" name="count" value="{{$i}}"> 
                         @endforeach
                     </tbody>
                 </table>
-                <div class="row-2 text-end">
-                    <a href="{{route('notas.index')}}" class="btn btn-danger">Cancelar</a>
+                @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    <?php 
+                    $message1 = 'El campo es obligatorio.';
+                    $message2 = 'El campo debe ser un valor entre 0 y 100.';
+                    $message3 = 'El campo debe ser un número.';
+                    $message4 = 'Debe seleccionar un trimestre.';
+                    if(in_array($message1,$errors->all(),false))
+                        echo '<li>'.$message1.'</li>';
+                    
+                    if(in_array($message2,$errors->all(),false))
+                        echo '<li>'.$message2.'</li>';
+                        
+                    if(in_array($message3,$errors->all(),false))
+                        echo '<li>'.$message3.'</li>';
+
+                    if(in_array($message4,$errors->all(),false))
+                        echo '<li>'.$message4.'</li>';
+                    ?>
+                </ul>
+            </div>
+             @endif
+                <div class="row-2 text-end" style ="margin-bottom: 1rem">
+                    <a href="{{route('notas.index')}}" class="btn btn-danger" >Cancelar</a>
                     <button class="btn btn-primary" type="submit">Guardar Notas</button>   
                 </div>
                

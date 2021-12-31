@@ -3,8 +3,7 @@
 @section('title', 'Vista de cardex')
 
 @section('navigation')
-<form action="{{route('mod.notas')}}" method="POST">
-    @csrf
+<form action="{{route('mod.notas')}}" method="GET">
     <section class="row justify-content-center" id="main">
         <div class="col-10">
             <div class="card shadow m-5">
@@ -14,7 +13,7 @@
                 <div class="card-body p-4">
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
-                            <select class="form-control" name="nro_trim">
+                            <select class="form-control" name="nro_trim" required>
                                 <option value="1" selected>Trimestre 1</option>
                                 <option value="2">Trimestre 2</option>
                                 <option value="3">Trimestre 3</option>

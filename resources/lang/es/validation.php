@@ -24,7 +24,7 @@ return [
     'before'               => 'El campo :attribute debe ser una fecha anterior a :date.',
     'before_or_equal'      => 'El campo :attribute debe ser una fecha anterior o igual a :date.',
     'between'              => [
-        'numeric' => 'El campo :attribute debe ser un valor entre :min y :max.',
+        'numeric' => 'El campo debe ser un valor entre :min y :max.',
         'file'    => 'El archivo :attribute debe pesar entre :min y :max kilobytes.',
         'string'  => 'El campo :attribute debe contener entre :min y :max caracteres.',
         'array'   => 'El campo :attribute debe contener entre :min y :max elementos.',
@@ -92,11 +92,11 @@ return [
     ],
     'not_in'               => 'El campo :attribute seleccionado es inválido.',
     'not_regex'            => 'El formato del campo :attribute es inválido.',
-    'numeric'              => 'El campo :attribute debe ser un número.',
+    'numeric'              => 'El campo debe ser un número.',
     'password'             => 'La contraseña es incorrecta.',
     'present'              => 'El campo :attribute debe estar presente.',
     'regex'                => 'El formato del campo :attribute es inválido.',
-    'required'             => 'El campo :attribute es obligatorio.',
+    'required'             => 'El campo es obligatorio.',
     'required_if'          => 'El campo :attribute es obligatorio cuando el campo :other es :value.',
     'required_unless'      => 'El campo :attribute es requerido a menos que :other se encuentre en :values.',
     'required_with'        => 'El campo :attribute es obligatorio cuando :values está presente.',
@@ -132,6 +132,9 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+        ],
+        'nro_trimestre'=> [
+            'required' => 'Debe seleccionar un trimestre.',
         ],
     ],
 
