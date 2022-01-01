@@ -25,7 +25,7 @@ class cardexController extends Controller
         ->orwhere('personas.ci', 'LIKE', $texto)
         ->orwhere('alumnos.cod_rude', 'LIKE', $texto)
         ->paginate(5);
-        return view('cardex.index', compact('texto', 'personas'));
+        return view('Cardex.index', compact('texto', 'personas'));
     }
 
     public function store(Request $request) {
@@ -70,7 +70,7 @@ class cardexController extends Controller
         ->select('pagos.*', 'pago_mensualidads.nro_cuota')
         ->where('tutores.id', '=', $tutor->id)->get();
 
-        return view('cardex.show', compact('trimestre1', 'trimestre2', 'trimestre3', 'persona',
+        return view('Cardex.show', compact('trimestre1', 'trimestre2', 'trimestre3', 'persona',
                                            'alumno', 'personaTutor','cardex', 'pagos'))->with('i');
     }
 }

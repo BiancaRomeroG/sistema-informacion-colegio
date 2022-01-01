@@ -16,8 +16,8 @@
                 </div>
                 @endif
             </div>
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+            <table id ="table_id" class="table table-round-blue ">
+                <thead class="table-head">
                     <tr>
                         <th>Nro</th>
                         <th>Nombre</th>
@@ -42,9 +42,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex">
-                {!! $personas->links() !!}
-            </div>
+            
         </div>
     </div>
 @endsection

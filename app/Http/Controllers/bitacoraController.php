@@ -15,7 +15,7 @@ class bitacoraController extends Controller
 {
     
     public function index(){
-        $acciones = acciones::orderBy('id','desc')->paginate(14);
+        $acciones = acciones::orderBy('id','asc')->get();
         $personas = [];
         foreach ($acciones as $accion) {
            $personas[] = usuarioController::getPersonByIdUser($accion->id_usuario); 
@@ -23,12 +23,12 @@ class bitacoraController extends Controller
 
        // return [0 => $acciones, 1 => $personas];
 
-        return view('bitacora.index', compact('acciones' ,'personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+        return view('bitacora.index', compact('acciones' ,'personas'))->with('i');
     }
     public function show($id){
         $persona = usuarioController::getPersonByIdUser($id);
-        $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->paginate(10);
-        return view('bitacora.show', compact('acciones','persona'))->with('i', (request()->input('page', 1) - 1) * 10);
+        $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->get();
+        return view('bitacora.show', compact('acciones','persona'))->with('i');
     }
 
     static public function bitacoraRegister($id, $descripcion){

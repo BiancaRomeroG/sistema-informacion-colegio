@@ -14,19 +14,19 @@ class administrativoController extends Controller
 {
     public function index() {
         $personas = Persona::join('administrativos', 'personas.id', 'administrativos.id_persona')
-        ->orderBy('personas.id', 'desc')->paginate(14);
-        return view('administrativo.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+        ->orderBy('personas.id', 'desc')->get();
+        return view('Administrativo.index', compact('personas'))->with('i');
     }
    
     public function show($administrativoId) {
         $administrativo = administrativos::findOrFail($administrativoId);
         $persona = Persona::find($administrativo->id_persona);
-        return view('administrativo.show', compact('persona', 'administrativo'));
+        return view('Administrativo.show', compact('persona', 'administrativo'));
     }
     
     public function create(){
         $actionform = route("administrativo.store"); 
-        return view('administrativo.create', compact('actionform'));
+        return view('Administrativo.create', compact('actionform'));
     }
     public function store (StoreAdministrativo $request){
         $persona = Persona::create([
@@ -67,7 +67,7 @@ class administrativoController extends Controller
         $administrativo = administrativos::findOrFail($id);
         $persona = Persona::findOrFail($administrativo->id_persona);
         $actionform = route('administrativo.update',[$administrativo->id]); 
-        return view('administrativo.edit', compact('administrativo','persona','actionform'));
+        return view('Aministrativo.edit', compact('administrativo','persona','actionform'));
     }
 
     public function update($id, StoreAdministrativo $request){

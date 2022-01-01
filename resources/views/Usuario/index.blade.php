@@ -11,8 +11,8 @@
                     <h2>Lista de Usuarios</h2>
                 </div>
             </div>
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+            <table class="table table-round-blue">
+                <thead class="table-head">
                     <tr>
                         <th>Nro</th>
                         <th>Nombre</th>
@@ -48,9 +48,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex">
-                {!! $personas->links() !!}
-            </div>
+         
         </div>
     </div>
 @endsection

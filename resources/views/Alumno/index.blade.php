@@ -16,8 +16,8 @@
                 </div>
                 @endif
             </div>
-            <table class="table table-hover table-bordered">
-                <thead class="table-light">
+            <table class="table table-round-blue">
+                <thead class = "table-head">
                     <tr>
                         <th>Nro</th>
                         <th>Nombre</th>
@@ -31,7 +31,7 @@
                             <td>{{ ++$i }}</td>
                             <td>{{ $persona->nombre }}</td>
                             <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
-                            <td>
+                            <td class="text-center">
                                 <a class="btn btn-sm btn-primary" href="{{ route('alumno.show', $persona) }}">Ver</a>
                                 @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
                                 <a class="btn btn-sm btn-secondary"
@@ -42,9 +42,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex">
-                {!! $personas->links() !!}
-            </div>
         </div>
     </div>
 @endsection
