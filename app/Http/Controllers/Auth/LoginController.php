@@ -9,7 +9,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -63,6 +64,34 @@ class LoginController extends Controller
         return 'nombre_usuario';
     }
 
+    protected function credentials(Request $request)
+    {
+        //return $request->only($this->username(), 'password');
+        return [$this->username() => $request->only($this->username()), 'password' => $request->password,
+        'estado' => 1];
+    }
+    
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $errors = [$this->username() => trans('auth.failed')];
+
+        // Load user from database
+        $user = User::where($this->username(), $request->{$this->username()})->first();
+
+        // Check if user was successfully loaded, that the password matches
+        // and active is not 1. If so, override the default error message.
+        if ($user && Hash::check($request->password, $user->contrasenha) && $user->active != 1) {
+            $errors = [$this->username() => trans('auth.notactivated')];
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json($errors, 422);
+        }
+        return redirect()->back()
+            ->withInput($request->only($this->username(), 'remember'))
+            ->withErrors($errors);
+    }
+
     public function login(Request $request)
     {
         $this->validateLogin($request);
@@ -111,6 +140,7 @@ class LoginController extends Controller
             : redirect('/');
     }
 
+    
  
 
      

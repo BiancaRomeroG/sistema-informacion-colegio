@@ -21,6 +21,7 @@
                             <th width = "5rem" >Nro</th>
                             <th>Nombre</th>
                             <th>Apellidos</th>
+                            <th>Materia</th>
                             <th width="120px">Acciones</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                                 <td class="text-center">{{ ++$i }}</td>
                                 <td>{{ $persona->nombre }}</td>
                                 <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
+                                <td>{{ $persona->nombreMateria}}</td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" href="{{ route('profesor.show', $persona) }}">Ver</a>
                                     <a class="btn btn-sm btn-secondary" href="{{ route('profesor.edit', $persona->id) }}">Editar</a>
