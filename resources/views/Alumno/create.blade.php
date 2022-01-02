@@ -1,7 +1,10 @@
 @extends('layouts.datosPersonales_plantilla')
 
 @section('title', 'Registro de Alumnos')
-
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.2.0/dist/select2-bootstrap-5-theme.min.css" />
+@endsection
 @section('subtitle', 'Informacion Academica')
 
 @section('adicional-information')
@@ -31,4 +34,13 @@
 @endsection
 @section('btn')
     <a class="btn btn-danger" href="{{route('alumno.index')}}">Cancelar</a>
+@endsection
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+<script>
+    $("#tutor_id").select2({
+        theme: "bootstrap-5",
+    });
+    
+</script>
 @endsection

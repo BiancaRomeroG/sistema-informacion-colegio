@@ -23,9 +23,9 @@ class usuarioController extends Controller
         ->union($personas)
         ->select('personas.*','usuarios.id as idUsuario', 'usuarios.nombre_usuario', 'usuarios.id_rol', 'usuarios.estado')
         ->orderBy('id_rol', 'asc')
-        ->paginate(10);
+        ->get();
 
-        return view('usuario.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('usuario.index', compact('personas'))->with('i');
     }
     
     public function update($id){

@@ -24,8 +24,8 @@ class inscripcionController extends Controller
         $personas = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')
         ->join('inscripciones', 'alumnos.id', 'inscripciones.id_alumno')
         ->select('alumnos.id as idAlumno', 'alumnos.cod_rude', 'inscripciones.curso', 'personas.*')
-        ->paginate(14);
-        return view('inscripcion.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+        ->get();
+        return view('inscripcion.index', compact('personas'))->with('i');
     }
 
     public function store(StoreInscripcion $request) {
@@ -72,7 +72,7 @@ class inscripcionController extends Controller
         ->orwhere('personas.apellido_mat', 'LIKE','%'.$texto.'%')
         ->orwhere('personas.ci', 'LIKE', $texto)
         ->orwhere('alumnos.cod_rude', 'LIKE', $texto)
-        ->paginate(5);
+        ->get();
         return view('inscripcion.create', compact('personas', 'texto'));
     }
 

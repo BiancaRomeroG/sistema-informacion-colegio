@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" aria-expanded="false" class="nav-link px-0 align-middle ">
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle collapsed" aria-expanded="false">
                                 <i class="fs-4 bi bi-pencil-square text-white"></i> <span class="ms-1 d-none d-sm-inline text-white ">Registro</span> </a>
                             <ul class="collapse show nav flex-column ms-1 text-white" id="submenu1" data-bs-parent="#menu">
                                 <div class="container">

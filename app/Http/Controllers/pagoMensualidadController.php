@@ -23,8 +23,8 @@ class pagoMensualidadController extends Controller
         ->join('pago_mensualidads', 'pago_mensualidads.id_tutor', 'tutores.id')
         ->join('pagos', 'pagos.id', 'pago_mensualidads.id_pago')
         ->select('personas.*', 'pago_mensualidads.id AS idPago', 'pago_mensualidads.nro_cuota', 'pagos.monto')
-        ->orderBy('idPago', 'desc')->paginate(14);
-        return view('pagoMensualidad.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+        ->orderBy('idPago', 'desc')->get();
+        return view('pagoMensualidad.index', compact('personas'))->with('i');
     }
 
     public function create(Request $request) {

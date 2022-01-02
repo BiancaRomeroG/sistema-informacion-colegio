@@ -5,21 +5,22 @@
 @section('navigation')
 
     <div class="row justify-content-center">
-        <div class="col-9 mt-5">
-            <div class="row justify-content-between mb-2">
+        <div class="col-11  card mt-1">
+            <div class="row justify-content-between mb-2 card-header">
                 <div class="col">
                     <h2>Lista de Apoderados</h2>
                 </div>
                 @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)
-                <div class="col text-end">
+                <div class="col d-flex justify-content-end align-items-center text-end">
                     <a class="btn btn-sm btn-success" href="{{ route('apoderado.create') }}"> Registrar nuevo</a>
                 </div>
                 @endif
             </div>
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+        <div class="card-body">
+            <table id ="table_id" class="table table-round-blue ">
+                <thead class="table-head">
                     <tr>
-                        <th>Nro</th>
+                        <th width="5rem">Nro</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th width="120px">Acciones</th>
@@ -28,7 +29,7 @@
                 <tbody>
                     @foreach ($personas as $persona)
                         <tr>
-                            <td>{{ ++$i }}</td>
+                            <td class="text-center">{{ ++$i }}</td>
                             <td>{{ $persona->nombre }}</td>
                             <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>
@@ -42,9 +43,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex">
-                {!! $personas->links() !!}
-            </div>
+        </div>
         </div>
     </div>
 @endsection

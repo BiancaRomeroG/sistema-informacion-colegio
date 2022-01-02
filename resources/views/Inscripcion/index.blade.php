@@ -6,42 +6,42 @@
 <form action="{{route('inscripcion.index')}}" method="GET">
 @csrf
 <div class="row justify-content-center">
-    <div class="col-9 mt-5">
-        <div class="row justify-content-between mb-2">
+    <div class="col-9 mt-1 card">
+        <div class="row justify-content-between mb-2 card-header">
             <div class="col">
                 <h2>Lista de Alumnos Inscritos</h2>
             </div>
-            <div class="col text-end">
+            <div class="col d-flex justify-content-end align-items-center text-end">
                 <a class="btn btn-sm btn-success" href="{{ route('inscripcion.create') }}">Nueva Inscripcion</a>
             </div>
         </div>
-        <table class="table table-bordered">
-            <thead class="table-secondary">
-                <tr>
-                    <th>Nro</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Curso</th>
-                    <th width="120px">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($personas as $persona)
+        <div class="card-body">
+            <table class="table table-round-blue table-striped">
+                <thead class="table-head">
                     <tr>
-                        <td>{{ ++$i }}</td>
-                        <td>{{ $persona->nombre }}</td>
-                        <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
-                        <td>{{ $persona->curso }}° Secundaria</td>
-                        <td>
-                            <a class="btn btn-primary" href="{{ route('inscripcion.show', $persona->idAlumno) }}">Ver</a>
-                        </td>
+                        <th width = "5%">Nro</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Curso</th>
+                        <th width="120px">Acciones</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="d-flex">
-            {!! $personas->links() !!}
+                </thead>
+                <tbody>
+                    @foreach ($personas as $persona)
+                        <tr>
+                            <td class="text-center">{{ ++$i }}</td>
+                            <td>{{ $persona->nombre }}</td>
+                            <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
+                            <td>{{ $persona->curso }}° Secundaria</td>
+                            <td class="text-center">
+                                <a class="btn btn-primary" href="{{ route('inscripcion.show', $persona->idAlumno) }}">Ver</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
+      
     </div>
 </div>  
 </form>

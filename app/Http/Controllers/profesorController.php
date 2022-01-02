@@ -18,8 +18,8 @@ class profesorController extends Controller
 {
     public function index() {
         $personas = Persona::join('profesores', 'personas.id', 'profesores.id_persona')
-        ->orderBy('personas.id', 'asc')->paginate(14);
-        return view('profesor.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+        ->orderBy('personas.id', 'asc')->get();
+        return view('profesor.index', compact('personas'))->with('i');
     }
 
     public function show($profesorId) {

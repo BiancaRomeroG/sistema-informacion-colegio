@@ -5,37 +5,55 @@
 @section('navigation')
 
     <div class="row justify-content-center">
-        <div class="col-9 mt-5">
-            <div class="row justify-content-between mb-2">
+        <div class="col-9 mt-1 card">
+            <div class="row justify-content-between mb-2 card-header">
                 <div class="col">
-                    <h2>Cursos</h2>
+                    <h2>Boletines de cursos</h2>
                 </div>
             </div>
-            <table class="table table-bordered">
-                <thead class="table-secondary">
-                    <tr>
-                        <th>Curso</th>
-                        <th> Cupo maximo </th>
-                        <th>Cantidad de alumnos</th>
-                        <th width="120px">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cursos as $curso)
+            <div class="card-body">
+                <table class="table table-round-blue table-striped">
+                    <thead class="table-head">
                         <tr>
-                            
-                            <td>{{ $curso->nivel }}</td>
-                            <td> {{$curso->cupo_max}} </td>
-                            <td>{{ $curso->cant_alumnos}}</td>
-                            <td>
-                                <!-- {{$curso->id}} -->
-                                <a class="btn btn-sm btn-primary" href="{{ route('boletin.show', $curso->id) }}"> Ver</a>
-                            </td>
+                            <th>Curso</th>
+                            <th> Cupo maximo </th>
+                            <th>Cantidad de alumnos</th>
+                            <th width="120px">Acciones</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($cursos as $curso)
+                            <tr>
+                                
+                                <td class="text-center">{{ $curso->nivel }}º de secundaria</td>
+                                <td class="text-center"> {{$curso->cupo_max}} </td>
+                                <td class="text-center">{{ $curso->cant_alumnos}}</td>
+                                <td class="text-center">
+                                    <!-- {{$curso->id}} -->
+                                    <a class="btn btn-sm btn-primary" href="{{ route('boletin.show', $curso->id) }}"> Ver</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
         
     </div>
+@endsection
+@section('js')
+<script>
+  
+    $(document).ready(function() {
+        $('.table-round-blue').DataTable({
+            destroy: true,
+            paging: false,
+            searching: false,
+            ordering: true,
+            info: false,
+            responsive: true,
+            autoWidth: false,  
+        });
+    });
+</script>
 @endsection

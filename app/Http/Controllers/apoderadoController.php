@@ -14,12 +14,13 @@ class apoderadoController extends Controller
     {
         $personas = Persona::join('tutores', 'personas.id', 'tutores.id_persona')
             ->select('tutores.id as idTutor', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat')
-            ->orderBy('idTutor', 'desc')->paginate(14);
-        return view('apoderado.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+            ->orderBy('idTutor', 'desc')->get();
+        return view('Apoderado.index', compact('personas'))->with('i');
     }
 
     public function show($tutorId)
     {
+
         $tutor = tutores::findOrFail($tutorId);
 
         if ($tutor == null)
@@ -35,12 +36,13 @@ class apoderadoController extends Controller
         ->get();
 
         return view('apoderado.show', compact('persona', 'alumnos'));
+
     }
 
     public function create()
     {
         $actionform = route('apoderado.store');
-        return view('apoderado.create', compact('actionform'));
+        return view('Apoderado.create', compact('actionform'));
     }
 
     public function store(StoreApoderado $request)
@@ -87,7 +89,7 @@ class apoderadoController extends Controller
         $tutor = tutores::findOrFail($id);
         $persona = Persona::findOrFail($tutor->id_persona);
         $actionform = route('apoderado.update', $tutor);
-        return view('apoderado.edit', compact('tutor', 'persona', 'actionform'));
+        return view('Apoderado.edit', compact('tutor', 'persona', 'actionform'));
     }
 
     public function update($tutorId, StoreApoderado $request)
