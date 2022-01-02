@@ -19,7 +19,7 @@ class alumnoController extends Controller
     public function index()
     {
         $personas = Persona::join('alumnos', 'personas.id', 'alumnos.id_persona')
-            ->select('alumnos.id', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat')
+            ->select('alumnos.id', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat','alumnos.cod_rude')
             ->orderBy('id', 'desc')->get();
         return view('Alumno.index', compact('personas'))->with('i');
     }

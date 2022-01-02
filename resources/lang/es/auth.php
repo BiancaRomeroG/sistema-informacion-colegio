@@ -14,6 +14,7 @@ return [
     */
 
     'failed' => 'Usuario o contraseña incorrectos.',
+    'notactivated' => 'Cuenta inhabilitada.',
     'throttle' => 'Demasiados intentos de acceso. Por favor inténtelo de nuevo en :seconds segundos.',
 
 ];
