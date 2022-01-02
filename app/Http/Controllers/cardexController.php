@@ -68,6 +68,7 @@ class cardexController extends Controller
         ->join('tutores', 'tutores.id', 'pago_mensualidads.id_tutor')
         ->join('alumnos', 'alumnos.id_tutor', 'tutores.id')
         ->select('pagos.*', 'pago_mensualidads.nro_cuota')
+        ->where('alumnos.id', '=', $alumno->id)
         ->where('tutores.id', '=', $tutor->id)->get();
 
         return view('cardex.show', compact('trimestre1', 'trimestre2', 'trimestre3', 'persona',
