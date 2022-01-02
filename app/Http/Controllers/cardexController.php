@@ -24,7 +24,7 @@ class cardexController extends Controller
         ->orwhere('personas.apellido_mat', 'LIKE','%'.$texto.'%')
         ->orwhere('personas.ci', 'LIKE', $texto)
         ->orwhere('alumnos.cod_rude', 'LIKE', $texto)
-        ->paginate(5);
+        ->get();
         return view('Cardex.index', compact('texto', 'personas'));
     }
 

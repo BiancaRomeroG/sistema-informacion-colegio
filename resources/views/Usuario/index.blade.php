@@ -5,16 +5,17 @@
 @section('navigation')
 
     <div class="row justify-content-center">
-        <div class="col-9 mt-5">
-            <div class="row justify-content-between mb-2">
+        <div class="col-10 mt-1 card">
+            <div class="row justify-content-between mb-2 card-header">
                 <div class="col">
                     <h2>Lista de Usuarios</h2>
                 </div>
             </div>
+          <div class="card-body">  
             <table class="table table-round-blue">
                 <thead class="table-head">
                     <tr>
-                        <th>Nro</th>
+                        <th width = "5rem">Nro</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Usuario</th>
@@ -25,7 +26,7 @@
                 <tbody>
                     @foreach ($personas as $persona)
                         <tr>
-                            <td>{{ ++$i }}</td>
+                            <td class="text-center">{{ ++$i }}</td>
                             <td>{{ $persona->nombre }}</td>
                             <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                             <td>{{ $persona->nombre_usuario}}</td>
@@ -48,6 +49,7 @@
                     @endforeach
                 </tbody>
             </table>
+          </div>
          
         </div>
     </div>

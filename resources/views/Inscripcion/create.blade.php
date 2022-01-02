@@ -2,6 +2,17 @@
 
 @section('title', 'Inscripción')
 
+@section('css')
+<style>
+    .dataTables_filter {
+        display: none;
+     }
+    #table-inscripcion_length{
+        display:none;
+    }     
+</style>
+ 
+@endsection
 @section('navigation')
 
 <section class="row justify-content-center" id="main">
@@ -14,13 +25,9 @@
                     <div class="row mb-3 justify-content-around">
                         <div class="col m-2">
                             <p class="mb-1">Código del alumno</p>
-                            <form method="GET" action="{{route('inscripcion.create')}}">
-                                @csrf
                                 <div class="input-group">
-                                    <input type="search" class="form-control" id="nombreInput" name="nombre" placeholder="Buscar Alumnos" value="{{$texto}}">
-                                    <button class="btn btn-outline-primary" type="submit" id="buscar">Buscar</button>
+                                    <input type="search" class="form-control" id="searchbox" name="nombre" placeholder="Buscar Alumnos" >
                                 </div>
-                            </form>
                         </div>
                     </div>
                 <form method="POST" action="{{route('inscripcion.store')}}">
@@ -31,15 +38,18 @@
                         </div>      
                     @else
                     <div class="table-responsive container row mb-3">
-                        <table class="table table-striped">
-                            <tr>
-                                <th>&nbsp</th>
-                                <th>Nombre Completo</th>
-                                <th>C.I.</th>
-                                <th>Sexo</th>
-                                <th>Fecha nac.</th>
-                                <th>Email</th>
-                            </tr>
+                        <table id ="table-inscripcion" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp</th>
+                                    <th>Nombre Completo</th>
+                                    <th>C.I.</th>
+                                    <th>Sexo</th>
+                                    <th>Fecha nac.</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 @foreach ($personas as $persona)
                                     <tr>
                                         <td>
@@ -56,6 +66,7 @@
                                     </tr>
                                 @endforeach
                             @endif
+                            </tbody>
                         </table>
                         {!! $errors->first('id_alumno', '<span class="text-danger">*:message</span>') !!}
                     </div>
@@ -88,4 +99,53 @@
     </div>
 </section>
 </div>
+@endsection
+@section('js')
+<script>
+  
+    $(document).ready(function() {
+        $('#table-inscripcion').DataTable( {
+            destroy: true,
+            paging:   true,
+            pageLength: 5,
+            ordering: true,
+            info:     true,
+            responsive: true,
+            autoWidth: false,    
+       
+            language: {
+                "lengthMenu": 'Mostrar <select class = "custom-select form-select form-select-sm">'+
+                    '<option value="5">5</option>'+
+                    '<option value="25">25</option>'+
+                    '<option value="50">50</option>'+
+                    '<option value="-1">Todos</option>'+
+                    '</select> registros',
+                "zeroRecords": "No existen resultados",
+                "info": "Mostrando _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay resultados",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first":      "Primero",
+                    "last":       "Último",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+                },
+            }
+        } );
+    } );
+</script>
+
+<script>
+    $(document).ready(function(){ 
+
+    var table = $('#table-inscripcion').DataTable();
+
+    $('#searchbox').on( 'keyup', function () {
+       console.log("hola");
+    table.search( this.value ).draw();
+    } );
+});
+
+</script>
 @endsection

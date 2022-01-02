@@ -20,8 +20,8 @@ class pagoSalarioController extends Controller
         ->join('pago_salarios', 'pago_salarios.id_profesor', 'profesores.id')
         ->join('pagos', 'pagos.id', 'pago_salarios.id_pago')
         ->select('personas.*', 'pago_salarios.id AS idPago', 'pago_salarios.nro_pago', 'pagos.monto')
-        ->orderBy('idPago', 'desc')->paginate(14);
-        return view('pagoSalario.index', compact('personas'))->with('i', (request()->input('page', 1) - 1) * 14);
+        ->orderBy('idPago', 'desc')->get();
+        return view('pagoSalario.index', compact('personas'))->with('i');
     }
 
     public function create(Request $request) {

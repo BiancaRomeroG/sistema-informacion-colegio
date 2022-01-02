@@ -18,7 +18,7 @@
   --}}    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
-  @section('css')
+    @section('css')
         
     @show
     
@@ -71,7 +71,7 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
                     '</select> registros',
                 "zeroRecords": "No existen resultados",
                 "info": "Mostrando _PAGE_ de _PAGES_",
-                "infoEmpty": "No records available",
+                "infoEmpty": "No hay resultados",
                 "infoFiltered": "(filtrado de _MAX_ total registros totales)",
                 "search": "Buscar:",
                 "paginate": {
@@ -107,6 +107,8 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 })()
 
 </script>
-
+@section('js')
+    
+@show
 </html>
 

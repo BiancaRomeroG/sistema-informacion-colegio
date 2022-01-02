@@ -6,14 +6,16 @@
 @section('navigation')
 
     <div class="row justify-content-center ">
-        <div class="col-11 custom-table card">
+        
+        <div class="col-11 custom-table mt-1 card">
             <div class="row justify-content-between mb-2 card-header bg-gradient">
                 <div class="col text-center">
                     <h2 style="font-weight: bold">BITACORA GENERAL</h2>
                 </div>
             </div>
+            
             <div class="card-body table-responsive ">
-                <table class="table table-sm table-round-blue">
+                <table class="table table-sm table-round-blue table-striped ">
                     <thead class="table-head ">
                         <tr >
                             <th><span>NRO</span></th>
@@ -42,4 +44,7 @@
              </div>
         </div>
     </div>
+@endsection
+@section('js')
+    
 @endsection
