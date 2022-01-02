@@ -32,7 +32,7 @@ class cursoController extends Controller
             });
 
         if(empty($cursos->all())){
-            return redirect()->route('curso.index',['gestion' => Date('Y')])->with('error', 'Gestion inexistente');
+            return redirect()->route('curso.index',['gestion' => Date('Y')]);
         }    
 
         return view('curso.index', compact('cursos','gestion'));
@@ -56,17 +56,13 @@ class cursoController extends Controller
         return redirect()->route('curso.index')->with('success', 'Curso creado correctamente');
     }
 
-    public function show($id, $gestion){
+    public function show($id){
         $curso = cursos::findOrFail($id);
-        $alumnos = alumnos::join('inscripciones', 'inscripciones.id_alumno','alumnos.id')
-        ->where('inscripciones.id_curso','=', $curso->id)
-        ->whereYear('inscripciones.fecha', '=', $gestion)
+        $personas = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')
+        ->join('inscripciones', 'inscripciones.id_alumno', 'alumnos.id')
+        ->where('inscripciones.id_curso', '=', $curso->id)
         ->get();
-        $personas = [];
-        foreach($alumnos as $alumno){
-            $personas[] = Persona::findOrFail($alumno->id_persona);
-        }
-        return view('Curso.show', compact('personas','curso','gestion'));
+        return view('curso.show', compact('personas', 'id'));
     }
 
     public function edit($id){

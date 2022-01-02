@@ -20,8 +20,14 @@ class administrativoController extends Controller
    
     public function show($administrativoId) {
         $administrativo = administrativos::findOrFail($administrativoId);
-        $persona = Persona::find($administrativo->id_persona);
-        return view('Administrativo.show', compact('persona', 'administrativo'));
+
+        $persona = Persona::join('administrativos', 'administrativos.id_persona', 'personas.id')
+        ->where('administrativos.id', '=', $administrativo->id)
+        ->select('personas.*', 'administrativos.id AS idAdministrativo', 'administrativos.profesion')
+        ->first();
+
+        return view('administrativo.show', compact('persona', 'administrativo'));
+
     }
     
     public function create(){

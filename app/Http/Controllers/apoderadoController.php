@@ -20,9 +20,23 @@ class apoderadoController extends Controller
 
     public function show($tutorId)
     {
-        $tutor = tutores::find($tutorId);
-        $persona = Persona::find($tutor->id_persona);
-        return view('Apoderado.show', compact('persona', 'tutor'));
+
+        $tutor = tutores::findOrFail($tutorId);
+
+        if ($tutor == null)
+            return redirect()->route('apoderado.index')->with('error', 'No se encontraron los datos del apoderado');
+
+        $persona = Persona::join('tutores', 'tutores.id_persona', 'personas.id')
+        ->where('tutores.id', '=', $tutor->id)
+        ->select('personas.*', 'tutores.id AS idTutor', 'tutores.parentesco')
+        ->first();
+
+        $alumnos = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')
+        ->where('alumnos.id_tutor', '=', $tutor->id)
+        ->get();
+
+        return view('apoderado.show', compact('persona', 'alumnos'));
+
     }
 
     public function create()
