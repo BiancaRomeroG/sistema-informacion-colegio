@@ -70,6 +70,7 @@ class cardexController extends Controller
         ->select('pagos.*', 'pago_mensualidads.nro_cuota')
         ->where('alumnos.id', '=', $alumno->id)
         ->where('tutores.id', '=', $tutor->id)->get();
+        return $pagos;
 
         return view('Cardex.show', compact('trimestre1', 'trimestre2', 'trimestre3', 'persona',
                                            'alumno', 'personaTutor','cardex', 'pagos'))->with('i');

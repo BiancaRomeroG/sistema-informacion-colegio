@@ -33,13 +33,13 @@ class inscripcionController extends Controller
         ->where('inscripciones.id_alumno', '=', $request->id_alumno)->get();
 
         if (cursoController::cant_alumnos($request->curso) >= cursoController::cupo_max($request->curso))
-            return redirect()->route('Inscripcion.create')->with('error', 'El curso '.$request->curso.'° de secundaria ya no tiene cupos disponibles');
+            return redirect()->route('inscripcion.create')->with('error', 'El curso '.$request->curso.'° de secundaria ya no tiene cupos disponibles');
         
         if (count($ins) > 0 )
-            return redirect()->route('Inscripcion.create')->with('error', 'El alumno ya esa inscrito');
+            return redirect()->route('inscripcion.create')->with('error', 'El alumno ya esa inscrito');
 
         if ($request->curso == 0)
-            return redirect()->route('Inscripcion.create')->with('error', 'Debe seleccionar un curso');
+            return redirect()->route('inscripcion.create')->with('error', 'Debe seleccionar un curso');
 
         $inscripcion = inscripciones::create([
             'fecha' => Carbon::now()->format('Y,m,d'),
@@ -60,7 +60,7 @@ class inscripcionController extends Controller
         $curso->save();
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno inscrito ID: '.$request->id_alumno.' - Cardex creado ID:'.$cardex->id);
 
-        return redirect()->route('Inscripcion.show', $inscripcion->id)->with('success', 'Alumno inscrito correctamente');
+        return redirect()->route('inscripcion.show', $inscripcion->id)->with('success', 'Alumno inscrito correctamente');
     }
 
     public function create(Request $request) {

@@ -60,7 +60,7 @@
       <tr>
           <td style = "width: 8%">
             <div >
-                <img  src="{{ public_path('img\logocr1.png') }}" width="50" height="50"
+                <img  src="img\logocr1.png" width="50" height="50"
                     alt="Logo Colegio Cristo Rey">
             </div>
           </td> 
