@@ -36,7 +36,7 @@ class alumnoController extends Controller
         $personaTutor = Persona::join('tutores', 'tutores.id_persona', 'personas.id')
         ->where('tutores.id', '=', $persona->idApoderado)
         ->first();
-        return view('alumno.show', compact('persona', 'personaTutor'));
+        return view('Alumno.show', compact('persona', 'personaTutor'));
     }
 
     public function destroy($id)
@@ -55,7 +55,7 @@ class alumnoController extends Controller
         $tutores = Persona::join('tutores', 'personas.id', 'tutores.id_persona')
             ->select('tutores.id', 'personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat')->get();
         $actionform = route("alumno.store");
-        return view('alumno.create', compact('actionform', 'tutores'));
+        return view('Alumno.create', compact('actionform', 'tutores'));
     }
 
     public function store(StoreAlumno $request)
@@ -80,7 +80,7 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno registrado ID: '.$alumno->id);
 
-        return redirect()->route('alumno.index')->with(
+        return redirect()->route('Alumno.index')->with(
             'success',
             'Alumno creado correctamente'
         );
@@ -119,6 +119,6 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del alumno ID: '.$alumno->id);
 
-        return redirect()->route('alumno.show', $alumno->id)->with('success', 'Alumno editado correctamente');
+        return redirect()->route('Alumno.show', $alumno->id)->with('success', 'Alumno editado correctamente');
     }
 }
