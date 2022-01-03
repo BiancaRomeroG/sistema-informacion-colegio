@@ -21,7 +21,7 @@ class profesorController extends Controller
         ->join('materias', 'profesores.id', 'materias.id_profesor')
         ->orderBy('personas.id', 'asc')
         ->select('personas.*','materias.nombre as nombreMateria')->get();
-        return view('profesor.index', compact('personas'))->with('i');
+        return view('Profesor.index', compact('personas'))->with('i');
     }
 
     public function show($profesorId) {
