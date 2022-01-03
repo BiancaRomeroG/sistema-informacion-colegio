@@ -47,7 +47,7 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno eliminado. ID: '.$alumno->id);
 
-        return redirect()->route('Alumno.index')->with('success', 'Alumno eliminado correctamente');
+        return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
     }
 
     public function create()
@@ -80,7 +80,7 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno registrado ID: '.$alumno->id);
 
-        return redirect()->route('Alumno.index')->with(
+        return redirect()->route('alumno.index')->with(
             'success',
             'Alumno creado correctamente'
         );
@@ -119,6 +119,6 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del alumno ID: '.$alumno->id);
 
-        return redirect()->route('Alumno.show', $alumno->id)->with('success', 'Alumno editado correctamente');
+        return redirect()->route('alumno.show', $alumno->id)->with('success', 'Alumno editado correctamente');
     }
 }
