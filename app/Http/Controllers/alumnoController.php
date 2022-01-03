@@ -80,7 +80,7 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno registrado ID: '.$alumno->id);
 
-        return redirect()->route('Alumno.index')->with(
+        return redirect()->route('alumno.index')->with(
             'success',
             'Alumno creado correctamente'
         );

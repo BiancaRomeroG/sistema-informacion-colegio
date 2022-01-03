@@ -71,11 +71,11 @@
                                     Género
                                 </p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="hombre" type="radio" name="sexo" value="1">
+                                    <input class="form-check-input" id="hombre" type="radio" name="sexo" value="M">
                                     <label for="hombre">Hombre</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="mujer" type="radio" name="sexo" value="2">
+                                    <input class="form-check-input" id="mujer" type="radio" name="sexo" value="F">
                                     <label for="mujer">Mujer</label>
                                 </div>
                                 {!! $errors->first('sexo', '<br><span class="help-block text-danger">*:message</span>') !!}
