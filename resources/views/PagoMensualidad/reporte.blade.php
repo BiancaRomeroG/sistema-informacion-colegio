@@ -79,7 +79,7 @@
             <tr>
                 <td style="width: 8%">
                     <div>
-                        <img src="{{ public_path('img\logocr1.png') }}" width="120" height="120"
+                        <img src="{{ asset('img\logocr1.png') }}" width="120" height="120"
                             alt="Logo Colegio Cristo Rey">
                     </div>
                 </td>
