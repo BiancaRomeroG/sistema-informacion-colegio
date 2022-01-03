@@ -31,7 +31,7 @@ class cardexController extends Controller
     public function store(Request $request) {
         if ($request->idCardex == '')
             return redirect()->route('cardex.index')->with('error', 'Debe seleccionar una opcion');
-        return redirect()->route('Cardex.show', $request->idCardex);
+        return redirect()->route('cardex.show', $request->idCardex);
     }
 
     public function show($id) {

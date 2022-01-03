@@ -112,7 +112,7 @@ class notasController extends Controller
             $nota->decidir = $request->$decidir;
             $nota->id_materia = $request->id_materia;
             $nota->id_boletin = $request->$boletin;
-            $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+            $nota->nota_trimestral = (int)(($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4);
             $nota->save();
             $i++;
         }
@@ -174,7 +174,7 @@ class notasController extends Controller
             $nota->saber = $request->$saber;
             $nota->hacer = $request->$hacer;
             $nota->decidir = $request->$decidir;
-            $nota->nota_trimestral = ($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4;
+            $nota->nota_trimestral = (int)(($nota->ser + $nota->saber + $nota->hacer + $nota->decidir) / 4);
             $nota->save();
             $i++;
         }

@@ -32,7 +32,7 @@ class cursoController extends Controller
             });
 
         if(empty($cursos->all())){
-            return redirect()->route('Curso.index',['gestion' => Date('Y')]);
+            return redirect()->route('curso.index',['gestion' => Date('Y')]);
         }    
 
         return view('Curso.index', compact('cursos','gestion'));
