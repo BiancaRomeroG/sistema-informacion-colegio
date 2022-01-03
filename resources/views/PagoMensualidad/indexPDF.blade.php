@@ -54,6 +54,7 @@
     footer .izq {
       text-align: left;
     }
+
   </style>
 
  
@@ -63,8 +64,7 @@
       <tr>
           <td style = "width: 5%">
             <div >
-                <img  src="{{asset('img\logocr1.png')}}" width="50" height="50"
-                    alt="Logo Colegio Cristo Rey">
+              <img src="./img/logocr1.png" width="120" height="120" alt="Logo">
             </div>
           </td> 
           <td> 
