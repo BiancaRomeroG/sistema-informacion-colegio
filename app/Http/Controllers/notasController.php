@@ -15,7 +15,7 @@ class notasController extends Controller
 {
 
     public function index() {
-        return view('nota.index');
+        return view('Nota.index');
     }
 
     public function show($id_curso) {
@@ -55,7 +55,7 @@ class notasController extends Controller
         ->where('materias.id', '=', $materia->id)
         ->where('notas.nro_trim', '=', 3)
         ->get();
-        return view('nota.show', compact('trimestre1', 'trimestre2', 'trimestre3', 'id_curso', 'persona', 'materia'));
+        return view('Nota.show', compact('trimestre1', 'trimestre2', 'trimestre3', 'id_curso', 'persona', 'materia'));
     }
 
     public function create(Request $request) {
@@ -69,7 +69,7 @@ class notasController extends Controller
         ->select('materias.*')
         ->where('profesores.id_usuario', '=', Auth::user()->id)
         ->first();
-        return view('nota.create', compact('personas', 'materia'))->with('i');
+        return view('Nota.create', compact('personas', 'materia'))->with('i');
     }
 
     public function store(Request $request) {
@@ -123,7 +123,7 @@ class notasController extends Controller
     }
 
     public function edit($id_curso) {
-        return view('nota.edit', compact('id_curso'));
+        return view('Nota.edit', compact('id_curso'));
     }
 
     public function mod(Request $request) {
@@ -146,7 +146,7 @@ class notasController extends Controller
             return back()->with('error', 'No existen notas a editar en este trimestre.');
         
         $actionform = route('notas.update', [$curso->id]);
-        return view('nota.modificacion', compact('trimestres', 'actionform'))->with('i');
+        return view('Nota.modificacion', compact('trimestres', 'actionform'))->with('i');
     }
 
     public function update( $id_curso, Request $request) {

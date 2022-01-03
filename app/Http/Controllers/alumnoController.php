@@ -47,7 +47,7 @@ class alumnoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Alumno eliminado. ID: '.$alumno->id);
 
-        return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
+        return redirect()->route('Alumno.index')->with('success', 'Alumno eliminado correctamente');
     }
 
     public function create()

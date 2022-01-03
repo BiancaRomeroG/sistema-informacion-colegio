@@ -32,15 +32,15 @@ class cursoController extends Controller
             });
 
         if(empty($cursos->all())){
-            return redirect()->route('curso.index',['gestion' => Date('Y')]);
+            return redirect()->route('Curso.index',['gestion' => Date('Y')]);
         }    
 
-        return view('curso.index', compact('cursos','gestion'));
+        return view('Curso.index', compact('cursos','gestion'));
     }
 
 
     public function create(){
-        return view('curso.create');
+        return view('Curso.create');
     }
 
     public function store(StoreCurso $request){
@@ -53,7 +53,7 @@ class cursoController extends Controller
         
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Curso creado ID: '.$curso->id);
 
-        return redirect()->route('curso.index')->with('success', 'Curso creado correctamente');
+        return redirect()->route('Curso.index')->with('success', 'Curso creado correctamente');
     }
 
     public function show($id){
@@ -62,7 +62,7 @@ class cursoController extends Controller
         ->join('inscripciones', 'inscripciones.id_alumno', 'alumnos.id')
         ->where('inscripciones.id_curso', '=', $curso->id)
         ->get();
-        return view('curso.show', compact('personas', 'id'));
+        return view('Curso.show', compact('personas', 'id'));
     }
 
     public function edit($id){
@@ -77,7 +77,7 @@ class cursoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de curso ID: '.$curso->id);
 
-        return redirect()->route('curso.index',['gestion' => Date('Y')])->with('succes', 'Curso editado correctamente');
+        return redirect()->route('Curso.index',['gestion' => Date('Y')])->with('succes', 'Curso editado correctamente');
     }
 
     static public function cant_alumnos($id_curso) {

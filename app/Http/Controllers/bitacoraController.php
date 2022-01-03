@@ -23,12 +23,12 @@ class bitacoraController extends Controller
 
        // return [0 => $acciones, 1 => $personas];
 
-        return view('bitacora.index', compact('acciones' ,'personas'))->with('i');
+        return view('Bitacora.index', compact('acciones' ,'personas'))->with('i');
     }
     public function show($id){
         $persona = usuarioController::getPersonByIdUser($id);
         $acciones = acciones::where('acciones.id_usuario', $id)->orderBy('id','asc')->get();
-        return view('bitacora.show', compact('acciones','persona'))->with('i');
+        return view('Bitacora.show', compact('acciones','persona'))->with('i');
     }
 
     static public function bitacoraRegister($id, $descripcion){

@@ -21,7 +21,7 @@ class pagoSalarioController extends Controller
         ->join('pagos', 'pagos.id', 'pago_salarios.id_pago')
         ->select('personas.*', 'pago_salarios.id AS idPago', 'pago_salarios.nro_pago', 'pagos.monto')
         ->orderBy('idPago', 'desc')->get();
-        return view('pagoSalario.index', compact('personas'))->with('i');
+        return view('PagoSalario.index', compact('personas'))->with('i');
     }
 
     public function create(Request $request) {
@@ -29,10 +29,10 @@ class pagoSalarioController extends Controller
         $profesor = profesores::find($id);
         if($profesor == null){
             $persona = null;
-            return view('pagoSalario.create', compact('id', 'profesor', 'persona'));
+            return view('PagoSalario.create', compact('id', 'profesor', 'persona'));
         }
         $persona = Persona::findOrFail($profesor->id_persona);
-        return view('pagoSalario.create', compact('id', 'profesor', 'persona'));
+        return view('PagoSalario.create', compact('id', 'profesor', 'persona'));
     }
 
     public function store(StorePagoSalario $request) {
@@ -65,7 +65,7 @@ class pagoSalarioController extends Controller
         $pago = pagos::findOrFail($pagoSalario->id_pago);
         $profesor = profesores::findOrFail($pagoSalario->id_profesor);
         $persona = Persona::findOrFail($profesor->id_persona);
-        return view('pagoSalario.show', compact('persona', 'pago', 'profesor', 'pagoSalario'));
+        return view('PagoSalario.show', compact('persona', 'pago', 'profesor', 'pagoSalario'));
     }
 
     public function generarReporte(Request $request, $id)
@@ -81,7 +81,7 @@ class pagoSalarioController extends Controller
             'persona' => $persona,
         ];
           
-        $pdf = PDF::loadView('pagoSalario.reporte', $data);
+        $pdf = PDF::loadView('PagoSalario.reporte', $data);
 
         return $pdf->download('reporteSalario.pdf');
     }
