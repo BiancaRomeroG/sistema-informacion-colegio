@@ -17,12 +17,9 @@ class DirectorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        }
-
+      
         if (Auth::user()->id_rol != 1) {
-            return redirect()->route('login');
+            return redirect()->back();
         }
         
         return $next($request);
