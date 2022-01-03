@@ -25,7 +25,7 @@ class usuarioController extends Controller
         ->orderBy('id_rol', 'asc')
         ->get();
 
-        return view('usuario.index', compact('personas'))->with('i');
+        return view('Usuario.index', compact('personas'))->with('i');
     }
     
     public function update($id){
@@ -39,7 +39,7 @@ class usuarioController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Usuario ID: '.$usuario->id);
 
-        return redirect()->route('usuario.index')->with(
+        return redirect()->route('Usuario.index')->with(
             'success',
             'Contraseña restablecida correctamente'
         );
@@ -70,7 +70,7 @@ class usuarioController extends Controller
 
         $persona = UsuarioController::getPersonByIdUser($usuario->id);
 
-        return view('usuario.show', compact('persona'));  
+        return view('Usuario.show', compact('persona'));  
     }
 
 

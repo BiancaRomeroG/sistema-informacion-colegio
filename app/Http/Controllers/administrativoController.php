@@ -26,7 +26,7 @@ class administrativoController extends Controller
         ->select('personas.*', 'administrativos.id AS idAdministrativo', 'administrativos.profesion')
         ->first();
 
-        return view('administrativo.show', compact('persona', 'administrativo'));
+        return view('Administrativo.show', compact('persona', 'administrativo'));
 
     }
     
@@ -63,7 +63,7 @@ class administrativoController extends Controller
       
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Registro de Administrativo ID: '.$administrativo->id);
 
-       return redirect()->route('administrativo.index')->with(
+       return redirect()->route('Administrativo.index')->with(
         'success',
         'Administrativo creado correctamente'
     );
@@ -73,7 +73,7 @@ class administrativoController extends Controller
         $administrativo = administrativos::findOrFail($id);
         $persona = Persona::findOrFail($administrativo->id_persona);
         $actionform = route('administrativo.update',[$administrativo->id]); 
-        return view('Aministrativo.edit', compact('administrativo','persona','actionform'));
+        return view('Administrativo.edit', compact('administrativo','persona','actionform'));
     }
 
     public function update($id, StoreAdministrativo $request){
@@ -98,7 +98,7 @@ class administrativoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del Administrativo ID: '.$administrativo->id);
 
-        return redirect()->route('administrativo.show', $administrativo->id)->with('success', 'Administrativo editado correctamente');
+        return redirect()->route('Administrativo.show', $administrativo->id)->with('success', 'Administrativo editado correctamente');
 
     }
 
@@ -106,7 +106,7 @@ class administrativoController extends Controller
         $persona = Persona::findOrFail($id);   
         $persona->delete();
 
-        return redirect()->route('administrativo.index')->with('success', 'Administrativo eliminado correctamente');
+        return redirect()->route('Administrativo.index')->with('success', 'Administrativo eliminado correctamente');
     }
 
 }

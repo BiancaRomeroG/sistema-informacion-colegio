@@ -24,7 +24,7 @@ class apoderadoController extends Controller
         $tutor = tutores::findOrFail($tutorId);
 
         if ($tutor == null)
-            return redirect()->route('apoderado.index')->with('error', 'No se encontraron los datos del apoderado');
+            return redirect()->route('Apoderado.index')->with('error', 'No se encontraron los datos del apoderado');
 
         $persona = Persona::join('tutores', 'tutores.id_persona', 'personas.id')
         ->where('tutores.id', '=', $tutor->id)
@@ -35,7 +35,7 @@ class apoderadoController extends Controller
         ->where('alumnos.id_tutor', '=', $tutor->id)
         ->get();
 
-        return view('apoderado.show', compact('persona', 'alumnos'));
+        return view('Apoderado.show', compact('persona', 'alumnos'));
 
     }
 
@@ -68,7 +68,7 @@ class apoderadoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Apoderado registrado ID: '.$apoderado->id);
 
-        return redirect()->route('apoderado.index')->with(
+        return redirect()->route('Apoderado.index')->with(
             'success',
             'Apoderado creado correctamente'
         );
@@ -81,14 +81,14 @@ class apoderadoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Apoderado eliminado ID: '.$tutor->id);
 
-        return redirect()->route('apoderado.index')->with('success', 'Apoderado eliminado correctamente');
+        return redirect()->route('Apoderado.index')->with('success', 'Apoderado eliminado correctamente');
     }
 
     public function edit($id)
     {
         $tutor = tutores::findOrFail($id);
         $persona = Persona::findOrFail($tutor->id_persona);
-        $actionform = route('apoderado.update', $tutor);
+        $actionform = route('Apoderado.update', $tutor);
         return view('Apoderado.edit', compact('tutor', 'persona', 'actionform'));
     }
 
@@ -115,6 +115,6 @@ class apoderadoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos del apoderado ID: '.$tutor->id);
 
-        return redirect()->route('apoderado.show', $tutor->id)->with('success', 'Apoderado editado correctamente');
+        return redirect()->route('Apoderado.show', $tutor->id)->with('success', 'Apoderado editado correctamente');
     }
 }

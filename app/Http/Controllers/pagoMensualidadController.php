@@ -24,7 +24,7 @@ class pagoMensualidadController extends Controller
         ->join('pagos', 'pagos.id', 'pago_mensualidads.id_pago')
         ->select('personas.*', 'pago_mensualidads.id AS idPago', 'pago_mensualidads.nro_cuota', 'pagos.monto')
         ->orderBy('idPago', 'desc')->get();
-        return view('pagoMensualidad.index', compact('personas'))->with('i');
+        return view('PagoMensualidad.index', compact('personas'))->with('i');
     }
 
     public function create(Request $request) {
@@ -35,13 +35,13 @@ class pagoMensualidadController extends Controller
             $apoderado = null;
             $personaApoderado = null;
             $inscripcion = null;
-            return view('pagoMensualidad.create', compact('id', 'alumno', 'persona', 'inscripcion', 'apoderado', 'personaApoderado'));
+            return view('PagoMensualidad.create', compact('id', 'alumno', 'persona', 'inscripcion', 'apoderado', 'personaApoderado'));
         }
         $persona = Persona::find($alumno->id_persona);
         $apoderado = tutores::find($alumno->id_tutor);
         $personaApoderado = Persona::find($apoderado->id_persona);
         $inscripcion = DB::table('inscripciones')->where('inscripciones.id_alumno', $alumno->id)->first();
-        return view('pagoMensualidad.create', compact('id', 'alumno', 'persona', 'inscripcion', 'apoderado', 'personaApoderado'));
+        return view('PagoMensualidad.create', compact('id', 'alumno', 'persona', 'inscripcion', 'apoderado', 'personaApoderado'));
     }
 
     public function store(StorePagoMensualidad $request) {
@@ -70,7 +70,7 @@ class pagoMensualidadController extends Controller
         $persona = Persona::findOrFail($tutor->id_persona);
         $alumno = alumnos::where('id_tutor', $tutor->id)->first();
         $personaAlumno = Persona::where('id', $alumno->id_persona)->first();
-        return view('pagoMensualidad.show', compact('persona', 'pago', 'tutor', 'pagoMen', 'alumno', 'personaAlumno'));
+        return view('PagoMensualidad.show', compact('persona', 'pago', 'tutor', 'pagoMen', 'alumno', 'personaAlumno'));
     }
 
     public function generarReporte(Request $request, $id)
@@ -90,7 +90,7 @@ class pagoMensualidadController extends Controller
             'personaAlumno' => $personaAlumno
         ];
           
-        $pdf = PDF::loadView('pagoMensualidad.reporte', $data);
+        $pdf = PDF::loadView('PagoMensualidad.reporte', $data);
 
         return $pdf->download('reporteMensualidad.pdf');
     

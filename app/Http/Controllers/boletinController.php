@@ -17,7 +17,7 @@ class boletinController extends Controller
     public function index(Request $request)
     {
         $cursos = cursos::all();
-        return view('boletin.index', compact('cursos'));
+        return view('Boletin.index', compact('cursos'));
     }
 
     public function show($id)
@@ -31,7 +31,7 @@ class boletinController extends Controller
         foreach ($alumnos as $alumno) {
             $personas[] = Persona::findOrFail($alumno->id_persona);
         }
-        return view('boletin.show', compact('personas', 'curso'));
+        return view('Boletin.show', compact('personas', 'curso'));
     }
 
     public function trim1($id){
@@ -50,7 +50,7 @@ class boletinController extends Controller
         ->where('cardexes.id_alumno', '=', $alumno->id)
         ->where('notas.nro_trim', '=', 1)
         ->get();  
-        return view('boletin.trim1' , compact('trimestre1', 'persona',
+        return view('Boletin.trim1' , compact('trimestre1', 'persona',
         'alumno', 'personaTutor','cardex'))->with('i');
     }
 
@@ -67,7 +67,7 @@ class boletinController extends Controller
         ->where('cardexes.id_alumno', '=', $alumno->id)
         ->where('notas.nro_trim', '=', 2)
         ->get(); 
-        return view('boletin.trim2' , compact('trimestre2', 'persona',
+        return view('Boletin.trim2' , compact('trimestre2', 'persona',
         'alumno', 'personaTutor','cardex'))->with('i');
     }
 
@@ -84,7 +84,7 @@ class boletinController extends Controller
         ->where('cardexes.id_alumno', '=', $alumno->id)
         ->where('notas.nro_trim', '=', 3)
         ->get();
-        return view('boletin.trim3' , compact('trimestre3', 'persona',
+        return view('Boletin.trim3' , compact('trimestre3', 'persona',
         'alumno', 'personaTutor','cardex'))->with('i');
     }
 
@@ -111,7 +111,7 @@ class boletinController extends Controller
             'trimestre1' => $trimestre1
         ];
           
-        $pdf = PDF::loadView('boletin.reporteTrim1', $data)->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('Boletin.reporteTrim1', $data)->setPaper('a4', 'landscape');
         return $pdf->download('boletin.pdf');
     }
 
@@ -138,7 +138,7 @@ class boletinController extends Controller
             'trimestre2' => $trimestre2
         ];
           
-        $pdf = PDF::loadView('boletin.reporteTrim2', $data);
+        $pdf = PDF::loadView('Boletin.reporteTrim2', $data);
         return $pdf->download('boletin.pdf');
     }
 
@@ -165,7 +165,7 @@ class boletinController extends Controller
             'trimestre3' => $trimestre3
         ];
           
-        $pdf = PDF::loadView('boletin.reporteTrim3', $data);
+        $pdf = PDF::loadView('Boletin.reporteTrim3', $data);
         return $pdf->download('boletin.pdf');
     }
 }

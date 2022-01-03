@@ -19,7 +19,7 @@ class profesorController extends Controller
     public function index() {
         $personas = Persona::join('profesores', 'personas.id', 'profesores.id_persona')
         ->orderBy('personas.id', 'asc')->get();
-        return view('profesor.index', compact('personas'))->with('i');
+        return view('Profesor.index', compact('personas'))->with('i');
     }
 
     public function show($profesorId) {
@@ -34,7 +34,7 @@ class profesorController extends Controller
         ->where('profesores.id', '=', $profesor->id)
         ->first();
 
-        return view('profesor.show', compact('persona', 'materia'));
+        return view('Profesor.show', compact('persona', 'materia'));
     }
 
     public function create(){
@@ -71,7 +71,7 @@ class profesorController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Profesor registrado ID: '.$profesor->id);
       
-       return redirect()->route('profesor.index')->with(
+       return redirect()->route('Profesor.index')->with(
         'success',
         'Profesor creado correctamente'
     );
@@ -82,7 +82,7 @@ class profesorController extends Controller
         $profesor = profesores::findOrFail($id);
         $persona = Persona::findOrFail($profesor->id_persona);
         $actionform = route('profesor.update',[$profesor->id]); 
-       return view('profesor.edit', compact('profesor','persona','actionform'));
+       return view('Profesor.edit', compact('profesor','persona','actionform'));
       
     }
 
@@ -108,7 +108,7 @@ class profesorController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Profesor ID: '.$profesor->id);
 
-        return view('profesor.show', compact('persona', 'profesor'));
+        return view('Profesor.show', compact('persona', 'profesor'));
     }
 
     public function destroy($id){
@@ -117,6 +117,6 @@ class profesorController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Profesor eliminado ID Persona: '.$persona->id);
 
-        return redirect()->route('profesor.index')->with('success', 'Profesor eliminado correctamente');
+        return redirect()->route('Profesor.index')->with('success', 'Profesor eliminado correctamente');
     }
 }
