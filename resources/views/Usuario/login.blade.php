@@ -27,13 +27,17 @@
                                     <input type="text" class="form-control" id="usuario" name = "nombre_usuario" required
                                         placeholder="Ingrese su usuario">
                                 </div>
-                                <div class="form-group mb-5">
+                                <div class="form-group mt-2">
                                     <label for="password">Contraseña</label>
                                     <input type="password" class="form-control" id="password" name = "password" required
                                         placeholder="Ingrese su contraseña">
-                                        {!! $errors->first('nombre_usuario', '<span class="help-block red-text">:message</span>') !!}
                                 </div>
-                                <div class="text-center">
+                                @error('nombre_usuario')
+                                <div class="alert alert-danger mt-1">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                                <div class="text-center mt-5">
                                     <button type="submit" class="btn btn-primary ">Iniciar sesión</button>
                                 </div>
                             </form>

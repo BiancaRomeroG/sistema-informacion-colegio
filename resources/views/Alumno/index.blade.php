@@ -23,6 +23,7 @@
                             <th width = "5rem" >Nro</th>
                             <th>Nombre</th>
                             <th>Apellidos</th>
+                            <th>Código Rude</th>
                             <th width="120px">Acciones</th>
                         </tr>
                     </thead>
@@ -32,6 +33,7 @@
                                 <td class="text-center">{{ ++$i }}</td>
                                 <td>{{ $persona->nombre }}</td>
                                 <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
+                                <td>{{ $persona->cod_rude}}</td>
                                 <td class="text-center">
                                     <a class="btn btn-sm btn-primary" href="{{ route('alumno.show', $persona) }}">Ver</a>
                                     @if (Auth::user()->id_rol == 1 || Auth::user()->id_rol == 2)

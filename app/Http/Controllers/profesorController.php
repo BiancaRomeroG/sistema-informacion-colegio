@@ -18,8 +18,10 @@ class profesorController extends Controller
 {
     public function index() {
         $personas = Persona::join('profesores', 'personas.id', 'profesores.id_persona')
-        ->orderBy('personas.id', 'asc')->get();
-        return view('Profesor.index', compact('personas'))->with('i');
+        ->join('materias', 'profesores.id', 'materias.id_profesor')
+        ->orderBy('personas.id', 'asc')
+        ->select('personas.*','materias.nombre as nombreMateria')->get();
+        return view('profesor.index', compact('personas'))->with('i');
     }
 
     public function show($profesorId) {
