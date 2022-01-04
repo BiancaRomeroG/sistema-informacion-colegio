@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Auth;
 
 class alumnoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none")->except('index','show');
+        $this->middleware("roles:Director,Secretaria,Profesor")->only('index','show'); 
+    }
+
     public function index()
     {
         $personas = Persona::join('alumnos', 'personas.id', 'alumnos.id_persona')

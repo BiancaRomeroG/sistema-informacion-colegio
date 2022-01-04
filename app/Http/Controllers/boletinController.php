@@ -14,6 +14,13 @@ use Barryvdh\DomPDF\Facade as PDF;
 
 class boletinController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,Profesor"); 
+    }
+
     public function index(Request $request)
     {
         $cursos = cursos::all();

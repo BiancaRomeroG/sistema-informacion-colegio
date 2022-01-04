@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Auth;
 
 class pagoMensualidadController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none");
+    }
+
     public function index() {
         $personas = Persona::join('alumnos', 'id_persona', 'personas.id')
         ->join('tutores', 'tutores.id', 'alumnos.id_tutor')

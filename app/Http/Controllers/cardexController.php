@@ -14,6 +14,12 @@ use Laravel\Ui\Presets\React;
 
 class cardexController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,Profesor");
+    }
+
     public function index(Request $request) {
         $texto = trim($request->nombre);
         $personas = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')

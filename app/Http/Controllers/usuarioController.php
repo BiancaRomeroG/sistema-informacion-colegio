@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Hash;
 
 class usuarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,none,none");
+    }
+    
     public function index(){
         $personas = Persona::join('administrativos', 'administrativos.id_persona','personas.id')
         ->join('usuarios', 'usuarios.id', 'administrativos.id_usuario')
