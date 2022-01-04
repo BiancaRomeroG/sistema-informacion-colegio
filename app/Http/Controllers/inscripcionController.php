@@ -19,6 +19,12 @@ use function PHPUnit\Framework\isEmpty;
 
 class inscripcionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none");
+    }
+
     public function index(Request $request) {
         //$select = trim($request->select);
         $personas = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')

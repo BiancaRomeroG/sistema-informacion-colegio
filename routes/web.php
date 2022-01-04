@@ -44,31 +44,6 @@ Route::get('welcome', function() {
 Route::get('/', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 Route::get('/home', [HomeController::class, 'homePage'])->name('home')->middleware('auth');
 
-Route::group(['prefix' => 'administrativo'], function () {
-    
-    Route::get('/admin', [HomeController::class, 'administrativoPage'])->middleware('director');
-    Route::get('/registro', [HomeController::class, 'registroPage'])->middleware('director');
-    Route::post('/registro',[registroController::class, 'store'])->name('registro.store')->middleware('director');
-
-    Route::get('/crear', [homeController::class, 'newAdminPage'])->middleware('director');
-    //Route::get('/alumno', [HomeController::class, 'alumnoPage']);
-    Route::get('/crear_curso', [HomeController::class, 'curso_create']);
-    //Route::get('/crear', [homeController::class, 'crearProfesor'])->middleware('director');
-    Route::get('/inscripcion', [HomeController::class, 'inscripcionPage']);
-   });
-
-// Route::group(['prefix' => 'profesor'], function(){
-
-//     Route::get('/index', [HomeController::class, 'profesorPage'])->middleware('auth');
-
-// });
-
-//                                           //
-// Usar Rutas resources mientras             //
-// se busque solucion para rutas prefijos    //
-//                                           //
-
-
 //ruta para el home
 Route::resource('home', homeController::class);
 
@@ -93,7 +68,6 @@ Route::resource('materia', materiaController::class);
 
 //ruta para curso
 Route::resource('curso', cursoController::class);
-//Route::get('/curso/{id}/{gestion}',[cursoController::class, 'show'])->name('curso.show');
 
 //ruta para la inscripcion
 Route::resource('inscripcion', inscripcionController::class);
@@ -132,6 +106,5 @@ Route::get('/reporteSalario/{id}', 'App\Http\Controllers\pagoSalarioController@g
 
 
 //ruta para las notas
-
 Route::get('/notasMod', [notasController::class, 'mod'])->name('mod.notas');
 Route::resource('notas', notasController::class);

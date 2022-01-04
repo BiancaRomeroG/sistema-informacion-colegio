@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Validator;
 
 class notasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Profesor,none,none");
+    }
 
     public function index() {
         return view('Nota.index');

@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Auth;
 class cursoController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none")->except('index','show');
+        $this->middleware("roles:Director,Secretaria,Profesor")->only('index','show'); 
+    }
     public function index(Request $request){
         $gestion = $request->gestion;
         $cursoA = cursos::all();
 
-       // return $request;
         if($gestion == Date('Y')){
             $cursos = $cursoA;
             return view('Curso.index',compact('cursos','gestion'));

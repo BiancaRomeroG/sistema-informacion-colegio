@@ -15,12 +15,12 @@ class RolSeeder extends Seeder
     public function run()
     {
         $rol = new rol();
-        $rol->nombre_rol = "Director general";
+        $rol->nombre_rol = "Director";
         $rol->timestamps = false;
         $rol->save();
 
         $rol = new rol();
-        $rol->nombre_rol = "Administrativo";
+        $rol->nombre_rol = "Secretaria";
         $rol->timestamps = false;
         $rol->save();
 
