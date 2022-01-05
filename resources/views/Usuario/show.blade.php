@@ -31,11 +31,13 @@
             <div class="col text-end">
                 <form action="{{ route('reset', $persona->idUsuario) }}" method="POST">
                     @csrf
-                    @if ($persona->estado == true)
-                        <button type="submit" class="btn btn-danger">Desactivar Usuario</button>  
-                    @else
-                        <button type="submit" class="btn btn-success">Activar Usuario</button>  
-                    @endif
+                    @if ($persona->id_rol != 1)
+                        @if ($persona->estado == true)
+                            <button type="submit" class="btn btn-danger">Desactivar Usuario</button>  
+                        @else
+                            <button type="submit" class="btn btn-success">Activar Usuario</button>  
+                        @endif    
+                    @endif    
                 </form> 
             </div>
         </div>
