@@ -1,7 +1,28 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Vista Pagos')
+@section('css')
+    <style>
 
+        @media(max-width: 768px){
+            section > div.col-9{
+                padding: 0%;
+                width: 95% !important;
+            }
+
+            section > div.col-9 > .card{
+                margin: 0% !important;
+            }
+            
+            .card-body > div > div,
+            .card-body > div > div > div{
+                padding: 0%;
+                margin: 0%;
+            }
+        }
+
+    </style>
+@endsection
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-9">
@@ -43,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center mt-4">
         <a href="{{ route('reporteSalario', $pagoSalario->id) }}" type="button" class="btn btn-success">Imprimir</a>
     </div>
 </section>

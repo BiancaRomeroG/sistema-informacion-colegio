@@ -2,7 +2,14 @@
 
 @section('title', 'Editar Alumno')
  @section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.2.0/dist/select2-bootstrap-5-theme.min.css" />
+
+
  <style>
+     span.select2.select2-container{
+         width: 100% !important;
+     }
      @media(max-width: 850px){
          section div.col-9{
              width: 100%;
@@ -13,6 +20,19 @@
         .card.shadow.m-5{
             margin: 3rem 0 0 0 !important;
         }
+     }
+
+     @media(max-width: 768px){
+         .card.shadow.m-5{
+             margin:  1rem 0 0 0 !important;
+         }
+         .card-body .card-body > .row{
+             display: flex;
+             flex-direction: column;
+         }
+         .card-body .card-body > .row > .w-50{
+             width: 100% !important;
+         }
      }
 
  </style>
@@ -125,17 +145,17 @@
                                 </div>
                                 <div class="card-body p-4">
                                     <div class="row mb-3 justify-content-around">
-                                        <div class="col m-2">
+                                        <div class="col w-50">
                                             <label for="codigorude">
                                                 Codigo Rude<br>
                                             </label>
                                             <input class="form-control" id="codrude" type="number" name="codrude" value="{{old('codrude',$alumno->cod_rude)}}" form="register_form">
                                             {!! $errors->first('codrude', '<span class="help-block text-danger">*:message</span>') !!}
                                         </div>
-                                        <div class="col m-2">
+                                        <div class="col w-50">
                                             <label for="tutor">Apoderado</label>
                                     
-                                            <select id="tutor" name = "tutor_id" class="form-select " aria-label="Default select example" form="register_form">
+                                            <select id="tutor_id" name = "tutor_id" class="form-select" aria-label="Default select example" form="register_form">
                                             <option selected>Seleccione un Apoderado</option>
                                                 @foreach($tutores as $tutor)
                                                 <option value="{{$tutor->id}}" 
@@ -149,7 +169,7 @@
                                         </div>
                                     </div>
                                     </div>
-                                </div>          
+                                </div>              
                             </div>
                             <div class="mt-3 me-2 text-end">
                                 <a class="btn btn-danger" href="{{route('alumno.index')}}">Cancelar</a>
@@ -165,4 +185,17 @@
     </div>
     </section>
 </div>
+@endsection
+
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+<script>
+    $("#tutor_id").select2({
+   
+        theme: "bootstrap-5",
+       
+    });
+    
+</script>
 @endsection

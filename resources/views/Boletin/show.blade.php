@@ -28,13 +28,23 @@
             border-top-left-radius: 6px;
             border: 1px solid darkslategray;
         }
+
+        @media(max-width: 768px){
+            div > .col-9.card{
+                width: 93% !important;
+                padding: 0%;
+            }
+            .table-head > tr:first-child th{
+                display: none;   
+            }
+        }
     </style>
 @endsection
 @section('navigation')
 
 <div class="row justify-content-center">
     <div class="col-9 mt-1 card">
-        <div class="row justify-content-between mb-2 card-header">
+        <div class=" justify-content-between mb-2 card-header">
             <div class="col">
                 <h2>Alumnos del curso {{$curso->nivel}}º de secundaria</h2>
             </div>

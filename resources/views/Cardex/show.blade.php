@@ -1,8 +1,7 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Vista de cardex')
-
-@section('navigation')
+@section('css')
 <style>
     td {
         text-align: center
@@ -10,11 +9,24 @@
     th {
         text-align: center
     }
+
+    @media(max-width: 768px ){
+        div > .col-9{
+            width: 93% !important;
+          
+        }
+    }
+
 </style>
+@endsection
+
+@section('navigation')
+
+
 <div class="row justify-content-center">
-    <div class="col-9 mt-5">
+    <div class="col-9 mt-1 card shadow-sm ">
         <div class="row justify-content-between mb-2">
-            <div class="col">
+            <div class=" col-12  card-header">
                 <h2>Cardex del alumno</h2>
             </div>
         </div> 
@@ -35,7 +47,11 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-between mb-2">
+    </div>
+</div>   
+<div class="row justify-content-center">
+    <div class="col-9 mt-1 card shadow-sm ">
+        <div class=" row justify-content-between mb-2 card-header">
             <div class="col">
                 <h3 class="">Notas del primer trimestre</h3>
             </div>
@@ -47,8 +63,9 @@
         @else
 
             <!--Tabla del 1er trimestre-->
-            <table class="table table-bordered ">
-                <thead class="table-secondary">
+        <div class="card-body table-responsive">
+            <table class="table table-round-blue ">
+                <thead class="table-head">
                     <tr>
                         <th>Asignatura</th>
                         <th>Ser</th>
@@ -71,13 +88,14 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
         @endif
     </div>
 </div>  
 <div class="row justify-content-center">
-    <div class="col-9 mt-5">
-        <div class="row justify-content-between mb-2">
-            <div class="col">
+    <div class="col-9   card">
+        <div class=" row justify-content-between mb-2">
+            <div class="col card-header">
                 <h2>Notas del segundo trimestre</h2>
             </div>
         </div>
@@ -88,8 +106,9 @@
         @else
 
             <!--Tabla del 2do trimestre-->
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+        <div class="card-body table-responsive">
+            <table class="table table-round-blue ">
+                <thead class="table-head">
                     <tr>
                         <th>Asignatura</th>
                         <th>Ser</th>
@@ -112,13 +131,14 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
         @endif
     </div>
 </div>  
 <div class="row justify-content-center">
-    <div class="col-9 mt-5">
-        <div class="row justify-content-between mb-2">
-            <div class="col">
+    <div class="col-9  card">
+        <div class=" row justify-content-between mb-2">
+            <div class="col card-header">
                 <h2>Notas del tercer trimestre</h2>
             </div>
         </div>
@@ -129,8 +149,9 @@
         @else
 
             <!--Tabla del 3er trimestre-->
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+        <div class="card-body table-responsive">
+            <table class="table table-round-blue">
+                <thead class="table-head">
                     <tr>
                         <th>Asignatura</th>
                         <th>Ser</th>
@@ -153,13 +174,14 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
         @endif
     </div>
 </div>  
 <div class="row justify-content-center">
-    <div class="col-9 mt-5">
-        <div class="row justify-content-between mb-2">
-            <div class="col">
+    <div class="col-9  card">
+        <div class=" row justify-content-between mb-2">
+            <div class="col card-header">
                 <h2>Pagos realizados</h2>
             </div>
         </div>
@@ -170,8 +192,9 @@
         @else
 
             <!--Tabla de pagos-->
-            <table class="table table-bordered">
-                <thead class="table-secondary">
+        <div class="card-body table-responsive">
+            <table class="table table-round-blue">
+                <thead class="table-head">
                     <tr>
                         <th>Nro.</th>
                         <th>Nro. Cuota</th>
@@ -190,7 +213,25 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
         @endif
     </div>
 </div>  
+
+@endsection
+@section('js')
+<script>
+  
+    $(document).ready(function() {
+        $('.table-round-blue').DataTable({
+            destroy: true,
+            paging: false,
+            searching: false,
+            ordering: false,
+            info: false,
+            responsive: true,
+            autoWidth: false,
+        });
+    });
+</script>
 @endsection

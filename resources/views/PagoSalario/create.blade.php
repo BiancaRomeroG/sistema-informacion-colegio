@@ -1,7 +1,28 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Pago de Salario')
+@section('css')
+    <style>
+      
+            @media(max-width: 768px){
+                section > div.col-10{
+             
+                    width: 100%;
+                }
+                section > div.col-10 > .card{
+                    margin: 0% !important;
+                }
 
+                #search-input{
+                    width: 96% !important
+                }
+
+            }
+       
+   
+            
+    </style>
+@endsection
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-10">
@@ -12,7 +33,7 @@
 
                 <div class="card-body p-4">
                     <div class="row mb-3">
-                        <div class="col-5 m-2">
+                        <div id ="search-input" class="col-5 m-2">
                             <form method="GET" action="{{route('salario.create')}}">
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="nombreInput" name="id" placeholder="ID Profesor" value="">

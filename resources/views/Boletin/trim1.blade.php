@@ -1,11 +1,21 @@
 @extends('layouts.home_plantilla')
 
-@section('title', 'Vista de Boletin')
 
+@section('title', 'Vista de Boletin')
+@section('css')
+    <style>
+        @media(max-width: 768px){
+            div > .col-9.card{
+                width: 93% !important;
+                padding: 0%;
+            }
+        }
+    </style>
+@endsection
 @section('navigation')
 <div class="row justify-content-center">
-    <div class="col-9 mt-5">
-        <div class="row justify-content-between mb-2">
+    <div class="col-9 mt-1 card" >
+        <div class="row justify-content-between mb-2 card-header">
             <div class="col">
                 <h2>Boletin del alumno</h2>
             </div>
@@ -32,7 +42,11 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-between mb-2">
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-9 mt-2 card" >
+        <div class="row justify-content-between mb-2 card-header">
             <div class="col">
                 <h3 class="">Notas del primer trimestre</h3>
             </div>
@@ -43,8 +57,9 @@
     @else
 
     <!--Tabla del 1er trimestre-->
-    <table class="table table-bordered ">
-        <thead class="table-secondary">
+    <div class="card-body table-responsive">
+    <table class="table table-round-blue ">
+        <thead class="table-head">
             <tr>
                 <th>Asignatura</th>
                 <th>Ser</th>
@@ -66,13 +81,32 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+     </table>
+ 
     @endif
+    </div>
 </div>
 </div>
-<div class="text-center" style="margin-bottom: 2rem">
+<div class="text-center mt-2" style="margin-bottom: 2rem">
     @if (count($trimestre1) > 0)
     <a href="{{ route('boletinTrim1', $cardex->id) }}" type="button" class="btn btn-success">Imprimir</a>
     @endif
 </div>
+@endsection
+
+@section('js')
+<script>
+  
+    $(document).ready(function() {
+        $('.table-round-blue').DataTable({
+            destroy: true,
+            paging: false,
+            searching: false,
+            ordering: true,
+            info: false,
+            responsive: true,
+            autoWidth: false,  
+        });
+    });
+</script>
 @endsection
