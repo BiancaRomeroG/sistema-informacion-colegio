@@ -1,7 +1,27 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Crear curso')
+@section('css')
+    <style>
+        @media(max-width: 1045px){
+            .card-body  .row{
+                display: flex;
+                flex-direction: column;
+            }
+        }
 
+        @media(max-width: 768px){
+            #main > .col-9{
+                width: 93% !important;
+                padding: 0%;
+            }
+            .card{
+                margin: 0% !important;
+            }
+        }
+
+    </style>
+@endsection
 @section('navigation')
 <section class="vh-100 row justify-content-center align-items-center" id="main">
     <div class="col-9 "  >

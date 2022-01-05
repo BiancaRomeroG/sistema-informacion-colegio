@@ -1,11 +1,25 @@
 @extends('layouts.home_plantilla')
-
+@section('css')
+    <style>
+      
+            @media(max-width: 768px){
+                section > div.col-10{
+             
+                    width: 100%;
+                }
+            }
+       
+      
+   
+            
+    </style>
+@endsection
 @section('title', 'Pago de Mensualidad')
 
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-10">
-        <div class="card shadow m-5">
+        <div class="card shadow mt-1">
             <div class="card-header text-center">
                 <h5 class="m-2">Pago de Mensualidades</h5>
             </div>

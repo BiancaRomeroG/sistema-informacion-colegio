@@ -1,11 +1,25 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Listado')
-    
+
+@section('css')
+    <style>
+        @media(max-width: 768px){
+            section > .col-9{
+                width: 93% !important;
+                padding: 0%;
+            }
+
+            section > .col-9 > .card{
+                margin: 1rem  0 0 0 !important;
+            }
+        }
+    </style>
+@endsection
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-9">
-        <div class="card shadow m-5">
+        <div class="card shadow mt-5">
             <div class="card-header">
                 <h5 class="m-2">Informacion Academica</h5>
             </div>

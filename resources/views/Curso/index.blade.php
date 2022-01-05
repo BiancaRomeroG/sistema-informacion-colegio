@@ -1,7 +1,17 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Cursos')
-
+@section('css')
+   <style>
+    @media(max-width: 768px){
+        
+        div > div.col-9{
+            width: 92%;
+            padding: 0%;
+        }
+    }
+   </style>
+@endsection
 @section('navigation')
 
     <div class="row justify-content-center">

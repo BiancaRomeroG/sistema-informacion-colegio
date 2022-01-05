@@ -16,7 +16,7 @@
                 </div>
                 @endif
             </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table id ="table_id" class="table table-round-blue ">
                 <thead class="table-head">
                     <tr>

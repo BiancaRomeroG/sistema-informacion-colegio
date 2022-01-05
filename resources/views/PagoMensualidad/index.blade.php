@@ -2,6 +2,24 @@
 
 @section('title', 'Pago Mensualidad')
 
+@section('css')
+    <style>
+        @media (max-width: 768px) {
+            .col-9.mt-1.card{
+                width: 92%;
+            }
+            .card-header > div.d-flex{
+                align-items: stretch !important;
+            }
+            .card-header >div.d-flex a{
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        
+    </style>
+@endsection
 @section('navigation')
 
     <div class="row justify-content-center">

@@ -16,8 +16,8 @@
 
 @section('navigation')
 <section class="row justify-content-center" id="main">
-    <div class="col-10">
-        <div class="card shadow m-5">
+    <div class="col-11">
+        <div class="card shadow mt-1">
             <div class="card-header text-center">
                 <h5 class="m-2">Búsqueda de cardex por alumno</h5>
             </div>

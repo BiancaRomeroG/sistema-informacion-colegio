@@ -1,11 +1,21 @@
 @extends('layouts.home_plantilla')
+@section('css')
+    <style>
+        @media(max-width: 768px){
+            div div.col-10{
+                width: 93%;
+            }
 
+            div
+        }
+    </style>
+@endsection
 @section('title', 'Vista inscripcion')
 
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-10">
-        <div class="card shadow m-5">
+        <div class="card shadow mt-1">
             <div class="card-header text-center">
                 <h5 class="m-2">Inscripción alumno</h5>
             </div>

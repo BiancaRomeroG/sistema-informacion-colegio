@@ -13,12 +13,9 @@ use App\Http\Controllers\materiaController;
 use App\Http\Controllers\notasController;
 use App\Http\Controllers\pagoMensualidadController;
 use App\Http\Controllers\pagoSalarioController;
-use App\Http\Controllers\PDFController;
 use App\Http\Controllers\profesorController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\usuarioController;
-use App\Models\pagoMensualidad;
-use App\Models\pagoSalarios;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

@@ -2,6 +2,15 @@
 
 @section('title', 'Profesor')
 
+@section('css')
+    <style>
+        @media (max-width: 768px) {
+            .col-9.mt-1.card{
+                width: 92%;
+            }
+        }
+    </style>
+@endsection
 @section('navigation')
 
     <div class="row justify-content-center">
@@ -16,7 +25,7 @@
                     <a class="btn btn-sm btn-success" href="{{ route('salario.create') }}">Nuevo pago</a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-round-blue">
                     <thead class="table-head">
                         <tr>

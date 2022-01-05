@@ -15,7 +15,7 @@
                 </div>
                 @endif
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-round-blue">
                     <thead class="table-head">
                         <tr>
@@ -58,7 +58,9 @@
             paging: false,
             searching: false,
             ordering: false,
-            info: false
+            info: false,
+            responsive: true,
+            autoWidth: false,
         });
     });
 </script>

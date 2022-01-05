@@ -1,5 +1,14 @@
 @extends('layouts.home_plantilla')
 
+@section('css')
+    <style>
+        @media(max-width: 768px){
+            div div.col-10{
+                width: 92% !important;
+            }
+        }
+    </style>
+@endsection
 @section('title', 'Usuarios')
 
 @section('navigation')
@@ -11,7 +20,7 @@
                     <h2>Lista de Usuarios</h2>
                 </div>
             </div>
-          <div class="card-body">  
+          <div class="card-body table-responsive">  
             <table class="table table-round-blue">
                 <thead class="table-head">
                     <tr>

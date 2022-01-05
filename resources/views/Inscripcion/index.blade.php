@@ -1,5 +1,14 @@
 @extends('layouts.home_plantilla')
 
+@section('css')
+    <style>
+        @media(max-width: 768px){
+            div div.col-9{
+                width: 93%;
+            }
+        }
+    </style>
+@endsection
 @section('title', 'Vista principal de Inscripciones')
 
 @section('navigation')
@@ -15,7 +24,7 @@
                 <a class="btn btn-sm btn-success" href="{{ route('inscripcion.create') }}">Nueva Inscripcion</a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-round-blue table-striped">
                 <thead class="table-head">
                     <tr>

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class usuarioController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');

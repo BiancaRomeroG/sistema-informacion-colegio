@@ -18,8 +18,10 @@
   --}}    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
+{{-- sidebar--}}
+    <link rel="stylesheet" href="{{asset('css/sidebar-blue-cristo.css')}}">
     @section('css')
-        
+
     @show
     
       
@@ -31,6 +33,7 @@
         .row-striped:nth-of-type(even) {
             background-color: #ffffff;
         }
+
 
       
         
@@ -105,8 +108,26 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
         })
     }
 })()
-
 </script>
+<script>
+    function openSidebar(){
+        var contenido = document.getElementById('contenido');
+        $('body').attr('style','overflow: hidden');
+        document.getElementById("sidebar").classList.toggle('active');
+ 
+        console.log("hola");
+    }
+
+    function closeSidebar(){
+        var contenido = document.getElementById("contenido");
+        $('body').attr('style','overflow: auto');
+ 
+        document.getElementById("sidebar").classList.toggle('active');
+        
+        console.log("hola");
+    }
+</script>
+
 @section('js')
     
 @show
