@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Hash;
 
 class profesorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none");
+    }
+
     public function index() {
         $personas = Persona::join('profesores', 'personas.id', 'profesores.id_persona')
         ->join('materias', 'profesores.id', 'materias.id_profesor')

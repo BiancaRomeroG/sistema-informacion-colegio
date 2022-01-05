@@ -70,6 +70,7 @@
         text-align: center
     }
 
+
     </style>
 </head>
 
@@ -79,8 +80,7 @@
             <tr>
                 <td style="width: 8%">
                     <div>
-                        <img src="{{asset('img\logocr1.png')}}" width="120" height="120"
-                            alt="Logo Colegio Cristo Rey">
+                        <img src="./img/logocr1.png" width="120" height="120" alt="Logo">
                     </div>
                 </td>
                 <td>

@@ -1,2 +1,2 @@
 require('./bootstrap');
-require('./validaciones')
+//require('./validaciones')

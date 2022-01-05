@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Auth;
 
 class alumnoController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
-   /*      $this->middleware('profesor')->only('index','show');
-        $this->middleware('secretaria');
-        $this->middleware('director');  */
+        $this->middleware("roles:Director,Secretaria,none")->except('index','show');
+        $this->middleware("roles:Director,Secretaria,Profesor")->only('index','show'); 
     }
-
 
     public function index()
     {

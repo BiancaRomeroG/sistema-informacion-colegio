@@ -15,6 +15,11 @@ use PDF;
 
 class pagoSalarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none");
+    }
     public function index() {
         $personas = Persona::join('profesores', 'id_persona', 'personas.id')
         ->join('pago_salarios', 'pago_salarios.id_profesor', 'profesores.id')

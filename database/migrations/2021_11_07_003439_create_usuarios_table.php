@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre_usuario', 100);
             $table->string('contrasenha');
             $table->unsignedBigInteger('id_rol');
-            $table->binary('estado');
+            $table->boolean('estado');
             $table->timestamps();
             $table->foreign('id_rol')->references('id')->on('rols');
         });

@@ -16,9 +16,10 @@ class usuarioController extends Controller
 
     public function __construct()
     {
-      $this->middleware('director');
+        $this->middleware('auth');
+        $this->middleware("roles:Director,none,none");
     }
-
+    
     public function index(){
         $personas = Persona::join('administrativos', 'administrativos.id_persona','personas.id')
         ->join('usuarios', 'usuarios.id', 'administrativos.id_usuario')
@@ -54,15 +55,15 @@ class usuarioController extends Controller
     public function updateEstado($id) {
         $usuario = User::findOrFail($id);
 
-        if ($usuario->estado == 0) {
-            $usuario->estado = 1;
+        if ($usuario->estado == false) {
+            $usuario->estado = true;
             $usuario->save();
             return redirect()->route('usuario.show', $usuario->id)->with(
                 'success',
                 'Usuario activado'
             );
         }else{
-            $usuario->estado = 0;
+            $usuario->estado = false;
             $usuario->save();
             return redirect()->route('usuario.show', $usuario->id)->with(
                 'success',

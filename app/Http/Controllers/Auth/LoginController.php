@@ -68,7 +68,7 @@ class LoginController extends Controller
     {
         //return $request->only($this->username(), 'password');
         return [$this->username() => $request->only($this->username()), 'password' => $request->password,
-        'estado' => 1];
+        'estado' => true];
     }
     
     protected function sendFailedLoginResponse(Request $request)
@@ -80,7 +80,7 @@ class LoginController extends Controller
 
         // Check if user was successfully loaded, that the password matches
         // and active is not 1. If so, override the default error message.
-        if ($user && Hash::check($request->password, $user->contrasenha) && $user->active != 1) {
+        if ($user && Hash::check($request->password, $user->contrasenha) && $user->active != true) {
             $errors = [$this->username() => trans('auth.notactivated')];
         }
 

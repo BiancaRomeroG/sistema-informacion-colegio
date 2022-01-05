@@ -13,6 +13,11 @@ use PDF;
 
 class bitacoraController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,none,none");
+    }
     
     public function index(){
         $acciones = acciones::orderBy('id','asc')->get();

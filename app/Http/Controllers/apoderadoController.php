@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class apoderadoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware("roles:Director,Secretaria,none")->except('index','show');
+        $this->middleware("roles:Director,Secretaria,Profesor")->only('index','show'); 
+    }
+
     public function index()
     {
         $personas = Persona::join('tutores', 'personas.id', 'tutores.id_persona')

@@ -9,7 +9,7 @@
 
 @section('info-adicional-col2')
     <p class="mb-1 "><span class="fw-bold text-secondary">Estado: </span> 
-        @if ($persona->estado == 1)
+        @if ($persona->estado == true)
             <button type="button" class="btn btn-success px-3">Activo</button>  
         @else
             <button type="button" class="btn btn-danger px-3">Desactivo</button>  
@@ -31,7 +31,7 @@
             <div class="col text-end">
                 <form action="{{ route('reset', $persona->idUsuario) }}" method="POST">
                     @csrf
-                    @if ($persona->estado == 1)
+                    @if ($persona->estado == true)
                         <button type="submit" class="btn btn-danger">Desactivar Usuario</button>  
                     @else
                         <button type="submit" class="btn btn-success">Activar Usuario</button>  
