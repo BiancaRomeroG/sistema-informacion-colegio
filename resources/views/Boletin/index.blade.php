@@ -11,7 +11,7 @@
                     <h2>Boletines de cursos</h2>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-round-blue table-striped">
                     <thead class="table-head">
                         <tr>

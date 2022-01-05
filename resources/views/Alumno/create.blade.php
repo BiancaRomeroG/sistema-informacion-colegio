@@ -4,6 +4,24 @@
 @section('css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.2.0/dist/select2-bootstrap-5-theme.min.css" />
+
+
+ <style>
+     @media(max-width: 850px){
+         section div.col-9{
+             width: 100%;
+         }
+     }
+
+     @media(max-width: 600px){
+        .card.shadow.m-5{
+            margin: 3rem 0 0 0 !important;
+        }
+     }
+
+ </style>
+     
+ 
 @endsection
 @section('subtitle', 'Informacion Academica')
 

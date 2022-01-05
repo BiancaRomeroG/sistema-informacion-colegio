@@ -88,7 +88,7 @@ class apoderadoController extends Controller
     {
         $tutor = tutores::findOrFail($id);
         $persona = Persona::findOrFail($tutor->id_persona);
-        $actionform = route('Apoderado.update', $tutor);
+        $actionform = route('apoderado.update', $tutor);
         return view('Apoderado.edit', compact('tutor', 'persona', 'actionform'));
     }
 

@@ -1,11 +1,27 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Editar Alumno')
+ @section('css')
+ <style>
+     @media(max-width: 850px){
+         section div.col-9{
+             width: 100%;
+         }
+     }
 
+     @media(max-width: 600px){
+        .card.shadow.m-5{
+            margin: 3rem 0 0 0 !important;
+        }
+     }
+
+ </style>
+     
+ @endsection
 @section('navigation')
 <section class="row justify-content-center" id="main">
     <div class="col-9">
-        <div class="card shadow m-5">
+        <div class="card shadow ">
             <div class="card-header">
                 <h5 class="m-2">Datos Personales a editar</h5>
             </div>

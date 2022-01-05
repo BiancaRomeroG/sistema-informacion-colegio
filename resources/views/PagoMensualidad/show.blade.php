@@ -1,11 +1,29 @@
 @extends('layouts.home_plantilla')
 
+@section('css')
+    <style>
+
+        @media(max-width: 768px){
+            section > div.col-9{
+                padding: 0%;
+                width: 95% !important;
+            }
+            
+            .card-body > div > div,
+            .card-body > div > div > div{
+                padding: 0%;
+                margin: 0%;
+            }
+        }
+
+    </style>
+@endsection
 @section('title', 'Vista Pagos')
 
 @section('navigation')
     <section class="row justify-content-center" id="main">
         <div class="col-9">
-            <div class="card shadow m-5">
+            <div class="card shadow mt-1">
                 <div class="card-header text-center">
                     <h5 class="m-2">Recibo Pago Mensualidad</h5>
                 </div>
@@ -54,11 +72,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="text-center">
+                        <a href="{{ route('reporteMensualidad', $pagoMen->id) }}" type="button" class="btn btn-success">Imprimir</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <a href="{{ route('reporteMensualidad', $pagoMen->id) }}" type="button" class="btn btn-success">Imprimir</a>
-        </div>
+   
     </section>
 @endsection

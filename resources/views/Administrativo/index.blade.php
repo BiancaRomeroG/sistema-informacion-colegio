@@ -14,7 +14,7 @@
                     <a class="btn btn-sm btn-success" href="{{ route('administrativo.create') }}"> Registrar nuevo</a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-round-blue table-striped ">
                     <thead class="table-head">
                         <tr>

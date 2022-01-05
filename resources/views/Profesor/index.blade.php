@@ -14,7 +14,7 @@
                     <a class="btn btn-sm btn-success" href="{{ route('profesor.create') }}"> Registrar nuevo</a>
                 </div>
             </div>
-           <div class="card-body">
+           <div class="card-body table-responsive">
                 <table class="table table-round-blue table-sm table-striped">
                     <thead class="table-head">
                         <tr>
@@ -33,8 +33,8 @@
                                 <td>{{ $persona->apellido_pat }} {{ $persona->apellido_mat }}</td>
                                 <td>{{ $persona->nombreMateria}}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('profesor.show', $persona) }}">Ver</a>
-                                    <a class="btn btn-sm btn-secondary" href="{{ route('profesor.edit', $persona->id) }}">Editar</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('profesor.show', $persona->idProfesor) }}">Ver</a>
+                                    <a class="btn btn-sm btn-secondary" href="{{ route('profesor.edit', $persona->idProfesor) }}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach

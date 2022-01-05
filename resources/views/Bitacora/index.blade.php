@@ -14,7 +14,7 @@
                 </div>
             </div>
             
-            <div class="card-body table-responsive ">
+            <div class="card-body table-responsive">
                 <table class="table table-sm table-round-blue table-striped ">
                     <thead class="table-head ">
                         <tr >

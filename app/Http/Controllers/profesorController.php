@@ -20,7 +20,7 @@ class profesorController extends Controller
         $personas = Persona::join('profesores', 'personas.id', 'profesores.id_persona')
         ->join('materias', 'profesores.id', 'materias.id_profesor')
         ->orderBy('personas.id', 'asc')
-        ->select('personas.*','materias.nombre as nombreMateria')->get();
+        ->select('personas.*','materias.nombre as nombreMateria', 'profesores.id as idProfesor')->get();
         return view('Profesor.index', compact('personas'))->with('i');
     }
 

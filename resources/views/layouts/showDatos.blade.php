@@ -1,11 +1,24 @@
 @extends('layouts.home_plantilla')
 
 @section('title', 'Listado')
+@section('css')
+    <style>
+        @media(max-width: 768px){
+             
+            #contenido-datos{
+                width: 100% !important;
+            }   
+            .card-body.p-4{
+                padding: 0% !important;
+            }
+        }
 
+    </style>
+@endsection
 @section('navigation')
     <section class="row justify-content-center" id="main">
-        <div class="col-10">
-            <div class="card shadow m-5">
+        <div id = "contenido-datos" class="col-10">
+            <div class="card shadow mt-1">
                 <div class="card-header text-center">
                     <h5 class="m-2">Datos personales</h5>
                 </div>

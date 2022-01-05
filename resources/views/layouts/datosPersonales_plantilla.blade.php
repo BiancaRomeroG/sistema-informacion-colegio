@@ -3,7 +3,7 @@
 @section('navigation')
     <section class="row justify-content-center" id="main">
         <div class="col-9">
-            <div class="card shadow m-5">
+            <div class="card shadow mt-1">
                 <div class="card-header">
                     <h5 class="m-2">Datos Personales</h5>
                 </div>

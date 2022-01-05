@@ -11,13 +11,26 @@
         display:none;
     }     
 </style>
- 
+<style>
+    @media(max-width: 850px){
+        section div.col-10{
+            width:93%;
+        }
+    }
+
+    @media(max-width: 600px){
+       .card.shadow.m-5{
+           margin: 3rem 0 0 0 !important;
+       }
+    }
+
+</style>
 @endsection
 @section('navigation')
 
 <section class="row justify-content-center" id="main">
     <div class="col-10">
-        <div class="card shadow m-5">
+        <div class="card shadow mt-1">
             <div class="card-header text-center">
                 <h5 class="m-2">Inscripción alumno</h5>
             </div>

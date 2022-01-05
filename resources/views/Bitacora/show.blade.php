@@ -1,5 +1,14 @@
 @extends('layouts.home_plantilla')
 
+@section('css')
+    <style>
+        @media(max-width: 768px){
+            div div.col-10{
+                width: 93%;
+            }
+        }
+    </style>
+@endsection
 @section('title', 'Administrativo')
 
 @section('navigation')
