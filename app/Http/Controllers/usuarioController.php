@@ -54,15 +54,15 @@ class usuarioController extends Controller
     public function updateEstado($id) {
         $usuario = User::findOrFail($id);
 
-        if ($usuario->estado == 0) {
-            $usuario->estado = 1;
+        if ($usuario->estado == false) {
+            $usuario->estado = true;
             $usuario->save();
             return redirect()->route('usuario.show', $usuario->id)->with(
                 'success',
                 'Usuario activado'
             );
         }else{
-            $usuario->estado = 0;
+            $usuario->estado = false;
             $usuario->save();
             return redirect()->route('usuario.show', $usuario->id)->with(
                 'success',

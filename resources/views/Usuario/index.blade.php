@@ -40,7 +40,7 @@
                                     Profesor
                                 @endif
                             </td>
-                            @if ($persona->estado == '1')
+                            @if ($persona->estado == true)
                                 <td class="bg-success text-white">
                                     Activo
                                 </td>  
