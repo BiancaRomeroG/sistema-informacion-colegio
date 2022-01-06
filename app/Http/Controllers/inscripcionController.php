@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreInscripcion;
 use App\Models\alumnos;
+use App\Models\boletines;
 use App\Models\cardex;
 use App\Models\cursos;
 use App\Models\inscripciones;
@@ -60,6 +61,13 @@ class inscripcionController extends Controller
             'id_curso' => $request->curso,
             'id_alumno' => $request->id_alumno
         ]);
+
+     
+        $boletin = new boletines();
+        $boletin->nro_trim =1;
+        $boletin->id_cardex = $cardex->id;
+        $boletin->anho = Date('Y');
+        $boletin->save();
 
         $curso = cursos::findOrFail($request->curso);
         $curso->cant_alumnos++;
