@@ -134,6 +134,7 @@ class notasController extends Controller
 
     public function mod(Request $request) {
     
+
         $curso = cursos::findOrFail($request->id_curso);
         $profesor = DB::table('profesores')->where('id_usuario', '=', Auth::user()->id)->first();
         $materia = DB::table('materias')->where('id_profesor', '=', $profesor->id)->first();
@@ -148,7 +149,7 @@ class notasController extends Controller
         ->orWhere('materias.id','=',null)
         ->where('boletines.nro_trim', '=', $request->nro_trim)
         ->get();
-       
+
         if (empty($trimestres->first()))
             return back()->with('error', 'No existen notas a editar en este trimestre.');
         

@@ -58,7 +58,7 @@ class cursoController extends Controller
         
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Curso creado ID: '.$curso->id);
 
-        return redirect()->route('Curso.index')->with('success', 'Curso creado correctamente');
+        return redirect()->route('curso.index')->with('success', 'Curso creado correctamente');
     }
 
     public function show($id){
@@ -82,7 +82,7 @@ class cursoController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de curso ID: '.$curso->id);
 
-        return redirect()->route('Curso.index',['gestion' => Date('Y')])->with('succes', 'Curso editado correctamente');
+        return redirect()->route('curso.index',['gestion' => Date('Y')])->with('succes', 'Curso editado correctamente');
     }
 
     static public function cant_alumnos($id_curso) {

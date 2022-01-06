@@ -46,7 +46,7 @@ class usuarioController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Usuario ID: '.$usuario->id);
 
-        return redirect()->route('Usuario.index')->with(
+        return redirect()->route('usuario.index')->with(
             'success',
             'Contraseña restablecida correctamente'
         );
