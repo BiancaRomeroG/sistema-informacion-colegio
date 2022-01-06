@@ -70,6 +70,7 @@ class notasController extends Controller
         ->select('personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat', 'cardexes.id AS idCardex', 'boletines.id AS idBoletin', 'alumnos.id AS idAlumno', 'cardexes.id_curso')
         ->where('cardexes.id_curso', '=', $request->id_curso)
         ->get();
+
         $materia = materias::join('profesores', 'profesores.id', 'materias.id_profesor')
         ->select('materias.*')
         ->where('profesores.id_usuario', '=', Auth::user()->id)
@@ -140,12 +141,13 @@ class notasController extends Controller
         $trimestres = Persona::join('alumnos', 'alumnos.id_persona', 'personas.id')
         ->join('cardexes', 'cardexes.id_alumno', 'alumnos.id')
         ->join('boletines', 'boletines.id_cardex', 'cardexes.id')
-        ->join('notas', 'notas.id_boletin', 'boletines.id')
-        ->join('materias', 'materias.id', 'notas.id_materia')
-        ->select('personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat', 'cardexes.id AS idCardex', 'boletines.id AS idBoletin', 'alumnos.id AS idAlumno', 'cardexes.id_curso', 'notas.ser', 'notas.saber', 'notas.hacer', 'notas.decidir', 'notas.nota_trimestral', 'notas.nro_trim', 'notas.id AS idNota', 'materias.nombre AS materiaNombre', 'cardexes.id_curso AS idCurso')
+        ->leftJoin('notas', 'notas.id_boletin', 'boletines.id')
+        ->leftJoin('materias', 'materias.id', 'notas.id_materia')
+        ->select('personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat', 'cardexes.id AS idCardex', 'boletines.id AS idBoletin', 'alumnos.id AS idAlumno', 'cardexes.id_curso', 'notas.ser', 'notas.saber', 'notas.hacer', 'notas.decidir', 'notas.nota_trimestral', 'notas.id AS idNota', 'materias.nombre AS materiaNombre', 'cardexes.id_curso AS idCurso','boletines.nro_trim as nro_trim')
         ->where('cardexes.id_curso', '=', $curso->id)
         ->where('materias.id', '=', $materia->id)
-        ->where('notas.nro_trim', '=', $request->nro_trim)
+        ->orWhere('materias.id','=',null)
+        ->where('boletines.nro_trim', '=', $request->nro_trim)
         ->get();
 
         if (empty($trimestres->first()))

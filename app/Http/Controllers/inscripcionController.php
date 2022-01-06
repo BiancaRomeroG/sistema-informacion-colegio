@@ -62,11 +62,13 @@ class inscripcionController extends Controller
             'id_alumno' => $request->id_alumno
         ]);
 
+
         $boletin = boletines::create([
             'anho' => Carbon::now()->format('Y'),
             'nro_trim' => 1,
             'id_cardex' => $cardex->id,
         ]);
+
 
         $curso = cursos::findOrFail($request->curso);
         $curso->cant_alumnos++;
