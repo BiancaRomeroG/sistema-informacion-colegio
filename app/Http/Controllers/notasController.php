@@ -143,7 +143,7 @@ class notasController extends Controller
         ->join('boletines', 'boletines.id_cardex', 'cardexes.id')
         ->leftJoin('notas', 'notas.id_boletin', 'boletines.id')
         ->leftJoin('materias', 'materias.id', 'notas.id_materia')
-        ->select('personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat', 'cardexes.id AS idCardex', 'boletines.id AS idBoletin', 'alumnos.id AS idAlumno', 'cardexes.id_curso', 'notas.ser', 'notas.saber', 'notas.hacer', 'notas.decidir', 'notas.nota_trimestral', 'notas.id AS idNota', 'materias.nombre AS materiaNombre', 'cardexes.id_curso AS idCurso','boletines.nro_trim as nro_trim')
+        ->select('personas.nombre', 'personas.apellido_pat', 'personas.apellido_mat', 'cardexes.id AS idCardex', 'boletines.id AS idBoletin', 'alumnos.id AS idAlumno', 'cardexes.id_curso', 'notas.ser', 'notas.saber', 'notas.hacer', 'notas.decidir', 'notas.nota_trimestral', 'notas.id AS idNota', 'materias.nombre AS materiaNombre', 'cardexes.id_curso AS idCurso','boletines.nro_trim as nro_trim', 'boletines.id AS idBoletin')
         ->where('cardexes.id_curso', '=', $curso->id)
         ->where('materias.id', '=', $materia->id)
         ->orWhere('materias.id','=',null)
@@ -152,9 +152,9 @@ class notasController extends Controller
 
         if (empty($trimestres->first()))
             return back()->with('error', 'No existen notas a editar en este trimestre.');
-        
+
         $actionform = route('notas.update', [$curso->id]);
-        return view('Nota.modificacion', compact('trimestres', 'actionform'))->with('i');
+        return view('Nota.modificacion', compact('trimestres', 'actionform', 'materia'))->with('i');
     }
 
     public function update( $id_curso, Request $request) {
@@ -177,7 +177,17 @@ class notasController extends Controller
             $decidir = 'decidir'.$i;
             $idNota = 'idNota'.$i; 
 
-            $nota = notas::findOrFail($request->$idNota);
+            $nota = notas::find($request->$idNota);
+
+            if ($nota == null) {
+                $boletin = 'idBoletin'.$i;
+
+                $nota = new notas();
+                $nota->nro_trim = $request->nro_trim;
+                $nota->id_materia = $request->materia;
+                $nota->id_boletin = $request->$boletin;
+            }
+
             $nota->ser = $request->$ser;
             $nota->saber = $request->$saber;
             $nota->hacer = $request->$hacer;

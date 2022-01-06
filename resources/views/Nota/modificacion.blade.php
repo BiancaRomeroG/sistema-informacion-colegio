@@ -44,6 +44,8 @@
                         </tr>
                     </thead>
                     <input type="hidden" name="id_curso" value="{{$trimestres[0]->idCurso}}">
+                    <input type="hidden" name="nro_trim" value="{{$trimestres[0]->nro_trim}}">
+                    <input type="hidden" name="materia" value="{{$materia->id}}">
                     <tbody>
                         @foreach ($trimestres as $trimestre)
                             <tr >
@@ -54,8 +56,10 @@
                                 <td style="width: 100px; height: 5px;" ><input class="form-control text-center" style="width: 100px; height: 5;" id ="hacer{{$i}}"   name="hacer{{$i}}"     value="{{old('hacer'.$i,  $trimestre->hacer)}}"></td>
                                 <td style="width: 100px; height: 5px;" ><input class="form-control text-center" style="width: 100px; height: 5;" id ="decidir{{$i}}" name="decidir{{$i}}"   value="{{old('decidir'.$i, $trimestre->decidir)}}"></td>
                                 <input type="hidden" name="idNota{{$i}}" value="{{$trimestre->idNota}}">   
+                                <input type="hidden" name="idBoletin{{$i}}" value="{{$trimestre->idBoletin}}">
                             </tr>
                             <input type="hidden" name="count" value="{{$i}}"> 
+                            
                         @endforeach
                     </tbody>
                 </table>
