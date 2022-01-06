@@ -51,7 +51,7 @@ class materiaController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Materia eliminada ID: '.$materia->id);
 
-        return redirect()->route('Materia.index')->with('success', 'Materia eliminada');
+        return redirect()->route('materia.index')->with('success', 'Materia eliminada');
     }
 
     public function create(){ 
@@ -74,6 +74,6 @@ class materiaController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Modificacion de datos Materia ID: '.$materia->id);
 
-        return redirect()->route('Materia.show', $materia)->with('success', 'Materia editada correctamente');
+        return redirect()->route('materia.show', $materia)->with('success', 'Materia editada correctamente');
     }
 }
