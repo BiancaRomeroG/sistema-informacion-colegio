@@ -35,7 +35,7 @@ class materiaController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Materia creada ID: '.$materia->id);
 
-        return redirect()->route('Materia.index');
+        return redirect()->route('materia.index');
     }
 
     public function show($id) {
