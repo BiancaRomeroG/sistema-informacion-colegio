@@ -79,7 +79,7 @@ class profesorController extends Controller
 
         bitacoraController::bitacoraRegister(Auth::user()->id, 'Profesor registrado ID: '.$profesor->id);
       
-       return redirect()->route('Profesor.index')->with(
+       return redirect()->route('profesor.index')->with(
         'success',
         'Profesor creado correctamente'
     );
