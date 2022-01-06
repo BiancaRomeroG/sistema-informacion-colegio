@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreInscripcion;
 use App\Models\alumnos;
+use App\Models\boletines;
 use App\Models\cardex;
 use App\Models\cursos;
 use App\Models\inscripciones;
@@ -59,6 +60,12 @@ class inscripcionController extends Controller
             'gestion' =>  Carbon::now()->format('Y'),
             'id_curso' => $request->curso,
             'id_alumno' => $request->id_alumno
+        ]);
+
+        $boletin = boletines::create([
+            'anho' => Carbon::now()->format('Y'),
+            'nro_trim' => 1,
+            'id_cardex' => $cardex->id,
         ]);
 
         $curso = cursos::findOrFail($request->curso);
